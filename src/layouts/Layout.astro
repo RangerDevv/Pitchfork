@@ -9,7 +9,15 @@ let loggedIn = false;
 
 import { appwriteClient, appwriteDatabases, appwriteUser } from '../lib/appwrite';
 
-const promise = appwriteUser.get();
+// const promise = appwriteUser.get();
+
+// see if the user exists
+const promise = appwriteUser.get().catch((error) => {
+	if (error.code === 401) {
+		return null;
+	}
+	throw error;
+});
 
 if (promise) {
 	promise.then((user) => {

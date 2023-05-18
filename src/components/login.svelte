@@ -7,7 +7,7 @@
   let password = '';
 
 function login() {
-  const promise = appwriteUser.createSession(email, password);
+  const promise = appwriteUser.createEmailSession(email, password);
 
   promise.then((response) => {
     console.log(response);
