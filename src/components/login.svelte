@@ -11,7 +11,7 @@ function login() {
 
   promise.then((response) => {
     console.log(response);
-    window.location.href = '/dashboard';
+    window.location.href = '/';
   }, (error) => {
     console.log(error);
   });

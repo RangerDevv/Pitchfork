@@ -4,6 +4,20 @@ export interface Props {
 }
 
 const { title } = Astro.props;
+
+let loggedIn = false;
+
+import { appwriteClient, appwriteDatabases, appwriteUser } from '../lib/appwrite';
+
+const promise = appwriteUser.get();
+
+if (promise) {
+	promise.then((user) => {
+		loggedIn = true;
+	});
+} else {
+	loggedIn = false;
+}
 ---
 
 <!DOCTYPE html>
@@ -19,6 +33,11 @@ const { title } = Astro.props;
 		<nav>
 			<a href="/">Home</a>
 			<a href="/about">About</a>
+			{loggedIn ? (
+				<a href="/logout">Logout</a>
+			) : (
+				<a href="/login">Login</a>
+			)}
 		</nav>
 		<slot />
 	</body>
