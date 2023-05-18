@@ -15,8 +15,6 @@ export const team = new Teams(client);
 client
 .setEndpoint('https://cloud.appwrite.io/v1')
 .setProject('646538bf8be3792191bd');
-
-const databases = new Databases(client);
   
 const entries = (await appwriteDatabases.listDocuments(
 	'646538e35dd17306c589',
@@ -26,10 +24,6 @@ const entries = (await appwriteDatabases.listDocuments(
 const posts = entries.documents.sort(
   (a, b) => new Date(a.date).valueOf() - new Date(b.date).valueOf()
 );
-
-const image = appwriteStorage.getFilePreview( '646547f5019189c8092b', '646549d03da2d5931026')
-
-console.log(image)
 
 ---
 <Layout title="Pitchfork">
