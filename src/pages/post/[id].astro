@@ -1,10 +1,35 @@
 ---
 
-// get the ID from the URL
-const id = Astro.params.id;
+import Layout from '../../layouts/Layout.astro';
+import { appwriteDatabases , appwriteStorage, Products } from '../../lib/appwrite';
 
-console.log(id);
+// get the ID from the URL
+let pid = Astro.params.id!
+
+// get the product from the database
+const entries = (await appwriteDatabases.getDocument(
+	'646538e35dd17306c589',
+    '646538eeeface7a4cd39',
+	pid
+)) as unknown as Products;
 
 ---
 
-Yo whats up brother
+<Layout title="Post">
+<div class="flex flex-row gap-5 justify-around pt-24">
+    <div class="flex flex-row gap-6">
+        <img src={entries.Icon} alt={entries.Name} class="w-24 h-auto" />
+        <div>
+            <p>{entries.Name}</p>
+            <p>{entries.Tagline}</p>
+            <p>{entries.Author}</p>
+        </div>
+    </div>
+    <a href={entries.Link} class="pt-5">
+    <button class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded h-10">
+        Visit Website
+    </button>
+    </a>
+</div>
+
+</Layout>
