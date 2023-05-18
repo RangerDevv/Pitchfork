@@ -16,13 +16,13 @@ const entries = (await appwriteDatabases.getDocument(
 ---
 
 <Layout title="Post">
-<div class="flex flex-row gap-5 justify-around pt-24">
+<div class="flex flex-col md:flex-row gap-5 justify-around p-10 md:p-0 md:pt-24">
     <div class="flex flex-row gap-6">
         <img src={entries.Icon} alt={entries.Name} class="w-24 h-auto" />
         <div>
-            <p>{entries.Name}</p>
+            <p class="text-2xl">{entries.Name}</p>
             <p>{entries.Tagline}</p>
-            <p>{entries.Author}</p>
+            <p>By: {entries.Author}</p>
         </div>
     </div>
     <a href={entries.Link} class="pt-5">
@@ -31,5 +31,9 @@ const entries = (await appwriteDatabases.getDocument(
     </button>
     </a>
 </div>
+
+<p class="p-16 md:pl-48 md:pt-10 w-full md:w-9/12">
+    {entries.Description}
+</p>
 
 </Layout>

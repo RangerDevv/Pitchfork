@@ -1,0 +1,10 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Signup from '../components/signup.svelte';
+---
+
+<Layout title="Login">
+  <Signup client:only="svelte" />
+</Layout>
+
+
