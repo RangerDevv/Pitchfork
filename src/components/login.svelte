@@ -8,12 +8,9 @@
 
 function login() {
   const promise = appwriteUser.createEmailSession(email, password);
-
-
   promise.then((response) => {
     console.log(response);
     window.location.href = '/';
-    console.log(session);
   }, (error) => {
     console.log(error);
   });
