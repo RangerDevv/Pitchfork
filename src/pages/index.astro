@@ -21,26 +21,6 @@ const entries = (await appwriteDatabases.listDocuments(
 const posts = entries.documents.sort(
   (a, b) => new Date(a.date).valueOf() - new Date(b.date).valueOf()
 );
-
-// const user = appwriteUser.get()
-const session =  appwriteUser.getSession('current')
-
-session.then(async function(result) {
-	console.log(result); // Success
-	const user = await(appwriteUser.get())
-	console.log(user)
-	return result;
-}, function(error) {
-	console.log(error); // Failure
-	appwriteUser.createAnonymousSession()
-	.then(function (response) {
-		console.log(response);
-	}, function (error) {
-		console.log(error);
-	});
-});
-
-
 ---
 <Layout title="Pitchfork">
 	<main>
