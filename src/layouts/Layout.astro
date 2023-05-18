@@ -9,15 +9,16 @@ let loggedIn = false;
 
 import { appwriteClient, appwriteDatabases, appwriteUser } from '../lib/appwrite';
 
-const promise = appwriteUser.get();
-
-if (promise) {
-	promise.then((user) => {
+const session = appwriteUser.listSessions().then((sessions) => {
+	if (sessions) {
 		loggedIn = true;
-	});
-} else {
-	loggedIn = false;
-}
+	} else {
+		loggedIn = false;
+	}
+});
+
+// call the session function
+session;
 ---
 
 <!DOCTYPE html>
