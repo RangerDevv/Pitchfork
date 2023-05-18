@@ -37,7 +37,7 @@ console.log(image)
 	<main>
 		<div class="flex flex-wrap">
 			{posts.map((post) => (
-				<a href={post.Link}>
+				<a href={'/post/' + post.$id} class="">
 				<div class="flex flex-col gap-3 p-3 bg-slate-800 rounded-xl">
 					<img src={post.Thumbnail} alt="image" class="w-auto h-40" />
 					<div class="flex">
