@@ -2,15 +2,42 @@
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/card.svelte';
 
+import { Client, Account, ID, Databases, Permission, Role, Teams } from 'appwrite';
+
+export const client = new Client();
+export const account = new Account(client);
+export const database = new Databases(client);
+export const permission = new Permission();
+export const team = new Teams(client);
+
+
+client
+.setEndpoint('https://cloud.appwrite.io/v1')
+.setProject('646538bf8be3792191bd');
+
+  let Products = [] as any;
+
+  const databases = new Databases(client);
+
+  // Fetch the documents and update the Products array
+  async function fetchProducts() {
+	try {
+	  const response = await databases.listDocuments('646538e35dd17306c589', '646538eeeface7a4cd39');
+	  if (response && response.documents && Array.isArray(response.documents)) {
+		Products = response.documents;
+		console.log(Products[0]?.Name);
+	  }
+	} catch (error) {
+	  console.log(error);
+	}
+  }
+
+  // Fetch the products on load
+  fetchProducts();
+
 ---
 <Layout title="Pitchfork">
-	<script>
-		
-	</script>
 	<main>
-		<!--  Reder the Products[0].Name here -->
-		<h1 class="text-gradient">Pitchfork</h1>
-		<Card client:only="svelte" />
 	</main>
 </Layout>
 

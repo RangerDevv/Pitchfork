@@ -16,6 +16,10 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
+		<nav>
+			<a href="/">Home</a>
+			<a href="/about">About</a>
+		</nav>
 		<slot />
 	</body>
 </html>
@@ -23,7 +27,7 @@ const { title } = Astro.props;
 	:root {
 		--accent: 124, 58, 237;
 		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
-		background-color: black;
+		background-color: rgb(22, 22, 22);
 		color: white;
 	}
 	html {
@@ -33,5 +37,22 @@ const { title } = Astro.props;
 	code {
 		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
 			Bitstream Vera Sans Mono, Courier New, monospace;
+	}
+
+	nav {
+		display: flex;
+		justify-content: space-between;
+		padding: 1rem;
+		background-color: rgb(var(--accent));
+	}
+	nav a {
+		color: white;
+		text-decoration: none;
+	}
+	nav a:hover {
+		text-decoration: underline;
+	}
+	nav a:active {
+		text-decoration: underline;
 	}
 </style>
