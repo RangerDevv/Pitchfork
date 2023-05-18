@@ -1,15 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-import {appwriteDatabases , Products,ProductList , appwriteStorage} from '../lib/appwrite';
+import { update_await_block_branch } from 'svelte/internal';
+import {appwriteDatabases , Products,ProductList , appwriteStorage, appwriteUser} from '../lib/appwrite';
 
-import { Client, Account, ID, Databases, Permission, Role, Teams } from 'appwrite';
+import { Client } from 'appwrite';
 
 export const client = new Client();
-export const account = new Account(client);
-export const database = new Databases(client);
-export const permission = new Permission();
-export const team = new Teams(client);
 
 
 client
@@ -25,9 +22,29 @@ const posts = entries.documents.sort(
   (a, b) => new Date(a.date).valueOf() - new Date(b.date).valueOf()
 );
 
+// const user = appwriteUser.get()
+const session =  appwriteUser.getSession('current')
+
+session.then(async function(result) {
+	console.log(result); // Success
+	const user = await(appwriteUser.get())
+	console.log(user)
+	return result;
+}, function(error) {
+	console.log(error); // Failure
+	appwriteUser.createAnonymousSession()
+	.then(function (response) {
+		console.log(response);
+	}, function (error) {
+		console.log(error);
+	});
+});
+
+
 ---
 <Layout title="Pitchfork">
 	<main>
+		<!--  if the session is not null, then show the user's name -->
 		<div class="flex flex-wrap">
 			{posts.map((post) => (
 				<a href={'/post/' + post.$id} class="">
