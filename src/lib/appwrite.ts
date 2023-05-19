@@ -7,6 +7,7 @@ export const appwriteClient = new Client()
 export const appwriteDatabases = new Databases(appwriteClient);
 export const appwriteStorage = new Storage(appwriteClient);
 export const appwriteUser = new Account(appwriteClient);
+export const appwriteTeams = new Teams(appwriteClient);
 
 export interface Products extends Models.Document {
     Name: string;

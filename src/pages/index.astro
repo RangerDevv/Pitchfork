@@ -4,9 +4,10 @@ import Layout from '../layouts/Layout.astro';
 import { update_await_block_branch } from 'svelte/internal';
 import {appwriteDatabases , Products,ProductList , appwriteStorage, appwriteUser} from '../lib/appwrite';
 
-import { Client } from 'appwrite';
+import { Client,Storage } from 'appwrite';
 
 export const client = new Client();
+export const storage = new Storage(client);
 
 
 client
@@ -21,6 +22,10 @@ const entries = (await appwriteDatabases.listDocuments(
 const posts = entries.documents.sort(
   (a, b) => new Date(a.date).valueOf() - new Date(b.date).valueOf()
 );
+
+const Icon = storage.getFilePreview('646547f5019189c8092b' , '646549d03da2d5931026')
+console.log(Icon.href)
+
 ---
 <Layout title="Pitchfork">
 	<main>
@@ -31,7 +36,7 @@ const posts = entries.documents.sort(
 				<div class="flex flex-col gap-3 p-3 bg-slate-800 rounded-xl">
 					<img src={post.Thumbnail} alt="image" class="w-auto h-40" />
 					<div class="flex">
-					<img src={post.Icon} alt="image" class="w-auto h-24" />
+					<img src={'https://cloud.appwrite.io/v1/storage/buckets/646547f5019189c8092b/files/'+post.Icon+'/preview?project=646538bf8be3792191bd'} alt="image" class="w-auto h-24" />
 					<div class="pl-2">
 						<p class="text-lg">{post.Name}</p>
 						<p class="text-md">{post.Tagline}</p>
