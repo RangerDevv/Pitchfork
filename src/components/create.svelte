@@ -1,4 +1,5 @@
 <script lang="ts">
+import { onMount } from "svelte";
 
   import { bind } from "svelte/internal";
 import { appwriteStorage,appwriteDatabases,appwriteUser } from "../lib/appwrite";
@@ -18,6 +19,11 @@ let Icon = [] as any;
 let Thumbnail = [] as any;
 let IsFree = true;
 let PostLaunchDate = Date.now();
+
+onMount(async () => {
+  IconUpload  = document.getElementById('IconFile') as HTMLInputElement;
+  ThumbnailUpload  = document.getElementById('ThumbnailFile') as HTMLInputElement;
+});
 
 async function UploadIcon() {
     console.log(IconUpload);
