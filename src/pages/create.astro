@@ -1,10 +1,12 @@
 ---
 import Create from '../components/create.svelte'
 import Layout from '../layouts/Layout.astro';
+
+let user = Astro.cookies.get('user').value;
 ---
 
 <Layout title="Create">
 
-    <Create client:only="svelte" />
+    <Create client:only="svelte" userID={user} />
 
 </Layout>
