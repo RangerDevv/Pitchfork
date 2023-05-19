@@ -7,15 +7,14 @@ const { title } = Astro.props;
 
 import { appwriteUser , appwriteClient } from '../lib/appwrite';
 
-Astro.cookies.get('user');
+let user = Astro.cookies.get('user').value;
 
 let loggedIn  = false;
 
-// if the cookies are null, then the user is not logged in
-if (Astro.cookies.get('user') === null) {
-	loggedIn = false;
-} else {
+if (user) {
 	loggedIn = true;
+} else {
+	loggedIn = false;
 }
 
 async function handleLogout() {
