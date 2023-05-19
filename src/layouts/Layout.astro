@@ -7,7 +7,16 @@ const { title } = Astro.props;
 
 import { appwriteUser , appwriteClient } from '../lib/appwrite';
 
-Astro.cookies.get('user') as any
+Astro.cookies.get('user');
+
+let loggedIn  = false;
+
+// if the cookies are set then the user is logged in
+if (Astro.cookies.get('user')) {
+	loggedIn = true;
+} else {
+	loggedIn = false;
+}
 
 async function handleLogout() {
 	await appwriteUser.deleteSession('current');
@@ -28,6 +37,11 @@ async function handleLogout() {
 		<nav>
 			<a href="/">Home</a>
 			<a href="/about">About</a>
+			{loggedIn ? (
+				<a href="/dashboard">Dashboard</a>
+			) : (
+				<a href="/login">Login</a>
+			)}
 		</nav>
 		<slot />
 	</body>
