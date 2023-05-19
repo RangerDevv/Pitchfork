@@ -20,6 +20,7 @@ let IsFree = true;
 let PostLaunchDate = Date.now();
 
 async function UploadIcon() {
+    console.log(IconUpload);
     try {
       if (IconUpload !== null && IconUpload.files) {
           Icon = await appwriteStorage.createFile('646547f5019189c8092b',ID.unique(),IconUpload.files[0]);
