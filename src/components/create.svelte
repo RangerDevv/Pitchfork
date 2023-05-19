@@ -6,9 +6,6 @@ import { appwriteStorage,appwriteDatabases,appwriteUser } from "../lib/appwrite"
 import { ID , Role, Permission } from "appwrite";
 
 export let userID = '';
-
-let IconID = ID.unique();
-let ThumbnailID = ID.unique();
 let IconUpload  = document.getElementById('IconFile') as HTMLInputElement;
 let ThumbnailUpload  = document.getElementById('ThumbnailFile') as HTMLInputElement;
 
@@ -23,24 +20,14 @@ let IsFree = true;
 let PostLaunchDate = Date.now();
 
 async function UploadIcon() {
-  if (IconUpload && IconUpload.files && IconUpload.files.length > 0) {
-    Icon = await appwriteStorage.createFile('646547f5019189c8092b', ID.unique(), IconUpload.files[0]);
-  } else {
-    return;
-  }
+    if (IconUpload !== null && IconUpload.files) {
+        Icon = await appwriteStorage.createFile('646547f5019189c8092b',ID.unique(),IconUpload.files[0]);
+    }
 }
 
-// async function UploadThumbnail() {
-//     if (ThumbnailUpload.files) {
-//         Thumbnail = await appwriteStorage.createFile('646547f5019189c8092b',ID.unique(),ThumbnailUpload.files[0]);
-//     }
-// }
-
 async function UploadThumbnail() {
-    if (ThumbnailUpload && ThumbnailUpload.files && ThumbnailUpload.files.length > 0) {
-        Thumbnail = await appwriteStorage.createFile('646547f5019189c8092b', ID.unique(), ThumbnailUpload.files[0]);
-    } else {
-        return;
+    if (ThumbnailUpload !== null && ThumbnailUpload.files) {
+        Thumbnail = await appwriteStorage.createFile('646547f5019189c8092b',ID.unique(),ThumbnailUpload.files[0]);
     }
 }
 
@@ -57,8 +44,9 @@ async function CreatePost() {
             'Free': IsFree,
             'LaunchDate': PostLaunchDate,
             'Author': userID,
-            'Icon': IconID,
-            'Thumbnail': ThumbnailID
+            // set the Icon and Thumbnail to the ID of the uploaded files
+            'Icon': Icon.$id,
+            'Thumbnail': Thumbnail.$id,
         },
     ).then((response) => {
         console.log(response);
