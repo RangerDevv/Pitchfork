@@ -37,11 +37,7 @@ async function handleLogout() {
 		<nav>
 			<a href="/">Home</a>
 			<a href="/about">About</a>
-			{loggedIn ? (
-				<a href="/dashboard">Dashboard</a>
-			) : (
-				<a href="/login">Login</a>
-			)}
+			{loggedIn && <a href="/dashboard">Dashboard</a>}
 		</nav>
 		<slot />
 	</body>
