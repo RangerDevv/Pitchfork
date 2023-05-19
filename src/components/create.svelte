@@ -1,5 +1,6 @@
-<script lang="ts">
+<script>
 
+  import { bind } from "svelte/internal";
 import { appwriteStorage,appwriteDatabases,appwriteUser } from "../lib/appwrite";
 
 import { ID , Role, Permission } from "appwrite";
@@ -11,11 +12,13 @@ let PostTitle = '';
 let PostTagline = '';
 let PostDescription = '';
 let PostLink = '';
+let IconFile = '';
+let ThumbnailFile = '';
 let IsFree = true;
 let PostLaunchDate = Date.now();
 
 async function CreatePost() {
-    const post = appwriteDatabases.createDocument(
+    appwriteDatabases.createDocument(
         '646538e35dd17306c589',
         '646538eeeface7a4cd39',
         ID.unique(),
@@ -46,8 +49,8 @@ async function CreatePost() {
 </script>
 
 <main>
-    <input type="file" id="IconFile" />
-    <input type="file" id="ThumbnailFile" />
+    <input type="file" id="IconFile" bind:value={IconFile} />
+    <input type="file" id="ThumbnailFile" bind:value={ThumbnailFile} />
     <input type="text" bind:value={PostTitle} placeholder="Title" />
     <input type="text" bind:value={PostTagline} placeholder="Tagline" />
     <input type="text" bind:value={PostDescription} placeholder="Description" />
