@@ -56,8 +56,8 @@ async function CreatePost() {
             'Free': IsFree,
             'LaunchDate': PostLaunchDate,
             'Author': userID,
-            'Icon': Icon.$id,
-            'Thumbnail': Thumbnail.$id,
+            'Icon': Icon.$id ?? '',
+            'Thumbnail': Thumbnail.$id ?? '',
         },
     ).then((response) => {
         console.log(response);
