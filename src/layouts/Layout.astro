@@ -8,7 +8,7 @@ const { title } = Astro.props;
 import { appwriteUser , appwriteClient } from '../lib/appwrite';
 
 // get the user from the cookie
-const user = Astro.cookies.get('user');
+const user = Astro.cookies.get('user').value;
 
 let loggedIn  = false;
 
