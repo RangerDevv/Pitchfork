@@ -30,8 +30,8 @@ async function CreatePost() {
             'isFree': IsFree,
             'launchDate': PostLaunchDate,
             'userID': userID,
-            'Icon': await appwriteStorage.createFile('646547f5019189c8092b' , ID.unique() , document.getElementById('IconFile').files[0]),
-            'Thumbnail': await appwriteStorage.createFile('64661e622715cf602c83' , ID.unique() , document.getElementById('ThumbnailFile').files[0]),
+            'Icon': appwriteStorage.createFile('646547f5019189c8092b' , ID.unique() , document.getElementById('IconFile').files[0]),
+            'Thumbnail': appwriteStorage.createFile('64661e622715cf602c83' , ID.unique() , document.getElementById('ThumbnailFile').files[0]),
         },
         [
             Permission.read(Role.any()),
