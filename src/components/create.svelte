@@ -55,11 +55,6 @@ async function CreatePost() {
             Permission.write(Role.user(userID)),
             Permission.delete(Role.user(userID)),
             Permission.update(Role.user(userID)),
-            Permission.delete(Role.team("Owner")),
-            Permission.update(Role.team("Owner")),
-            Permission.read(Role.team("Owner")),
-            Permission.delete(Role.team("Admin")),
-            Permission.update(Role.team("Admin")),
 
         ]
     ).then((response) => {
