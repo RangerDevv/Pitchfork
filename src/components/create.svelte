@@ -37,9 +37,10 @@ async function UploadIcon() {
 }
 
 async function UploadThumbnail() {
+    console.log(ThumbnailUpload);
     try {
       if (ThumbnailUpload !== null && ThumbnailUpload.files) {
-          Thumbnail = await appwriteStorage.createFile('646547f5019189c8092b',ID.unique(),ThumbnailUpload.files[0]);
+          Thumbnail = await appwriteStorage.createFile('64661e622715cf602c83',ID.unique(),ThumbnailUpload.files[0]);
       }
     } catch (e) {
         console.log(e);
