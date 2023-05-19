@@ -25,7 +25,7 @@ const posts = entries.documents.sort(
 <Layout title="Pitchfork">
 	<main>
 		<!--  if the session is not null, then show the user's name -->
-		<div class="flex flex-wrap">
+		<div class="flex flex-wrap items-center">
 			{posts.map((post) => (
 				<a href={'/post/' + post.$id} class="">
 				<div class="flex flex-col gap-3 p-3 bg-slate-800 rounded-xl">
