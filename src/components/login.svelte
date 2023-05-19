@@ -11,7 +11,7 @@ function login() {
   promise.then((response) => {
     console.log(response);
     // set the response to a cookie
-    document.cookie = `user=${response.session}`;
+    document.cookie = `user=${response}`;
     window.location.href = '/';
   }, (error) => {
     console.log(error);
