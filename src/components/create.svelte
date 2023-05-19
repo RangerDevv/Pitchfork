@@ -23,14 +23,24 @@ let IsFree = true;
 let PostLaunchDate = Date.now();
 
 async function UploadIcon() {
-    if (IconUpload.files) {
-        Icon = await appwriteStorage.createFile('646547f5019189c8092b',ID.unique(),IconUpload.files[0]);
-    }
+  if (IconUpload && IconUpload.files && IconUpload.files.length > 0) {
+    Icon = await appwriteStorage.createFile('646547f5019189c8092b', ID.unique(), IconUpload.files[0]);
+  } else {
+    return;
+  }
 }
 
+// async function UploadThumbnail() {
+//     if (ThumbnailUpload.files) {
+//         Thumbnail = await appwriteStorage.createFile('646547f5019189c8092b',ID.unique(),ThumbnailUpload.files[0]);
+//     }
+// }
+
 async function UploadThumbnail() {
-    if (ThumbnailUpload.files) {
-        Thumbnail = await appwriteStorage.createFile('646547f5019189c8092b',ID.unique(),ThumbnailUpload.files[0]);
+    if (ThumbnailUpload && ThumbnailUpload.files && ThumbnailUpload.files.length > 0) {
+        Thumbnail = await appwriteStorage.createFile('646547f5019189c8092b', ID.unique(), ThumbnailUpload.files[0]);
+    } else {
+        return;
     }
 }
 
