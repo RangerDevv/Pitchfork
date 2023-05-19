@@ -18,7 +18,8 @@
   }
   </script>
   
-  <h1>SignUp</h1>
+  <h1 class="text-center text-2xl font-bold pt-16">Welcome! We're so glad to have you!</h1>
+
   <div class="flex justify-center">
     <div class="w-96 h-auto p-12 mt-12 rounded-md self-center flex flex-col gap-5 bg-slate-800">
     <input type="email" bind:value={email} placeholder="Email" />
