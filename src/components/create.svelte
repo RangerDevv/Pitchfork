@@ -50,13 +50,6 @@ async function CreatePost() {
             'Icon': IconID,
             'Thumbnail': ThumbnailID
         },
-        [
-            Permission.read(Role.any()),
-            Permission.write(Role.user(userID)),
-            Permission.delete(Role.user(userID)),
-            Permission.update(Role.user(userID)),
-
-        ]
     ).then((response) => {
         console.log(response);
         UploadIcon();
