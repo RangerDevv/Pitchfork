@@ -40,6 +40,10 @@ async function UploadThumbnail() {
 }
 
 async function CreatePost() {
+    // first upload the files
+    await UploadIcon();
+    await UploadThumbnail();
+    // then create the post
     appwriteDatabases.createDocument(
         '646538e35dd17306c589',
         '646538eeeface7a4cd39',
