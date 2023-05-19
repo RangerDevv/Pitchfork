@@ -19,6 +19,7 @@ if (user) {
 
 async function handleLogout() {
 	await appwriteUser.deleteSession('current');
+	Astro.cookies.delete('user');
 	Astro.redirect('/');
 }
 ---
@@ -37,6 +38,8 @@ async function handleLogout() {
 			<a href="/">Home</a>
 			<a href="/about">About</a>
 			{loggedIn && <a href="/dashboard">Dashboard</a>}
+			{loggedIn && <button onclick={handleLogout}>Logout</button>}
+			{!loggedIn && <a href="/login">Login</a>}
 		</nav>
 		<slot />
 	</body>
