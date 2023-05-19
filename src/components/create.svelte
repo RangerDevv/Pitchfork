@@ -42,7 +42,7 @@ async function CreatePost() {
         {
             'Name': PostTitle,
             'Tagline': PostTagline,
-            'description': PostDescription,
+            'Description': PostDescription,
             'Link': PostLink,
             'Free': IsFree,
             'LaunchDate': PostLaunchDate,
