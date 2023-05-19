@@ -1,5 +1,7 @@
 <script>
   import {appwriteUser} from '../lib/appwrite';
+
+  import { AstroCookies } from 'astro';
   
   import { ID } from 'appwrite';
 
@@ -10,6 +12,8 @@ function login() {
   const promise = appwriteUser.createEmailSession(email, password);
   promise.then((response) => {
     console.log(response);
+    // set the response to a cookie
+    AstroCookies.set('user', response);
     window.location.href = '/';
   }, (error) => {
     console.log(error);

@@ -5,27 +5,14 @@ export interface Props {
 
 const { title } = Astro.props;
 
-import { appwriteUser } from '../lib/appwrite';
+import { appwriteUser , appwriteClient } from '../lib/appwrite';
 
-let currUser = appwriteUser.get()
+Astro.cookies.get('user') as any
 
-// const user = appwriteUser.get()
-const session =  await appwriteUser.getSession('current').then(async function(result) {
-	console.log(result); // Success
-	const user = await(appwriteUser.get())
-	console.log(user)
-	return result;
-}, function(error) {
-	console.log(error); // Failure
-	appwriteUser.createAnonymousSession()
-	.then(function (response) {
-		console.log(response);
-	}, function (error) {
-		console.log(error);
-	});
-});
-
-
+async function handleLogout() {
+	await appwriteUser.deleteSession('current');
+	Astro.redirect('/');
+}
 ---
 
 <!DOCTYPE html>
@@ -41,7 +28,6 @@ const session =  await appwriteUser.getSession('current').then(async function(re
 		<nav>
 			<a href="/">Home</a>
 			<a href="/about">About</a>
-			{session && <a href="/profile">Profile</a>}
 		</nav>
 		<slot />
 	</body>
