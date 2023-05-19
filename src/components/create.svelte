@@ -30,6 +30,8 @@ async function CreatePost() {
             'isFree': IsFree,
             'launchDate': PostLaunchDate,
             'userID': userID,
+            'Icon': await appwriteStorage.createFile('646547f5019189c8092b' , ID.unique() , document.getElementById('IconFile').files[0]),
+            'Thumbnail': await appwriteStorage.createFile('64661e622715cf602c83' , ID.unique() , document.getElementById('ThumbnailFile').files[0]),
         },
         [
             Permission.read(Role.any()),
@@ -49,8 +51,8 @@ async function CreatePost() {
 </script>
 
 <main>
-    <input type="file" id="IconFile" bind:value={IconFile} />
-    <input type="file" id="ThumbnailFile" bind:value={ThumbnailFile} />
+    <input type="file" id="IconFile" />
+    <input type="file" id="ThumbnailFile" />
     <input type="text" bind:value={PostTitle} placeholder="Title" />
     <input type="text" bind:value={PostTagline} placeholder="Tagline" />
     <input type="text" bind:value={PostDescription} placeholder="Description" />
