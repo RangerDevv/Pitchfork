@@ -19,10 +19,20 @@ function login() {
 }
 </script>
 
-<h1>Login</h1>
+<h1 class="text-center text-2xl font-bold pt-16">Welcome Back!</h1>
+<div class="flex justify-center">
+  <div class="w-96 h-auto p-12 mt-12 rounded-md self-center flex flex-col gap-5 bg-slate-800">
+  <input type="email" bind:value={email} placeholder="Email" />
+  <input type="password" bind:value={password} placeholder="Password" />
+  <button on:click={login} class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded h-10">Login</button>
+  </div>
+</div>
 
-<input type="email" bind:value={email} placeholder="Email" />
-<input type="password" bind:value={password} placeholder="Password" />
-
-<button on:click={login}>Login</button>
-
+<style>
+  input {
+    border: 1px solid #000;
+    padding: 0.5rem;
+    border-radius: 5px;
+    background-color: #8671FB;
+  }
+</style>
