@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 
   import { bind } from "svelte/internal";
 import { appwriteStorage,appwriteDatabases,appwriteUser } from "../lib/appwrite";
@@ -7,15 +7,32 @@ import { ID , Role, Permission } from "appwrite";
 
 export let userID = '';
 
+let IconID = ID.unique();
+let ThumbnailID = ID.unique();
+let IconUpload  = document.getElementById('IconFile') as HTMLInputElement;
+let ThumbnailUpload  = document.getElementById('ThumbnailFile') as HTMLInputElement;
+
 
 let PostTitle = '';
 let PostTagline = '';
 let PostDescription = '';
 let PostLink = '';
-let IconFile = document.getElementById('IconFile');
-let ThumbnailFile = document.getElementById('ThumbnailFile');
+let Icon = [] as any;
+let Thumbnail = [] as any;
 let IsFree = true;
 let PostLaunchDate = Date.now();
+
+async function UploadIcon() {
+    if (IconUpload.files) {
+        Icon = await appwriteStorage.createFile('646547f5019189c8092b',ID.unique(),IconUpload.files[0]);
+    }
+}
+
+async function UploadThumbnail() {
+    if (ThumbnailUpload.files) {
+        Thumbnail = await appwriteStorage.createFile('646547f5019189c8092b',ID.unique(),ThumbnailUpload.files[0]);
+    }
+}
 
 async function CreatePost() {
     appwriteDatabases.createDocument(
@@ -30,8 +47,8 @@ async function CreatePost() {
             'isFree': IsFree,
             'launchDate': PostLaunchDate,
             'userID': userID,
-            'Icon': appwriteStorage.createFile('646547f5019189c8092b' , ID.unique() , IconFile.files[0]),
-            'Thumbnail': appwriteStorage.createFile('64661e622715cf602c83' , ID.unique() , ThumbnailFile.files[0]),
+            'Icon': IconID,
+            'Thumbnail': ThumbnailID
         },
         [
             Permission.read(Role.any()),
@@ -45,7 +62,13 @@ async function CreatePost() {
             Permission.update(Role.team("Admin")),
 
         ]
-    )
+    ).then((response) => {
+        console.log(response);
+        UploadIcon();
+        UploadThumbnail();
+    }, (error) => {
+        console.log(error);
+    });
 }
 
 </script>
