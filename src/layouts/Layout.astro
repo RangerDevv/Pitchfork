@@ -18,6 +18,20 @@ if (user) {
 }
 
 
+// let logOutBtn = document.getElementById('logOut');
+
+// logOutBtn.addEventListener('click', () => {
+// 	appwriteUser.deleteSession('current');
+// 	Astro.cookies.delete('user');
+// 	Astro.redirect('/');
+// });
+---
+
+<script>
+import { appwriteUser , appwriteClient } from '../lib/appwrite';
+
+
+
 let logOutBtn = document.getElementById('logOut') as HTMLButtonElement;
 
 logOutBtn.addEventListener('click', () => {
@@ -25,7 +39,8 @@ logOutBtn.addEventListener('click', () => {
 	Astro.cookies.delete('user');
 	Astro.redirect('/');
 });
----
+
+</script>
 
 <!DOCTYPE html>
 <html lang="en">
