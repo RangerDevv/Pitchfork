@@ -34,8 +34,8 @@ if (user) {
 		<nav>
 			<a href="/">Home</a>
 			<a href="/about">About</a>
-			{loggedIn && <button id="logOut">Logout</button>}
-			{!loggedIn && <a href="/create">Create</a>}
+			{loggedIn && <a href="/create">Create</a>}
+			{!loggedIn && <a href="/login">Login</a>}
 		</nav>
 		<slot />
 	</body>
