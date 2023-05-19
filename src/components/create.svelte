@@ -20,14 +20,22 @@ let IsFree = true;
 let PostLaunchDate = Date.now();
 
 async function UploadIcon() {
-    if (IconUpload !== null && IconUpload.files) {
-        Icon = await appwriteStorage.createFile('646547f5019189c8092b',ID.unique(),IconUpload.files[0]);
+    try {
+      if (IconUpload !== null && IconUpload.files) {
+          Icon = await appwriteStorage.createFile('646547f5019189c8092b',ID.unique(),IconUpload.files[0]);
+      }
+    } catch (e) {
+        console.log(e);
     }
 }
 
 async function UploadThumbnail() {
-    if (ThumbnailUpload !== null && ThumbnailUpload.files) {
-        Thumbnail = await appwriteStorage.createFile('646547f5019189c8092b',ID.unique(),ThumbnailUpload.files[0]);
+    try {
+      if (ThumbnailUpload !== null && ThumbnailUpload.files) {
+          Thumbnail = await appwriteStorage.createFile('646547f5019189c8092b',ID.unique(),ThumbnailUpload.files[0]);
+      }
+    } catch (e) {
+        console.log(e);
     }
 }
 
@@ -44,7 +52,6 @@ async function CreatePost() {
             'Free': IsFree,
             'LaunchDate': PostLaunchDate,
             'Author': userID,
-            // set the Icon and Thumbnail to the ID of the uploaded files
             'Icon': Icon.$id,
             'Thumbnail': Thumbnail.$id,
         },
