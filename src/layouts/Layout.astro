@@ -17,11 +17,14 @@ if (user) {
 	loggedIn = false;
 }
 
-async function handleLogout() {
-	await appwriteUser.deleteSession('current');
+
+let logOutBtn = document.getElementById('logOut') as HTMLButtonElement;
+
+logOutBtn.addEventListener('click', () => {
+	appwriteUser.deleteSession('current');
 	Astro.cookies.delete('user');
 	Astro.redirect('/');
-}
+});
 ---
 
 <!DOCTYPE html>
@@ -37,8 +40,7 @@ async function handleLogout() {
 		<nav>
 			<a href="/">Home</a>
 			<a href="/about">About</a>
-			{loggedIn && <a href="/dashboard">Dashboard</a>}
-			{loggedIn && <button onclick={handleLogout}>Logout</button>}
+			{loggedIn && <button id="logOut">Logout</button>}
 			{!loggedIn && <a href="/login">Login</a>}
 		</nav>
 		<slot />
