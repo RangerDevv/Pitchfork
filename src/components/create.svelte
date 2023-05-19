@@ -12,8 +12,8 @@ let PostTitle = '';
 let PostTagline = '';
 let PostDescription = '';
 let PostLink = '';
-let IconFile = document.getElementById('IconFile').files[0];
-let ThumbnailFile = document.getElementById('ThumbnailFile').files[0];
+let IconFile = document.getElementById('IconFile');
+let ThumbnailFile = document.getElementById('ThumbnailFile');
 let IsFree = true;
 let PostLaunchDate = Date.now();
 
@@ -30,8 +30,8 @@ async function CreatePost() {
             'isFree': IsFree,
             'launchDate': PostLaunchDate,
             'userID': userID,
-            'Icon': appwriteStorage.createFile('646547f5019189c8092b' , ID.unique() , IconFile),
-            'Thumbnail': appwriteStorage.createFile('64661e622715cf602c83' , ID.unique() , ThumbnailFile),
+            'Icon': appwriteStorage.createFile('646547f5019189c8092b' , ID.unique() , IconFile.files[0]),
+            'Thumbnail': appwriteStorage.createFile('64661e622715cf602c83' , ID.unique() , ThumbnailFile.files[0]),
         },
         [
             Permission.read(Role.any()),
