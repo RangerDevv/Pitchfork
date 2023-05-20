@@ -3,12 +3,15 @@ export interface Props {
 	title: string;
 }
 
+import Signout from '../components/signout.svelte';
+
 const { title } = Astro.props;
 
 import { appwriteUser , appwriteClient } from '../lib/appwrite';
 
 // get the user from the cookie
 const user = Astro.cookies.get('user').value;
+const currSession = Astro.cookies.get('session').value;
 
 let loggedIn  = false;
 let name = '';
@@ -36,7 +39,7 @@ if (user) {
 			<a href="/">Home</a>
 			<a href="/about">About</a>
 			{loggedIn && <a href="/create">Create</a>}
-			{loggedIn && <a href="/profile">{name}</a>}
+			{loggedIn && <Signout client:only="svelte" session={currSession} />}
 			{!loggedIn && <a href="/login">Login</a>}
 		</nav>
 		<slot />
