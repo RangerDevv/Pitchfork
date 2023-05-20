@@ -27,13 +27,13 @@ const posts = entries.documents.sort(
 <Layout title="Pitchfork">
 	<main>
 		<!--  if the session is not null, then show the user's name -->
-		<div class="flex flex-wrap items-center">
+		<div class="flex flex-wrap items-center flex-row gap-5">
 			{posts.map((post) => (
 				<a href={'/post/' + post.$id} class="">
 				<div class="flex flex-col gap-3 p-3 bg-slate-800 rounded-xl w-96">
 					<img src={'https://cloud.appwrite.io/v1/storage/buckets/64661e622715cf602c83/files/'+post.Thumbnail+'/preview?project=646538bf8be3792191bd'} alt="image" class="w-96 h-auto" />
 					<div class="flex">
-					<img src={'https://cloud.appwrite.io/v1/storage/buckets/646547f5019189c8092b/files/'+post.Icon+'/preview?project=646538bf8be3792191bd'} alt="image" class="w-96 h-auto" />
+					<img src={'https://cloud.appwrite.io/v1/storage/buckets/646547f5019189c8092b/files/'+post.Icon+'/preview?project=646538bf8be3792191bd'} alt="image" class="w-24 h-auto" />
 					<div class="pl-2">
 						<p class="text-lg">{post.Name}</p>
 						<p class="text-md">{post.Tagline}</p>
@@ -50,9 +50,8 @@ const posts = entries.documents.sort(
 
 <style>
 	main {
+		padding: 3rem;
 		margin: auto;
-		padding: 1.5rem;
-		max-width: 60ch;
 	}
 	h1 {
 		font-size: 3rem;
