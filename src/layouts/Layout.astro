@@ -11,9 +11,17 @@ import { appwriteUser , appwriteClient } from '../lib/appwrite';
 const user = Astro.cookies.get('user').value;
 
 let loggedIn  = false;
+let name = '';
 
 if (user) {
 	loggedIn = true;
+	const currUser = await appwriteUser.get();
+	console.log(currUser);
+	if (currUser.name == '') {
+		// update the name to the text chars before the @ in the email
+		const userName = appwriteUser.updateName(currUser.email.split('@')[0]);
+		name = currUser.email.split('@')[0];
+	}
 } else {
 	loggedIn = false;
 }
@@ -35,6 +43,7 @@ if (user) {
 			<a href="/">Home</a>
 			<a href="/about">About</a>
 			{loggedIn && <a href="/create">Create</a>}
+			{loggedIn && <a href="/profile">{name}</a>}
 			{!loggedIn && <a href="/login">Login</a>}
 		</nav>
 		<slot />
