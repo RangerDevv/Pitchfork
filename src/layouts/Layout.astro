@@ -39,7 +39,7 @@ if (user) {
 			<a href="/">Home</a>
 			<a href="/about">About</a>
 			{loggedIn && <a href="/create">Create</a>}
-			{loggedIn && <Signout client:only="svelte" session={currSession} />}
+			{loggedIn && <Signout client:only="svelte" />}
 			{!loggedIn && <a href="/login">Login</a>}
 		</nav>
 		<slot />

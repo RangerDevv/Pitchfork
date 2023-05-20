@@ -2,11 +2,9 @@
 import {appwriteUser} from '../lib/appwrite';
 
 import { ID } from 'appwrite';
-
-export let session = '';
   
 function signout() {
-const promise = appwriteUser.deleteSession(session);
+const promise = appwriteUser.deleteSession('current');
 promise.then((response) => {
     console.log(response);
     // clear all of the cookies
