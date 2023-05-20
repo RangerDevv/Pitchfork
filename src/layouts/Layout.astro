@@ -15,13 +15,7 @@ let name = '';
 
 if (user) {
 	loggedIn = true;
-	const currUser = await appwriteUser.get();
-	console.log(currUser);
-	if (currUser.name == '') {
-		// update the name to the text chars before the @ in the email
-		const userName = appwriteUser.updateName(currUser.email.split('@')[0]);
-		name = currUser.email.split('@')[0];
-	}
+	const curruser = appwriteUser.get();
 } else {
 	loggedIn = false;
 }

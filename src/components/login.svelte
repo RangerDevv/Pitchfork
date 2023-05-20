@@ -17,6 +17,19 @@ function login() {
     console.log(error);
   });
 }
+
+function OauthLogin() {
+  const promise = appwriteUser.createOAuth2Session('github');
+  promise.then((response) => {
+    console.log(response);
+    // set the response to a cookie that expires after 30 days
+    document.cookie = `user=${response.$id}; expires=${new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toUTCString()}; path=/`;
+    window.location.href = '/';
+  }, (error) => {
+    console.log(error);
+  });
+}
+
 </script>
 
 <h1 class="text-center text-2xl font-bold pt-16">Welcome Back!</h1>
@@ -25,6 +38,7 @@ function login() {
   <input type="email" bind:value={email} placeholder="Email" />
   <input type="password" bind:value={password} placeholder="Password" />
   <button on:click={login} class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded h-10">Login</button>
+  <button on:click={OauthLogin} class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded h-10">Login with Github</button>
   </div>
 </div>
 
