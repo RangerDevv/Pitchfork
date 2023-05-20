@@ -15,7 +15,8 @@ let name = '';
 
 if (user) {
 	loggedIn = true;
-	const curruser = appwriteUser.get();
+	const currUser = await appwriteUser.get()
+	name = currUser.email
 } else {
 	loggedIn = false;
 }
