@@ -25,7 +25,7 @@ const posts = entries.documents.sort(
 
 ---
 <Layout title="Pitchfork">
-	<main>
+	<main class="p-5 sm:p-10">
 		<!--  if the session is not null, then show the user's name -->
 		<div class="flex flex-wrap items-center flex-row gap-5">
 			{posts.map((post) => (
@@ -50,9 +50,9 @@ const posts = entries.documents.sort(
 
 <style>
 	main {
-		padding: 3rem;
 		margin: auto;
 	}
+
 	h1 {
 		font-size: 3rem;
 		font-weight: 800;
