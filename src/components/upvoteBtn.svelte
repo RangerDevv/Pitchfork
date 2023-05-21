@@ -22,7 +22,9 @@ function upvote(docID: any) {
     'Icon': docID.Icon,
     'Thumbnail': docID.Thumbnail,
     'Authoruid': docID.Authoruid,
-    'Upvotes': [...upvotes, uid] // Append uid to the existing Upvotes array
+    // 'Upvotes': [...upvotes, uid]
+    // check if the user has already upvoted in that case remove the upvote or else add the upvote
+    'Upvotes': upvotes.includes(uid) ? upvotes.filter((upvote: any) => upvote !== uid) : [...upvotes, uid]
   });
 
   promise
