@@ -11,6 +11,7 @@ import { Client,Storage } from 'appwrite';
 export const client = new Client();
 export const storage = new Storage(client);
 
+let userid = Astro.cookies.get('user').value;
 
 client
 .setEndpoint('https://cloud.appwrite.io/v1')
@@ -43,7 +44,7 @@ const posts = entries.documents.sort(
 					</div>
 					</div>
 				</div>
-				<UpvoteBtn client:only="svelte" DatabaseID="646538e35dd17306c589" CollectionID="646538eeeface7a4cd39" DocumentID={post.$id} />
+				<UpvoteBtn client:only="svelte" DatabaseID="646538e35dd17306c589" CollectionID="646538eeeface7a4cd39" DocumentID={post.$id} uid={userid} />
 				</a>
 			))}
 		</div>

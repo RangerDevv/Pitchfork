@@ -6,6 +6,7 @@ import { ID } from 'appwrite';
 export let DatabaseID = '';
 export let CollectionID = '';
 export let DocumentID = '';
+export let uid = '';
 
 function upvote(docID: any) {
     const promise = appwriteDatabases.updateDocument(DatabaseID,CollectionID,DocumentID,{
@@ -19,8 +20,8 @@ function upvote(docID: any) {
         'Icon': docID.Icon,
         'Thumbnail': docID.Thumbnail,
         'Authoruid': docID.Authoruid,
-        // change the docID.Upvotes to a number and then add 1 to it
-        'Upvotes': docID.Upvotes + 1,
+        // add the user's uid to the Upvotes array
+        'Upvotes': [...docID.Upvotes, uid]
     });
 
     promise.then((response) => {
