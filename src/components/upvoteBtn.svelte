@@ -31,6 +31,8 @@ function upvote(docID: any) {
     .then((response) => {
       console.log(response);
       console.log(docID);
+        voted = true;
+        upvotesCount = docID.Upvotes.length + 1;
     })
     .catch((error) => {
       console.log(error);
