@@ -12,7 +12,7 @@ function login() {
     console.log(response);
     // set the response to a cookie that expires after 30 days
     document.cookie = `user=${response.$id}; expires=${new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toUTCString()}; path=/`;
-    window.location.href = '/';
+    // window.location.href = '/';
     // the user name is the text before the @ symbol in the email address
     document.cookie = `userName=${response.providerUid.split('@')[0]}; expires=${new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toUTCString()}; path=/`;
 
