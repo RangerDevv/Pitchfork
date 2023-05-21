@@ -7,6 +7,7 @@ import { appwriteStorage,appwriteDatabases,appwriteUser } from "../lib/appwrite"
 import { ID , Role, Permission } from "appwrite";
 
 export let userID = '';
+export let userName = '';
 let IconUpload  = document.getElementById('IconFile') as HTMLInputElement;
 let ThumbnailUpload  = document.getElementById('ThumbnailFile') as HTMLInputElement;
 
@@ -63,9 +64,10 @@ async function CreatePost() {
             'Link': PostLink,
             'Free': IsFree,
             'LaunchDate': PostLaunchDate,
-            'Author': userID,
+            'Author': userName,
             'Icon': Icon.$id ?? '',
             'Thumbnail': Thumbnail.$id ?? '',
+            'Authoruid': userID,
         },
     ).then((response) => {
         console.log(response);
