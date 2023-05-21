@@ -17,8 +17,6 @@ function upvote(docID: any) {
         'Free': docID.Free,
         'LaunchDate': docID.LaunchDate,
         'Author': docID.Author,
-        'Icon': docID.Icon.$id ?? '',
-        'Thumbnail': docID.Thumbnail.$id ?? '',
         'Authoruid': docID.Authoruid,
         'Upvotes': docID.Upvotes + 1
     });
