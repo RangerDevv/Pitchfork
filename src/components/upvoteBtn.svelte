@@ -8,7 +8,6 @@ export let CollectionID = '';
 export let DocumentID = '';
 
 function upvote(docID: any) {
-
     const promise = appwriteDatabases.updateDocument(DatabaseID,CollectionID,DocumentID,{
         'Name': docID.Name,
         'Tagline': docID.Tagline,
@@ -20,7 +19,7 @@ function upvote(docID: any) {
         'Icon': docID.Icon,
         'Thumbnail': docID.Thumbnail,
         'Authoruid': docID.Authoruid,
-        'Upvotes': docID.Upvotes + 1
+        'Upvotes': docID.Upvotes + 1,
     });
 
     promise.then((response) => {
