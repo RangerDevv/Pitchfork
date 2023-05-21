@@ -19,7 +19,7 @@ function upvote(docID: any) {
         'Author': docID.Author,
         'Icon': docID.Icon,
         'Thumbnail': docID.Thumbnail,
-        'Authoruid': docID.Authoruid,
+        // 'Authoruid': docID.Authoruid,
         'Upvotes': docID.Upvotes + 1
     });
 
