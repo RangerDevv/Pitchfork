@@ -20,8 +20,11 @@ function login() {
     // console.log(session);
     document.cookie = `session=${session.$id}; expires=${new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toUTCString()}; path=/`;
     const curruser = appwriteUser.get();
-    // get the name inside the promise and PromiseResult
-    console.log(curruser.Promise.PromiseResult.name);
+    curruser.then((response) => {
+      console.log(response);
+    }, (error) => {
+      console.log(error);
+    });
   }, (error) => {
     console.log(error);
   });
