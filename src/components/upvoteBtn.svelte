@@ -10,24 +10,31 @@ export let uid = '';
 let voted = false;
 let upvotesCount = 0;
 
-function upvote(docID: any) {
+async function setDoc(id: string){
+  try{
+    return appwriteDatabases.getDocument(DatabaseID,CollectionID,DocumentID); 
+  } catch (e){
+    // Handle the error
+    return null;
+  }
+}
 
-  const promise = appwriteDatabases.updateDocument(DatabaseID, CollectionID, DocumentID, {
-    // check if the user has already upvoted in that case remove the user's uid from the array or else add it
-    'Upvotes': [...docID.Upvotes ?? [], uid]
-  });
-
-  promise
-    .then((response) => {
-      console.log(response);
+async function upvote(docID:any){
+  try {
+    const doc = await setDoc(docID) as any;
+    
+    await appwriteDatabases.updateDocument(DatabaseID,CollectionID,DocumentID,{
+        'Upvotes': [...doc.Upvotes ?? [] , uid]
+    });
       console.log(docID);
-        voted = true;
-        upvotesCount = docID.Upvotes.length + 1;
-    })
-    .catch((error) => {
+      voted = true;
+      upvotesCount = docID.Upvotes.length + 1;
+
+  
+  } catch (error : any) {
       console.log(error);
       alert(error.message);
-    });
+ }   
 }
 
 </script>
