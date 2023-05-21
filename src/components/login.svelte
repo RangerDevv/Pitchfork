@@ -8,8 +8,6 @@
 
 function login() {
   const promise = appwriteUser.createEmailSession(email, password);
-  const curruser = appwriteUser.get();
-  console.log(curruser);
   promise.then((response) => {
     console.log(response);
     // set the response to a cookie that expires after 30 days
@@ -21,7 +19,9 @@ function login() {
     const session = appwriteUser.getSession('current');
     // console.log(session);
     document.cookie = `session=${session.$id}; expires=${new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toUTCString()}; path=/`;
-
+    const curruser = appwriteUser.get();
+    // get the name inside the promise and PromiseResult
+    console.log(curruser.Promise.PromiseResult.name);
   }, (error) => {
     console.log(error);
   });
