@@ -13,16 +13,6 @@ let upvotesCount = 0;
 function upvote(docID: any) {
 
   const promise = appwriteDatabases.updateDocument(DatabaseID, CollectionID, DocumentID, {
-    'Name': docID.Name,
-    'Tagline': docID.Tagline,
-    'Description': docID.Description,
-    'Link': docID.Link,
-    'Free': docID.Free,
-    'LaunchDate': docID.LaunchDate,
-    'Author': docID.Author,
-    'Icon': docID.Icon,
-    'Thumbnail': docID.Thumbnail,
-    'Authoruid': docID.Authoruid,
     // check if the user has already upvoted in that case remove the user's uid from the array or else add it
     'Upvotes': [...docID.Upvotes ?? [], uid]
   });
