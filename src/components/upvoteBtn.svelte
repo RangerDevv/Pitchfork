@@ -20,7 +20,7 @@ function upvote(docID: any) {
         'Thumbnail': docID.Thumbnail,
         'Authoruid': docID.Authoruid,
         // change the docID.Upvotes to a number and then add 1 to it
-        'Upvotes': docID.Upvotes.valueOf() + 1,
+        'Upvotes': docID.Upvotes + 1,
     });
 
     promise.then((response) => {
