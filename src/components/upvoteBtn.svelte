@@ -7,9 +7,10 @@ export let DatabaseID = '';
 export let CollectionID = '';
 export let DocumentID = '';
 export let uid = '';
+let voted = false;
+let upvotesCount = 0;
 
 function upvote(docID: any) {
-  const upvotes = docID.Upvotes || []; // Use an empty array as a fallback if Upvotes is undefined
 
   const promise = appwriteDatabases.updateDocument(DatabaseID, CollectionID, DocumentID, {
     'Name': docID.Name,
@@ -22,9 +23,8 @@ function upvote(docID: any) {
     'Icon': docID.Icon,
     'Thumbnail': docID.Thumbnail,
     'Authoruid': docID.Authoruid,
-    // 'Upvotes': [...upvotes, uid]
-    // check if the user has already upvoted in that case remove the upvote or else add the upvote
-    'Upvotes': upvotes.includes(uid) ? upvotes.filter((upvote: any) => upvote !== uid) : [...upvotes, uid]
+    // check if the user has already upvoted in that case remove the user's uid from the array or else add it
+    'Upvotes': [...docID.Upvotes ?? [], uid]
   });
 
   promise
@@ -39,5 +39,8 @@ function upvote(docID: any) {
 }
 
 </script>
-
-<button on:click={() => upvote(DocumentID)} class="bg-purple-600 hover:bg-purple-700 text-white">Upvote</button>
+{#if voted}
+<button on:click={() => upvote(DocumentID)} class=" outline text-white p-2 rounded-lg">Upvotes: {upvotesCount}</button>
+{:else}
+<button on:click={() => upvote(DocumentID)} class="bg-purple-600 hover:bg-purple-700 text-white p-2 rounded-lg">Upvotes: {upvotesCount}</button>
+{/if}

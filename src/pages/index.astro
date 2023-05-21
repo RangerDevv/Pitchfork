@@ -43,8 +43,8 @@ const posts = entries.documents.sort(
 						<p class="text-xs text-gray-400">By: {post.Author}</p>
 					</div>
 					</div>
+					<UpvoteBtn client:only="svelte" DatabaseID="646538e35dd17306c589" CollectionID="646538eeeface7a4cd39" DocumentID={post.$id} uid={userid} />
 				</div>
-				<UpvoteBtn client:only="svelte" DatabaseID="646538e35dd17306c589" CollectionID="646538eeeface7a4cd39" DocumentID={post.$id} uid={userid} />
 				</a>
 			))}
 		</div>
