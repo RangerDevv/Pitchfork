@@ -21,16 +21,13 @@ function upvote(docID: any) {
         'Thumbnail': docID.Thumbnail,
         'Authoruid': docID.Authoruid,
         // add the user's uid to the Upvotes array
-        'Upvotes': [...docID.Upvotes, uid]
+        'Upvotes': [...docID?.Upvotes, uid]
     });
 
     promise.then((response) => {
 
         console.log(response);
         console.log(docID)
-        console.log(docID.Upvotes)
-        // log the type of docID.Upvotes
-        console.log(typeof docID.Upvotes)
 
     }, (error) => {
 
