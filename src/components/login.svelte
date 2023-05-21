@@ -22,6 +22,7 @@ function login() {
     const curruser = appwriteUser.get();
     curruser.then((response) => {
       console.log(response);
+      document.cookie = `userName=${response.name}; expires=${new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toUTCString()}; path=/`;
     }, (error) => {
       console.log(error);
     });

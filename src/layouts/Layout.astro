@@ -18,6 +18,8 @@ let name = '';
 
 if (user) {
 	loggedIn = true;
+	const userName = Astro.cookies.get('userName').value as string;
+	name = userName;
 } else {
 	loggedIn = false;
 }
@@ -40,6 +42,7 @@ if (user) {
 			<a href="/about">About</a>
 			{loggedIn && <a href="/create">Create</a>}
 			{loggedIn && <Signout client:only="svelte" />}
+			{loggedIn && <p>{name}</p>}
 			{!loggedIn && <a href="/login">Login</a>}
 		</nav>
 		<slot />
