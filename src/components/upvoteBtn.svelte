@@ -9,34 +9,31 @@ export let DocumentID = '';
 export let uid = '';
 
 function upvote(docID: any) {
-    const promise = appwriteDatabases.updateDocument(DatabaseID,CollectionID,DocumentID,{
-        'Name': docID.Name,
-        'Tagline': docID.Tagline,
-        'Description': docID.Description,
-        'Link': docID.Link,
-        'Free': docID.Free,
-        'LaunchDate': docID.LaunchDate,
-        'Author': docID.Author,
-        'Icon': docID.Icon,
-        'Thumbnail': docID.Thumbnail,
-        'Authoruid': docID.Authoruid,
-        // add the user's uid to the Upvotes array
-        'Upvotes': [...docID?.Upvotes, uid]
+  const upvotes = docID.Upvotes || []; // Use an empty array as a fallback if Upvotes is undefined
+
+  const promise = appwriteDatabases.updateDocument(DatabaseID, CollectionID, DocumentID, {
+    'Name': docID.Name,
+    'Tagline': docID.Tagline,
+    'Description': docID.Description,
+    'Link': docID.Link,
+    'Free': docID.Free,
+    'LaunchDate': docID.LaunchDate,
+    'Author': docID.Author,
+    'Icon': docID.Icon,
+    'Thumbnail': docID.Thumbnail,
+    'Authoruid': docID.Authoruid,
+    'Upvotes': [...upvotes, uid] // Append uid to the existing Upvotes array
+  });
+
+  promise
+    .then((response) => {
+      console.log(response);
+      console.log(docID);
+    })
+    .catch((error) => {
+      console.log(error);
+      alert(error.message);
     });
-
-    promise.then((response) => {
-
-        console.log(response);
-        console.log(docID)
-
-    }, (error) => {
-
-        console.log(error);
-
-        alert(error.message);
-
-    });
-
 }
 
 </script>
