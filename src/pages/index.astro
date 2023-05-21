@@ -4,6 +4,8 @@ import Layout from '../layouts/Layout.astro';
 import { update_await_block_branch } from 'svelte/internal';
 import {appwriteDatabases , Products,ProductList , appwriteStorage, appwriteUser} from '../lib/appwrite';
 
+import UpvoteBtn from '../components/upvoteBtn.svelte';
+
 import { Client,Storage } from 'appwrite';
 
 export const client = new Client();
@@ -22,14 +24,13 @@ const entries = (await appwriteDatabases.listDocuments(
 const posts = entries.documents.sort(
   (a, b) => new Date(a.date).valueOf() - new Date(b.date).valueOf()
 );
-
 ---
 <Layout title="Pitchfork">
 	<main class="p-5 sm:p-10">
 		<!--  if the session is not null, then show the user's name -->
 		<div class="flex flex-wrap items-center flex-row gap-5">
 			{posts.map((post) => (
-				<a href={'/post/' + post.$id} class="">
+				<a class="">
 				<div class="flex flex-col gap-3 p-3 bg-slate-800 rounded-xl w-96">
 					<img src={'https://cloud.appwrite.io/v1/storage/buckets/64661e622715cf602c83/files/'+post.Thumbnail+'/preview?project=646538bf8be3792191bd'} alt="image" class="w-96 h-auto" />
 					<div class="flex">
@@ -42,6 +43,7 @@ const posts = entries.documents.sort(
 					</div>
 					</div>
 				</div>
+				<UpvoteBtn client:only="svelte" DatabaseID="646538e35dd17306c589" CollectionID="646538eeeface7a4cd39" DocumentID={post.$id} />
 				</a>
 			))}
 		</div>
