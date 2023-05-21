@@ -21,6 +21,8 @@ function login() {
     document.cookie = `session=${session.$id}; expires=${new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toUTCString()}; path=/`;
 
     const curruser = appwriteUser.get();
+    const currSession = appwriteUser.getSession('current');
+    console.log(currSession);
     console.log(curruser);
     alert(curruser);
   }, (error) => {
