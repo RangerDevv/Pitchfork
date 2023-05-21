@@ -17,14 +17,11 @@ function login() {
     document.cookie = `userName=${response.providerUid.split('@')[0]}; expires=${new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toUTCString()}; path=/`;
 
     const session = appwriteUser.getSession('current');
-    console.log(session);
+    // console.log(session);
     document.cookie = `session=${session.$id}; expires=${new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toUTCString()}; path=/`;
 
     const curruser = appwriteUser.get();
-    const currSession = appwriteUser.getSession('current');
-    console.log(currSession);
     console.log(curruser);
-    alert(curruser);
   }, (error) => {
     console.log(error);
   });
