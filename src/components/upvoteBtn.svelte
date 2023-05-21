@@ -19,7 +19,8 @@ function upvote(docID: any) {
         'Icon': docID.Icon,
         'Thumbnail': docID.Thumbnail,
         'Authoruid': docID.Authoruid,
-        'Upvotes': docID.Upvotes + 1,
+        // change the docID.Upvotes to a number and then add 1 to it
+        'Upvotes': docID.Upvotes.valueOf() + 1,
     });
 
     promise.then((response) => {
@@ -27,6 +28,8 @@ function upvote(docID: any) {
         console.log(response);
         console.log(docID)
         console.log(docID.Upvotes)
+        // log the type of docID.Upvotes
+        console.log(typeof docID.Upvotes)
 
     }, (error) => {
 
