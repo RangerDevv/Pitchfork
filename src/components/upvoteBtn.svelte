@@ -24,11 +24,13 @@ async function upvote(docID:any){
     const doc = await setDoc(docID) as any;
     
     await appwriteDatabases.updateDocument(DatabaseID,CollectionID,DocumentID,{
-        'Upvotes': [...doc.Upvotes ?? [] , uid]
+        // 'Upvotes': [...doc.Upvotes ?? [] , uid]
+        // if the user has already upvoted, remove their upvote
+        'Upvotes': doc.Upvotes.includes(uid) ? doc.Upvotes.filter((id: string) => id !== uid) : [...doc.Upvotes ?? [] , uid]
     });
       console.log(docID);
       voted = true;
-      upvotesCount = docID.Upvotes.length + 1;
+      upvotesCount = doc.Upvotes.length;
 
   
   } catch (error : any) {
