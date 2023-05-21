@@ -25,6 +25,8 @@ function upvote(docID: any) {
     promise.then((response) => {
 
         console.log(response);
+        console.log(docID)
+        console.log(docID.Upvotes)
 
     }, (error) => {
 
