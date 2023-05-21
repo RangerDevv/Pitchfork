@@ -10,6 +10,16 @@ export let DocumentID = '';
 function upvote(docID: any) {
 
     const promise = appwriteDatabases.updateDocument(DatabaseID,CollectionID,DocumentID,{
+        'Name': docID.Name,
+        'Tagline': docID.Tagline,
+        'Description': docID.Description,
+        'Link': docID.Link,
+        'Free': docID.Free,
+        'LaunchDate': docID.LaunchDate,
+        'Author': docID.Author,
+        'Icon': docID.Icon.$id ?? '',
+        'Thumbnail': docID.Thumbnail.$id ?? '',
+        'Authoruid': docID.Authoruid,
         'Upvotes': docID.Upvotes + 1
     });
 
