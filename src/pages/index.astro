@@ -25,10 +25,12 @@ const entries = (await appwriteDatabases.listDocuments(
 	]
 )) as ProductList;
 
-const todayPosts = entries.documents.sort(
-	// sort the posts based on the number of upvotes
-	(a, b) => b.Upvotes - a.Upvotes
-);
+const today = new Date().toISOString().slice(0, 10); // Get the current date in "YYYY-MM-DD" format
+
+const todayPosts = entries.documents
+  .filter((post) => post.LaunchDate === today) // Filter the posts based on the date property
+  .sort((a, b) => b.Upvotes.length - a.Upvotes.length); // Sort the filtered posts by the number of upvotes
+
 
 const posts = entries.documents.sort(
 	// sort the posts based on the number of upvotes
