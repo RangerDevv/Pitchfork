@@ -3,6 +3,10 @@
 import Layout from '../../layouts/Layout.astro';
 import { appwriteDatabases , appwriteStorage, Products, appwriteUser } from '../../lib/appwrite';
 
+import UpvoteBtn from '../../components/upvoteBtn.svelte';
+
+let uid = Astro.cookies.get('user').value;
+
 // get the ID from the URL
 let pid = Astro.params.id!
 
@@ -25,11 +29,14 @@ const entries = (await appwriteDatabases.getDocument(
             <p>By: {entries.Author}</p>
         </div>
     </div>
+    <div class="flex flex-col gap-2">
     <a href={entries.Link} class="pt-5">
-    <button class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded h-10">
+    <button class="bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded h-10">
         Visit Website
     </button>
     </a>
+    <UpvoteBtn client:only="svelte" DatabaseID="646538e35dd17306c589" CollectionID="646538eeeface7a4cd39" DocumentID={pid} uid={uid} />
+    </div>
 </div>
 
 <p class="p-16 md:pl-48 md:pt-10 w-full md:w-9/12">
