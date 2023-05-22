@@ -60,28 +60,6 @@ setInterval(() => {
 ---
 <Layout title="Pitchfork">
 	<main class="p-5 sm:p-10">
-		<!--  if the session is not null, then show the user's name -->
-		<!-- <div class="flex flex-wrap items-center flex-row gap-5">
-			{posts.map((post) => (
-				<div class="flex flex-col gap-3 bg-slate-800 rounded-xl w-96 p-3">
-				<a class="" href={'/post/'+post.$id}>
-				<div class="flex flex-col gap-3">
-					<img src={'https://cloud.appwrite.io/v1/storage/buckets/64661e622715cf602c83/files/'+post.Thumbnail+'/preview?project=646538bf8be3792191bd'} alt="image" class="w-96 h-auto" />
-					<div class="flex">
-					<img src={'https://cloud.appwrite.io/v1/storage/buckets/646547f5019189c8092b/files/'+post.Icon+'/preview?project=646538bf8be3792191bd'} alt="image" class="w-24 h-auto" />
-					<div class="pl-2">
-						<p class="text-lg">{post.Name}</p>
-						<p class="text-md">{post.Tagline}</p>
-						{post.Free && <p class=" text-sm text-gray-400">Free</p> || <p class=" text-sm text-gray-400">Paid/Has Paid Options</p>}
-						<p class="text-xs text-gray-400">By: {post.Author}</p>
-					</div>
-					</div>
-				</div>
-				</a>
-				<UpvoteBtn client:only="svelte" DatabaseID="646538e35dd17306c589" CollectionID="646538eeeface7a4cd39" DocumentID={post.$id} uid={userid} />
-				</div>
-			))}
-		</div> -->
 		<!--  sort the posts based on if it was posted today or not -->
 		<h1 class="text-white text-center mb-5 text-2xl font-normal">Today</h1>
 		<div class="flex flex-wrap items-center flex-row gap-5">
@@ -104,6 +82,12 @@ setInterval(() => {
 				<UpvoteBtn client:only="svelte" DatabaseID="646538e35dd17306c589" CollectionID="646538eeeface7a4cd39" DocumentID={todayPosts.$id} uid={userid} />
 				</div>
 			))}
+			<!--  if the TodayPost array is empty, display a message -->
+			{todayPosts.length === 0 && (
+				<div class="flex flex-col gap-3 bg-slate-800 rounded-xl w-96 p-3">
+					<p class="text-white text-center">No posts today 😭 create your own <a href="/create" class="text-blue-500">here</a></p>
+				</div>
+			)}
 		</div>
 		<h1 class="text-white text-center mb-5 text-2xl font-normal">Top Posts</h1>
 		<div class="flex flex-wrap items-center flex-row gap-5">
