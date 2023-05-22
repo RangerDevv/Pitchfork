@@ -40,8 +40,9 @@ async function upvote(docID:any){
     });
       console.log(docID);
       voted = true;
-
-  
+      UpvoteCount = doc.Upvotes.length;
+      voted = doc.Upvotes.includes(uid);
+      
   } catch (error : any) {
       console.log(error);
       alert(error.message);
