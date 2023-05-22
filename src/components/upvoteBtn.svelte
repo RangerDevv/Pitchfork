@@ -39,8 +39,6 @@ async function upvote(docID:any){
         'Upvotes': doc.Upvotes.includes(uid) ? doc.Upvotes.filter((id: string) => id !== uid) : [...doc.Upvotes ?? [] , uid]
     });
       console.log(docID);
-      voted = true;
-      
   } catch (error : any) {
       console.log(error);
       alert(error.message);
