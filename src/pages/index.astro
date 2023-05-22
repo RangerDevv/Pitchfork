@@ -22,14 +22,20 @@ const entries = (await appwriteDatabases.listDocuments(
 	'646538eeeface7a4cd39'
 )) as ProductList;
 
+const todayPosts = entries.documents.sort(
+// only show posts that were posted today
+(a, b) => new Date(b.LaunchDate).getTime() - new Date(a.LaunchDate).getTime()
+);
+
 const posts = entries.documents.sort(
-  (a, b) => new Date(a.date).valueOf() - new Date(b.date).valueOf()
+	// sort the posts based on the number of upvotes
+	(a, b) => b.Upvotes - a.Upvotes
 );
 ---
 <Layout title="Pitchfork">
 	<main class="p-5 sm:p-10">
 		<!--  if the session is not null, then show the user's name -->
-		<div class="flex flex-wrap items-center flex-row gap-5">
+		<!-- <div class="flex flex-wrap items-center flex-row gap-5">
 			{posts.map((post) => (
 				<div class="flex flex-col gap-3 bg-slate-800 rounded-xl w-96 p-3">
 				<a class="" href={'/post/'+post.$id}>
@@ -47,6 +53,51 @@ const posts = entries.documents.sort(
 				</div>
 				</a>
 				<UpvoteBtn client:only="svelte" DatabaseID="646538e35dd17306c589" CollectionID="646538eeeface7a4cd39" DocumentID={post.$id} uid={userid} />
+				</div>
+			))}
+		</div> -->
+		<!--  sort the posts based on if it was posted today or not -->
+		<h1 class="text-white text-center mb-5 text-2xl">Today</h1>
+		<div class="flex flex-wrap items-center flex-row gap-5">
+			{todayPosts.map((todayPosts)=> (
+								<div class="flex flex-col gap-3 bg-slate-800 rounded-xl w-96 p-3">
+				<a class="" href={'/post/'+todayPosts.$id}>
+				<div class="flex flex-col gap-3">
+					<img src={'https://cloud.appwrite.io/v1/storage/buckets/64661e622715cf602c83/files/'+todayPosts.Thumbnail+'/preview?project=646538bf8be3792191bd'} alt="image" class="w-auto h-52" />
+					<div class="flex">
+					<img src={'https://cloud.appwrite.io/v1/storage/buckets/646547f5019189c8092b/files/'+todayPosts.Icon+'/preview?project=646538bf8be3792191bd'} alt="image" class="w-24 h-auto" />
+					<div class="pl-2">
+						<p class="text-lg">{todayPosts.Name}</p>
+						<p class="text-md">{todayPosts.Tagline}</p>
+						{todayPosts.Free && <p class=" text-sm text-gray-400">Free</p> || <p class=" text-sm text-gray-400">Paid/Has Paid Options</p>}
+						<p class="text-xs text-gray-400">By: {todayPosts.Author}</p>
+					</div>
+					</div>
+				</div>
+				</a>
+				<UpvoteBtn client:only="svelte" DatabaseID="646538e35dd17306c589" CollectionID="646538eeeface7a4cd39" DocumentID={todayPosts.$id} uid={userid} />
+				</div>
+			))}
+		</div>
+		<h1 class="text-white text-center mb-5 text-2xl">Top Posts</h1>
+		<div class="flex flex-wrap items-center flex-row gap-5">
+			{posts.map((posts)=> (
+			<div class="flex flex-col gap-3 bg-slate-800 rounded-xl w-96 p-3">
+				<a class="" href={'/post/'+posts.$id}>
+				<div class="flex flex-col gap-3">
+					<img src={'https://cloud.appwrite.io/v1/storage/buckets/64661e622715cf602c83/files/'+posts.Thumbnail+'/preview?project=646538bf8be3792191bd'} alt="image" class="w-auto h-52" />
+					<div class="flex">
+					<img src={'https://cloud.appwrite.io/v1/storage/buckets/646547f5019189c8092b/files/'+posts.Icon+'/preview?project=646538bf8be3792191bd'} alt="image" class="w-24 h-auto" />
+					<div class="pl-2">
+						<p class="text-lg">{posts.Name}</p>
+						<p class="text-md">{posts.Tagline}</p>
+						{posts.Free && <p class=" text-sm text-gray-400">Free</p> || <p class=" text-sm text-gray-400">Paid/Has Paid Options</p>}
+						<p class="text-xs text-gray-400">By: {posts.Author}</p>
+					</div>
+					</div>
+				</div>
+				</a>
+				<UpvoteBtn client:only="svelte" DatabaseID="646538e35dd17306c589" CollectionID="646538eeeface7a4cd39" DocumentID={todayPosts.$id} uid={userid} />
 				</div>
 			))}
 		</div>
