@@ -6,7 +6,7 @@ import {appwriteDatabases , Products,ProductList , appwriteStorage, appwriteUser
 
 import UpvoteBtn from '../components/upvoteBtn.svelte';
 
-import { Client,Storage } from 'appwrite';
+import { Client,Storage,Query } from 'appwrite';
 
 export const client = new Client();
 export const storage = new Storage(client);
@@ -19,17 +19,20 @@ client
   
 const entries = (await appwriteDatabases.listDocuments(
 	'646538e35dd17306c589',
-	'646538eeeface7a4cd39'
+	'646538eeeface7a4cd39',
+	[
+		Query.orderAsc('LaunchDate'),
+	]
 )) as ProductList;
 
 const todayPosts = entries.documents.sort(
-// only show posts that were posted today
-(a, b) => new Date(b.LaunchDate).getTime() - new Date(a.LaunchDate).getTime()
+	// sort the posts based on the number of upvotes
+	(a, b) => b.Upvotes - a.Upvotes
 );
 
 const posts = entries.documents.sort(
 	// sort the posts based on the number of upvotes
-	(a, b) => b.Upvotes - a.Upvotes
+	(a, b) => b.Upvotes.length - a.Upvotes.length
 );
 ---
 <Layout title="Pitchfork">
