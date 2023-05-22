@@ -22,6 +22,9 @@ let PostDescription = '';
 let PostLink = '';
 let Icon = [] as any;
 let Thumbnail = [] as any;
+let Thumbnail2 = [] as any;
+let Thumbnail3 = [] as any;
+let Thumbnail4 = [] as any;
 let IsFree = true;
 let PostLaunchDate = Date.now();
 
@@ -50,14 +53,38 @@ async function UploadThumbnail() {
       if (ThumbnailUpload !== null && ThumbnailUpload.files) {
           Thumbnail = await appwriteStorage.createFile('64661e622715cf602c83',ID.unique(),ThumbnailUpload.files[0]);
       }
+    } catch (e) {
+        console.log(e);
+    }
+}
+
+async function UploadThumbnail2() {
+    console.log(ThumbnailUpload2);
+    try {
       if (ThumbnailUpload2 !== null && ThumbnailUpload2.files) {
-          Thumbnail = await appwriteStorage.createFile('64661e622715cf602c83',ID.unique(),ThumbnailUpload2.files[0]);
+          Thumbnail2 = await appwriteStorage.createFile('64661e622715cf602c83',ID.unique(),ThumbnailUpload2.files[0]);
       }
+    } catch (e) {
+        console.log(e);
+    }
+}
+
+async function UploadThumbnail3() {
+    console.log(ThumbnailUpload3);
+    try {
       if (ThumbnailUpload3 !== null && ThumbnailUpload3.files) {
-          Thumbnail = await appwriteStorage.createFile('64661e622715cf602c83',ID.unique(),ThumbnailUpload3.files[0]);
+          Thumbnail3 = await appwriteStorage.createFile('64661e622715cf602c83',ID.unique(),ThumbnailUpload3.files[0]);
       }
+    } catch (e) {
+        console.log(e);
+    }
+}
+
+async function UploadThumbnail4() {
+    console.log(ThumbnailUpload4);
+    try {
       if (ThumbnailUpload4 !== null && ThumbnailUpload4.files) {
-          Thumbnail = await appwriteStorage.createFile('64661e622715cf602c83',ID.unique(),ThumbnailUpload4.files[0]);
+          Thumbnail4 = await appwriteStorage.createFile('64661e622715cf602c83',ID.unique(),ThumbnailUpload4.files[0]);
       }
     } catch (e) {
         console.log(e);
@@ -68,6 +95,9 @@ async function CreatePost() {
     // first upload the files
     await UploadIcon();
     await UploadThumbnail();
+    await UploadThumbnail2();
+    await UploadThumbnail3();
+    await UploadThumbnail4();
     // then create the post
     appwriteDatabases.createDocument(
         '646538e35dd17306c589',
@@ -82,7 +112,10 @@ async function CreatePost() {
             'LaunchDate': PostLaunchDate,
             'Author': userName,
             'Icon': Icon.$id ?? '',
-            'Thumbnail': [...Thumbnail ?? [] , Thumbnail],
+            'Thumbnail': Thumbnail.$id ?? '',
+            'Thumbnail2': Thumbnail2.$id ?? '',
+            'Thumbnail3': Thumbnail3.$id ?? '',
+            'Thumbnail4': Thumbnail4.$id ?? '',
             'Authoruid': userID,
         },
     ).then((response) => {
