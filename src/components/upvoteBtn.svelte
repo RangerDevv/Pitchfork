@@ -40,7 +40,6 @@ async function upvote(docID:any){
     });
       console.log(docID);
       voted = !voted;
-      UpvoteCount = doc.Upvotes.length;
   } catch (error : any) {
       console.log(error);
       alert(error.message);

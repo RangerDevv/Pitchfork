@@ -41,8 +41,8 @@ if (user) {
 			<a href="/">Home</a>
 			<a href="/about">About</a>
 			{loggedIn && <a href="/create">Create</a>}
-			{loggedIn && <Signout client:only="svelte" />}
 			{loggedIn && <p>{name}</p>}
+			{loggedIn && <Signout client:only="svelte" />}
 			{!loggedIn && <a href="/login">Login</a>}
 		</nav>
 		<slot />
@@ -69,6 +69,8 @@ if (user) {
 		justify-content: space-between;
 		padding: 1rem;
 		background-color: rgb(var(--accent));
+		position: sticky;
+		top: 0;
 	}
 	nav a {
 		color: white;
