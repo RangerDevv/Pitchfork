@@ -11,6 +11,7 @@ export let userName = '';
 let IconUpload  = document.getElementById('IconFile') as HTMLInputElement;
 let ThumbnailUpload  = document.getElementById('ThumbnailFile') as HTMLInputElement;
 
+let isProduct = false;
 
 let PostTitle = '';
 let PostTagline = '';
@@ -80,14 +81,45 @@ async function CreatePost() {
 
 </script>
 
-<main>
-    <input type="file" id="IconFile" />
-    <input type="file" id="ThumbnailFile" />
-    <input type="text" bind:value={PostTitle} placeholder="Title" />
-    <input type="text" bind:value={PostTagline} placeholder="Tagline" />
-    <input type="text" bind:value={PostDescription} placeholder="Description" />
-    <input type="text" bind:value={PostLink} placeholder="Link" />
-    <input type="checkbox" bind:checked={IsFree} />
-    <input type="date" bind:value={PostLaunchDate} />
-    <button on:click={CreatePost}>Create Post</button>
+<h1 class="text-3xl font-semibold text-gray-100 text-center pt-5">Create Post</h1>
+
+<main class="flex flex-row justify-evenly p-10">
+    <div>
+    <div class=" mb-5 items-center justify-center flex flex-col space-y-2">
+    <label for="IconFile" class="block text-sm font-medium text-gray-100">Icon</label>
+    <input class="block text-sm text-gray-300
+      file:mr-4 file:py-2 file:px-4
+      file:rounded-md file:border-0
+      file:text-sm file:font-semibold
+      file:bg-blue-500 file:text-white
+      hover:file:bg-blue-600" type="file" id="IconFile" />
+    <label for="ThumbnailFile" class="block text-sm font-medium text-gray-100">Thumbnail</label>
+    <input class="block text-sm text-gray-300
+      file:mr-4 file:py-2 file:px-4
+      file:rounded-md file:border-0
+      file:text-sm file:font-semibold
+      file:bg-blue-500 file:text-white
+      hover:file:bg-blue-600" type="file" id="ThumbnailFile" />
+    </div>
+    <div class="flex flex-col space-y-2 justify-center items-center">
+    <input type="text" class="bg-transparent outline outline-gray-500 w-64 sm:w-96 h-10 rounded-md p-2" bind:value={PostTitle} placeholder="Title" />
+    <input type="text" class="bg-transparent outline outline-gray-500 w-64 sm:w-96 h-10 rounded-md p-2" bind:value={PostTagline} placeholder="Tagline" />
+    <textarea rows="6" bind:value={PostDescription} placeholder="Description" class="bg-transparent outline outline-gray-500 w-64 sm:w-96 rounded-md p-2"></textarea>
+    <input type="text" class="bg-transparent outline outline-gray-500 w-64 sm:w-96 h-10 rounded-md p-2" bind:value={PostLink} placeholder="Link" />
+    <div class="flex flex-row-reverse gap-6">
+    <input type="checkbox" bind:checked={IsFree} class="h-5 w-5 text-gray-100 rounded-md bg-transparent" />
+    <label class="text-gray-100">Is your product free?</label>
+    </div>
+    <div class="flex flex-row gap-6">
+    <label class="text-gray-100">Launch Date</label>
+    <input class="bg-transparent" type="date" bind:value={PostLaunchDate}/>
+    </div>
+    </div>
+    <div class="flex flex-row justify-center items-center mt-5">
+    <button on:click={CreatePost} class="bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-md self-center mx-auto my-auto">Create Post</button>
+    </div>
+    </div>
 </main>
+
+<style>
+</style>
