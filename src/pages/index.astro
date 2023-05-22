@@ -57,7 +57,7 @@ const posts = entries.documents.sort(
 			))}
 		</div> -->
 		<!--  sort the posts based on if it was posted today or not -->
-		<h1 class="text-white text-center mb-5 text-2xl">Today</h1>
+		<h1 class="text-white text-center mb-5 text-2xl font-normal">Today</h1>
 		<div class="flex flex-wrap items-center flex-row gap-5">
 			{todayPosts.map((todayPosts)=> (
 								<div class="flex flex-col gap-3 bg-slate-800 rounded-xl w-96 p-3">
@@ -79,7 +79,7 @@ const posts = entries.documents.sort(
 				</div>
 			))}
 		</div>
-		<h1 class="text-white text-center mb-5 text-2xl">Top Posts</h1>
+		<h1 class="text-white text-center mb-5 text-2xl font-normal">Top Posts</h1>
 		<div class="flex flex-wrap items-center flex-row gap-5">
 			{posts.map((posts)=> (
 			<div class="flex flex-col gap-3 bg-slate-800 rounded-xl w-96 p-3">
