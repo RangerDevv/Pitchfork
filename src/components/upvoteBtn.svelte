@@ -49,7 +49,7 @@ async function upvote(docID:any){
 
 </script>
 {#if voted}
-<button on:click={() => upvote(DocumentID)} class=" outline text-white p-2 rounded-lg">Upvote {UpvoteCount}</button>
+<button on:click={() => upvote(DocumentID)} class=" outline text-white p-2 rounded-lg">Upvoted {UpvoteCount} ▲</button>
 {:else}
-<button on:click={() => upvote(DocumentID)} class="bg-purple-600 hover:bg-purple-700 text-white p-2 rounded-md">Upvote {UpvoteCount}</button>
+<button on:click={() => upvote(DocumentID)} class="bg-purple-600 hover:bg-purple-700 text-white p-2 rounded-md">Upvote {UpvoteCount} ▲</button>
 {/if}
