@@ -40,6 +40,23 @@ const posts = entries.documents.sort(
 	// sort the posts based on the number of upvotes
 	(a, b) => b.Upvotes.length - a.Upvotes.length
 );
+
+
+function shufflePosts() {
+  // Shuffle the posts array using the Fisher-Yates algorithm
+  for (let i = todayPosts.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [todayPosts[i], todayPosts[j]] = [todayPosts[j], todayPosts[i]];
+  }
+}
+
+// Initial shuffle
+shufflePosts();
+
+// Shuffle the posts every 2 hours
+setInterval(() => {
+  shufflePosts();
+}, 2 * 60 * 60 * 1000); // 2 hours in milliseconds
 ---
 <Layout title="Pitchfork">
 	<main class="p-5 sm:p-10">
