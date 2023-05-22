@@ -10,6 +10,9 @@ export let userID = '';
 export let userName = '';
 let IconUpload  = document.getElementById('IconFile') as HTMLInputElement;
 let ThumbnailUpload  = document.getElementById('ThumbnailFile') as HTMLInputElement;
+let ThumbnailUpload2  = document.getElementById('ThumbnailFile2') as HTMLInputElement;
+let ThumbnailUpload3  = document.getElementById('ThumbnailFile3') as HTMLInputElement;
+let ThumbnailUpload4  = document.getElementById('ThumbnailFile4') as HTMLInputElement;
 
 let isProduct = false;
 
@@ -25,6 +28,9 @@ let PostLaunchDate = Date.now();
 onMount(async () => {
   IconUpload  = document.getElementById('IconFile') as HTMLInputElement;
   ThumbnailUpload  = document.getElementById('ThumbnailFile') as HTMLInputElement;
+  ThumbnailUpload2  = document.getElementById('ThumbnailFile2') as HTMLInputElement;
+  ThumbnailUpload3  = document.getElementById('ThumbnailFile3') as HTMLInputElement;
+  ThumbnailUpload4  = document.getElementById('ThumbnailFile4') as HTMLInputElement;
 });
 
 async function UploadIcon() {
@@ -43,6 +49,15 @@ async function UploadThumbnail() {
     try {
       if (ThumbnailUpload !== null && ThumbnailUpload.files) {
           Thumbnail = await appwriteStorage.createFile('64661e622715cf602c83',ID.unique(),ThumbnailUpload.files[0]);
+      }
+      if (ThumbnailUpload2 !== null && ThumbnailUpload2.files) {
+          Thumbnail = await appwriteStorage.createFile('64661e622715cf602c83',ID.unique(),ThumbnailUpload2.files[0]);
+      }
+      if (ThumbnailUpload3 !== null && ThumbnailUpload3.files) {
+          Thumbnail = await appwriteStorage.createFile('64661e622715cf602c83',ID.unique(),ThumbnailUpload3.files[0]);
+      }
+      if (ThumbnailUpload4 !== null && ThumbnailUpload4.files) {
+          Thumbnail = await appwriteStorage.createFile('64661e622715cf602c83',ID.unique(),ThumbnailUpload4.files[0]);
       }
     } catch (e) {
         console.log(e);
@@ -67,7 +82,7 @@ async function CreatePost() {
             'LaunchDate': PostLaunchDate,
             'Author': userName,
             'Icon': Icon.$id ?? '',
-            'Thumbnail': Thumbnail.$id ?? '',
+            'Thumbnail': [...Thumbnail ?? [] , Thumbnail],
             'Authoruid': userID,
         },
     ).then((response) => {
@@ -100,6 +115,24 @@ async function CreatePost() {
       file:text-sm file:font-semibold
       file:bg-blue-500 file:text-white
       hover:file:bg-blue-600" type="file" id="ThumbnailFile" />
+      <input class="block text-sm text-gray-300
+      file:mr-4 file:py-2 file:px-4
+      file:rounded-md file:border-0
+      file:text-sm file:font-semibold
+      file:bg-blue-500 file:text-white
+      hover:file:bg-blue-600" type="file" id="ThumbnailFile2" />
+      <input class="block text-sm text-gray-300
+      file:mr-4 file:py-2 file:px-4
+      file:rounded-md file:border-0
+      file:text-sm file:font-semibold
+      file:bg-blue-500 file:text-white
+      hover:file:bg-blue-600" type="file" id="ThumbnailFile3" />
+      <input class="block text-sm text-gray-300
+      file:mr-4 file:py-2 file:px-4
+      file:rounded-md file:border-0
+      file:text-sm file:font-semibold
+      file:bg-blue-500 file:text-white
+      hover:file:bg-blue-600" type="file" id="ThumbnailFile4" />
     </div>
     <div class="flex flex-col space-y-2 justify-center items-center">
     <input type="text" class="bg-transparent outline outline-gray-500 w-64 sm:w-96 h-10 rounded-md p-2" bind:value={PostTitle} placeholder="Title" />
