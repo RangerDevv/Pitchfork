@@ -25,17 +25,20 @@ const entries = (await appwriteDatabases.listDocuments(
 	]
 )) as ProductList;
 
-const today = new Date();
-console.log(today);
-const formattedToday = today.toISOString().slice(0, 10); // Format the date as "YYYY-MM-DD"
+console.log(entries);
+
+const today = new Date(); // Get the current date
+const formattedToday = new Date(today.getTime() - today.getTimezoneOffset()*60000).toISOString().slice(0, 10)
 
 console.log(formattedToday);
 
 const todayPosts = entries.documents
   .filter((post) => {
-    const postDate = new Date(post.LaunchDate);
+	console.log(post.LaunchDate);
+	const postDate = new Date(post.LaunchDate.slice(0,-6));
+ console.log(postDate);
+ console.log('-----');
     const formattedPostDate = postDate.toISOString().slice(0, 10); // Format the date as "YYYY-MM-DD"
-	console.log(formattedPostDate);
     return formattedPostDate === formattedToday; // Filter posts with matching formatted date
   })
   .sort((a, b) => b.Upvotes.length - a.Upvotes.length);

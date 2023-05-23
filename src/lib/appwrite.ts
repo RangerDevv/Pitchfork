@@ -22,4 +22,6 @@ export interface Products extends Models.Document {
 }
 
 
-export interface ProductList extends Models.DocumentList<Products> {}
+export interface ProductList extends Models.DocumentList<Products> {
+[x: string]: any;
+}
