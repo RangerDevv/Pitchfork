@@ -178,7 +178,7 @@ async function CreatePost() {
     </div>
     <div class="flex flex-row gap-6">
     <label class="text-gray-100">Launch Date</label>
-    <input class="bg-transparent" type="datetime" bind:value={PostLaunchDate}/>
+    <input class="bg-transparent" type="date" bind:value={PostLaunchDate}/>
     </div>
     </div>
     <div class="flex flex-row justify-center items-center mt-5">
