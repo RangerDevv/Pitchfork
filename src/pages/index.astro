@@ -116,7 +116,7 @@ const todayPitch = pitches.documents
 		<h1 class="text-white text-center mb-5 text-2xl font-normal">New Pitches</h1>
 		{todayPitch.map((todayPitch)=> (
 			<div class="flex flex-col gap-3 bg-slate-800 rounded-xl w-96 p-3">
-			<a class="" href={'/post/'+todayPitch.$id}>
+			<a class="" href={'/pitch/'+todayPitch.$id}>
 			<div class="flex flex-col gap-3">
 			<img src={'https://cloud.appwrite.io/v1/storage/buckets/64661e622715cf602c83/files/'+todayPitch.Thumbnail+'/preview?project=646538bf8be3792191bd'} alt="image" class="w-auto h-52" />
 			<div class="flex">

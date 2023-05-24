@@ -1,0 +1,52 @@
+---
+
+import Layout from '../../layouts/Layout.astro';
+import { appwriteDatabases , appwriteStorage, Products, appwriteUser } from '../../lib/appwrite';
+
+import UpvoteBtn from '../../components/upvoteBtn.svelte';
+
+let uid = Astro.cookies.get('user').value;
+
+// get the ID from the URL
+let pid = Astro.params.id!
+
+// get the product from the database
+const entries = (await appwriteDatabases.getDocument(
+	'646b9dd716753e384863',
+    '646b9e0e29b66e4a8a22',
+	pid
+)) as unknown as Products;
+
+---
+
+<Layout title="Pitch">
+<div class="flex flex-col md:flex-row gap-5 justify-around p-10 md:p-0 md:pt-24">
+    <div class="flex flex-row gap-6">
+        <img src={'https://cloud.appwrite.io/v1/storage/buckets/646547f5019189c8092b/files/'+entries.Icon+'/preview?project=646538bf8be3792191bd'} alt={entries.Title} class="w-24 h-auto" />
+        <div>
+            <p class="text-2xl">{entries.Title}</p>
+            <p>{entries.Tagline}</p>
+            <p>By: {entries.Author}</p>
+        </div>
+    </div>
+    <div class="flex flex-col gap-2">
+    <UpvoteBtn client:only="svelte" DatabaseID="646b9dd716753e384863" CollectionID="646b9e0e29b66e4a8a22" DocumentID={pid} uid={uid} />
+    </div>
+</div>
+
+<h1 class="text-xl mt-10 font-bold text-center md:text-left md:pl-48 w-full md:w-9/12">
+    The Pitch
+</h1>
+<p class="p-16 md:p-0 md:pl-48 w-full md:w-9/12 whitespace-pre-wrap">
+    {entries.Pitch}
+</p>
+
+<div class="flex flex-row gap-8 overflow-x-auto p-10 md:p-0 md:pt-12 md:pl-48 md:pr-48">
+<img src={'https://cloud.appwrite.io/v1/storage/buckets/64661e622715cf602c83/files/'+entries.Thumbnail+'/preview?project=646538bf8be3792191bd'} alt={entries.Name} class="w-96 sm:w-7/12 h-auto items-center mx-auto my-auto" />
+<!-- check if the image src is empty, if it is, don't show the image -->
+{entries.Thumbnail2 != "" ? <img src={'https://cloud.appwrite.io/v1/storage/buckets/64661e622715cf602c83/files/'+entries.Thumbnail2+'/preview?project=646538bf8be3792191bd'} alt={entries.Name} class="w-96 sm:w-7/12 h-auto items-center mx-auto my-auto" /> : "" }
+{entries.Thumbnail3 != "" ? <img src={'https://cloud.appwrite.io/v1/storage/buckets/64661e622715cf602c83/files/'+entries.Thumbnail3+'/preview?project=646538bf8be3792191bd'} alt={entries.Name} class="w-96 sm:w-7/12 h-auto items-center mx-auto my-auto" /> : "" }
+{entries.Thumbnail4 != "" ? <img src={'https://cloud.appwrite.io/v1/storage/buckets/64661e622715cf602c83/files/'+entries.Thumbnail4+'/preview?project=646538bf8be3792191bd'} alt={entries.Name} class="w-96 sm:w-7/12 h-auto items-center mx-auto my-auto" /> : "" }
+</div>
+
+</Layout>
