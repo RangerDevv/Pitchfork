@@ -239,7 +239,7 @@ async function createPitch() {
         '646b9e0e29b66e4a8a22',
         ID.unique(),
         {
-            'Name': PitchTitle,
+            'Title': PitchTitle,
             'Tagline': PitchTagline,
             'Description': PitchDescription,
             'LaunchDate': PitchLaunchDate,
