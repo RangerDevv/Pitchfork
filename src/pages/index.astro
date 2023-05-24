@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 
 import { update_await_block_branch } from 'svelte/internal';
-import {appwriteDatabases , Products,ProductList , appwriteStorage, appwriteUser} from '../lib/appwrite';
+import {appwriteDatabases , Products,ProductList , appwriteStorage, appwriteUser , PitchList} from '../lib/appwrite';
 
 import UpvoteBtn from '../components/upvoteBtn.svelte';
 
@@ -24,6 +24,11 @@ const entries = (await appwriteDatabases.listDocuments(
 		Query.orderAsc('LaunchDate'),
 	]
 )) as ProductList;
+
+const pitches = (await appwriteDatabases.listDocuments(
+	'646b9dd716753e384863',
+	'646b9e0e29b66e4a8a22',
+)) as PitchList;
 
 console.log(entries);
 
@@ -48,7 +53,6 @@ const posts = entries.documents.sort(
   (a, b) => b.Upvotes.length - a.Upvotes.length
 );
 
-
 function shufflePosts() {
   // Shuffle the posts array using the Fisher-Yates algorithm
   for (let i = todayPosts.length - 1; i > 0; i--) {
@@ -64,6 +68,19 @@ shufflePosts();
 setInterval(() => {
   shufflePosts();
 }, 2 * 60 * 60 * 1000); // 2 hours in milliseconds
+
+const todayPitch = pitches.documents
+  .filter((pitches) => {
+	console.log(pitches.LaunchDate);
+	const postDate = new Date(pitches.LaunchDate.slice(0,-6));
+ console.log('PitchDate: '+postDate);
+ console.log('-----');
+	const formattedPostDate = postDate.toISOString().slice(0, 10); // Format the date as "YYYY-MM-DD"
+	return formattedPostDate === formattedToday; // Filter posts with matching formatted date
+  })
+  .sort((a, b) => b.Upvotes.length - a.Upvotes.length);
+
+
 ---
 <Layout title="Pitchfork">
 	<main class="p-5 sm:p-10">
@@ -96,6 +113,32 @@ setInterval(() => {
 				</div>
 			)}
 		</div>
+		<h1 class="text-white text-center mb-5 text-2xl font-normal">New Pitches</h1>
+		{todayPitch.map((todayPitch)=> (
+			<div class="flex flex-col gap-3 bg-slate-800 rounded-xl w-96 p-3">
+			<a class="" href={'/post/'+todayPitch.$id}>
+			<div class="flex flex-col gap-3">
+			<img src={'https://cloud.appwrite.io/v1/storage/buckets/64661e622715cf602c83/files/'+todayPitch.Thumbnail+'/preview?project=646538bf8be3792191bd'} alt="image" class="w-auto h-52" />
+			<div class="flex">
+			<img src={'https://cloud.appwrite.io/v1/storage/buckets/646547f5019189c8092b/files/'+todayPitch.Icon+'/preview?project=646538bf8be3792191bd'} alt="image" class="w-24 h-auto" />
+			<div class="pl-2">
+				<p class="text-lg">{todayPitch.Name}</p>
+				<p class="text-md">{todayPitch.Tagline}</p>
+				{todayPitch.Free && <p class=" text-sm text-gray-400">Free</p> || <p class=" text-sm text-gray-400">Paid/Has Paid Options</p>}
+				<p class="text-xs text-gray-400">By: {todayPitch.Author}</p>
+			</div>
+			</div>
+			</div>
+			</a>
+			<UpvoteBtn client:only="svelte" DatabaseID="646538e35dd17306c589" CollectionID="646538eeeface7a4cd39" DocumentID={todayPitch.$id} uid={userid} />
+			</div>
+			))}
+			<!--  if the TodayPost array is empty, display a message -->
+			{todayPitch.length === 0 && (
+			<div class="flex flex-col gap-3 bg-slate-800 rounded-xl w-96 p-3">
+			<p class="text-white text-center">No posts today 😭 create your own <a href="/create" class="text-blue-500">here</a></p>
+			</div>
+			)}
 		<h1 class="text-white text-center mb-5 text-2xl font-normal">Top Posts</h1>
 		<div class="flex flex-wrap items-center flex-row gap-5">
 			{posts.map((posts)=> (

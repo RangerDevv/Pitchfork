@@ -25,3 +25,17 @@ export interface Products extends Models.Document {
 export interface ProductList extends Models.DocumentList<Products> {
 [x: string]: any;
 }
+
+export interface Pitch extends Models.Document {
+    Title: string;
+    Author: string;
+    LaunchDate: string;
+    Tagline: string;
+    Pitch: string;
+    Icon: string;
+    Thumbnail: string;
+}
+
+export interface PitchList extends Models.DocumentList<Pitch> {
+    [x: string]: any;
+}
