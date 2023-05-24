@@ -241,7 +241,7 @@ async function createPitch() {
         {
             'Title': PitchTitle,
             'Tagline': PitchTagline,
-            'Description': PitchDescription,
+            'Pitch': PitchDescription,
             'LaunchDate': PitchLaunchDate,
             'Author': userName,
             'Icon': Icon.$id ?? '',
