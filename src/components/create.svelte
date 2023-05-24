@@ -339,37 +339,37 @@ async function createPitch() {
           file:rounded-md file:border-0
           file:text-sm file:font-semibold
           file:bg-blue-500 file:text-white
-          hover:file:bg-blue-600" type="file" id="PitchThumbnail" />
+          hover:file:bg-blue-600" type="file" id="PitchThumbnailFile" />
           <input class="block text-sm text-gray-300
           file:mr-4 file:py-2 file:px-4
           file:rounded-md file:border-0
           file:text-sm file:font-semibold
           file:bg-blue-500 file:text-white
-          hover:file:bg-blue-600" type="file" id="PitchThumbnail2" />
+          hover:file:bg-blue-600" type="file" id="PitchThumbnailFile2" />
           <input class="block text-sm text-gray-300
           file:mr-4 file:py-2 file:px-4
           file:rounded-md file:border-0
           file:text-sm file:font-semibold
           file:bg-blue-500 file:text-white
-          hover:file:bg-blue-600" type="file" id="PitchThumbnail3" />
+          hover:file:bg-blue-600" type="file" id="PitchThumbnailFile3" />
           <input class="block text-sm text-gray-300
           file:mr-4 file:py-2 file:px-4
           file:rounded-md file:border-0
           file:text-sm file:font-semibold
           file:bg-blue-500 file:text-white
-          hover:file:bg-blue-600" type="file" id="PitchThumbnail4" />
+          hover:file:bg-blue-600" type="file" id="PitchThumbnailFile4" />
           <input class="block text-sm text-gray-300
             file:mr-4 file:py-2 file:px-4
             file:rounded-md file:border-0
             file:text-sm file:font-semibold
             file:bg-blue-500 file:text-white
-            hover:file:bg-blue-600" type="file" id="PitchThumbnail5" />
+            hover:file:bg-blue-600" type="file" id="PitchThumbnailFile5" />
             <input class="block text-sm text-gray-300
             file:mr-4 file:py-2 file:px-4
             file:rounded-md file:border-0
             file:text-sm file:font-semibold
             file:bg-blue-500 file:text-white
-            hover:file:bg-blue-600" type="file" id="PitchThumbnail6" />
+            hover:file:bg-blue-600" type="file" id="PitchThumbnailFile6" />
 
         </div>
         <div class="flex flex-col space-y-2 justify-center items-center">
