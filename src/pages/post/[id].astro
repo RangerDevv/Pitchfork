@@ -22,7 +22,7 @@ const entries = (await appwriteDatabases.getDocument(
 <Layout title="Post">
 <div class="flex flex-col md:flex-row gap-5 justify-around p-10 md:p-0 md:pt-24">
     <div class="flex flex-row gap-6">
-        <img src={'https://cloud.appwrite.io/v1/storage/buckets/646547f5019189c8092b/files/'+entries.Icon+'/preview?project=646538bf8be3792191bd'} alt={entries.Name} class="w-24 h-auto" />
+        <img src={'https://cloud.appwrite.io/v1/storage/buckets/646547f5019189c8092b/files/'+entries.Icon+'/preview?project=646538bf8be3792191bd'} alt={entries.Name} class="w-auto h-24" />
         <div>
             <p class="text-2xl">{entries.Name}</p>
             <p>{entries.Tagline}</p>
@@ -39,7 +39,10 @@ const entries = (await appwriteDatabases.getDocument(
     </div>
 </div>
 
-<p class="p-16 md:pl-48 md:pt-10 w-full md:w-9/12">
+<h1 class="text-xl mt-10 font-bold text-center md:text-left md:pl-48 w-full md:w-9/12">
+    About {entries.Name}
+</h1>
+<p class="p-16 md:p-0 md:pl-48 w-full md:w-9/12 whitespace-pre-wrap">
     {entries.Description}
 </p>
 
