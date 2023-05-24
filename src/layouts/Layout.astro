@@ -39,11 +39,12 @@ if (user) {
 	<body>
 		<nav>
 			<a href="/">Home</a>
-			<a href="/about">About</a>
-			{loggedIn && <a href="/create">Create</a>}
-			{loggedIn && <p>{name}</p>}
-			{loggedIn && <Signout client:only="svelte" />}
-			{!loggedIn && <a href="/login">Login</a>}
+			<div>
+				{loggedIn && <a href="/create">Create</a>}
+				{loggedIn && <p>{name}</p>}
+				{loggedIn && <Signout client:only="svelte" />}
+				{!loggedIn && <a href="/login">Login</a>}
+			</div>
 		</nav>
 		<slot />
 	</body>
