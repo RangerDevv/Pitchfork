@@ -53,7 +53,7 @@ if (user) {
 				</svg>
 			</a>
 			<div class="flex flex-row gap-5">
-				{!loggedIn && <a href="/create" class="bg-purple-900 p-2 rounded-md">Create</a>}
+				{loggedIn && <a href="/create" class="bg-purple-900 p-2 rounded-md">Create</a>}
 				{loggedIn && <p class="p-2 rounded-md">{name}</p>}
 				{loggedIn && <Signout client:only="svelte" />}
 				{!loggedIn && <a href="/login" class="p-2 rounded-md">Login</a>}
