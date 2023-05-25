@@ -39,7 +39,7 @@ if (user) {
 	<body>
 		<nav>
 			<a href="/">Home</a>
-			<div>
+			<div class="flex flex-row gap-5">
 				{loggedIn && <a href="/create">Create</a>}
 				{loggedIn && <p>{name}</p>}
 				{loggedIn && <Signout client:only="svelte" />}
