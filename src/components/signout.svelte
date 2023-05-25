@@ -21,4 +21,4 @@ promise.then((response) => {
 
 </script>
 
-<button on:click={signout} class=" text-white">Sign Out</button>
+<button on:click={signout} class=" text-white p-2 rounded-md">Sign Out</button>
