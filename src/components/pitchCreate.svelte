@@ -153,6 +153,8 @@
             },
         ).then((response) => {
             console.log(response);
+            // redirect to the post
+            window.location.href = `/pitch/${response.$id}`;
         }, (error) => {
             console.log(error);
         });
