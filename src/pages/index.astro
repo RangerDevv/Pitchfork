@@ -22,7 +22,7 @@ const entries = (await appwriteDatabases.listDocuments(
 	'646538eeeface7a4cd39',
 	[
 		Query.orderAsc('LaunchDate'),
-		Query.lessThan('LaunchDate', new Date().toISOString().slice(0, 10)),
+		Query.lessThanEqual('LaunchDate', new Date().toISOString().slice(0, 10)),
 	]
 )) as ProductList;
 
