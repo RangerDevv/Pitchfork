@@ -24,9 +24,9 @@ const entries = (await appwriteDatabases.getDocument(
 <script>
     import { appwriteClient,appwriteStorage,appwriteDatabases,Products } from "../../lib/appwrite";
 
-    // the pid is the number after pitch/ 
-
-    let pid = new URLSearchParams(window.location.search).get('id') as string;
+    // split the url to get the product ID. the ID is the last part of the URL after the last /
+    let pid = window.location.href.split("/").pop() as string;
+    console.log(pid);
 
     const entries = (await appwriteDatabases.getDocument(
         '646b9dd716753e384863',
