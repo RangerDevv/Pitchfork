@@ -22,12 +22,17 @@ const entries = (await appwriteDatabases.listDocuments(
 	'646538eeeface7a4cd39',
 	[
 		Query.orderAsc('LaunchDate'),
+		Query.lessThan('LaunchDate', new Date().toISOString().slice(0, 10)),
 	]
 )) as ProductList;
 
 const pitches = (await appwriteDatabases.listDocuments(
 	'646b9dd716753e384863',
 	'646b9e0e29b66e4a8a22',
+	[
+		Query.orderAsc('LaunchDate'),
+		Query.lessThanEqual('LaunchDate', new Date().toISOString().slice(0, 10)),
+	]
 )) as PitchList;
 
 console.log(entries);
