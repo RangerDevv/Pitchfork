@@ -53,7 +53,14 @@ if (user) {
 				</svg>
 			</a>
 			<div class="flex flex-row gap-5">
-				{loggedIn && <a href="/create" class="bg-purple-900 p-2 rounded-md">Create</a>}
+				<div class="flex flex-col" id="create">
+				{!loggedIn && <a href="/" class="bg-purple-900 p-2 rounded-md" id="createBtn">Create</a>}
+				<!--  a dropdown menu for the create button -->
+				<div class="flex flex-col gap-2" id="createDropdown">
+					{!loggedIn && <a href="/post/create" class="p-2 rounded-md">🎉 Create Post</a>}
+					{!loggedIn && <a href="/pitch/create" class="p-2 rounded-md">🚀 Create Pitch</a>}
+				</div>
+				</div>
 				{loggedIn && <p class="p-2 rounded-md">{name}</p>}
 				{loggedIn && <Signout client:only="svelte" />}
 				{!loggedIn && <a href="/login" class="p-2 rounded-md">Login</a>}
@@ -94,6 +101,30 @@ if (user) {
 		text-decoration: underline;
 	}
 	nav a:active {
+		text-decoration: underline;
+	}
+
+	/*  when the create button is hovered, the dropdown menu is shown */
+	#createBtn:hover + #createDropdown, #createDropdown:hover {
+		display: flex;
+	}
+	#createDropdown {
+		display: none;
+		flex-direction: column;
+		position: fixed;
+		top: 3rem;
+		background-color: #861df7;
+		padding: 0.5rem;
+		border-radius: 0.5rem;
+	}
+	#createDropdown a {
+		color: white;
+		text-decoration: none;
+	}
+	#createDropdown a:hover {
+		text-decoration: underline;
+	}
+	#createDropdown a:active {
 		text-decoration: underline;
 	}
 </style>
