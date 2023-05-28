@@ -176,7 +176,7 @@ async function CreatePost() {
     <div class="flex flex-row gap-6">
     <!-- svelte-ignore a11y-label-has-associated-control -->
     <label class="text-gray-100">Launch Date</label>
-    <input class="bg-transparent" type="date" bind:value={PostLaunchDate}/>
+    <input class="bg-transparent" type="datetime-local" bind:value={PostLaunchDate}/>
     </div>
     </div>
     <div class="flex flex-row justify-center items-center mt-5">
