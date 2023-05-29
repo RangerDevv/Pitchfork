@@ -32,7 +32,7 @@ async function search() {
     '646538e35dd17306c589',
     '646538eeeface7a4cd39',
     [
-        Query.search("Title", searchTerms)
+        Query.search("Name", searchTerms)
     ]
     );
 
