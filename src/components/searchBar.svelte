@@ -56,6 +56,7 @@ async function search() {
         </label>
     </div>
     {#if PitchResults.length > 0}
+    <p class="text-2xl font-bold">Results</p>
     {#each PitchResults.documents as Pitch}
         <div class="flex flex-col">
             <div class="flex flex-row">
