@@ -133,7 +133,7 @@ const allPitches = pitches.documents.sort(
 			<div class="flex">
 			<img src={'https://cloud.appwrite.io/v1/storage/buckets/646547f5019189c8092b/files/'+todayPitch.Icon+'/preview?project=646538bf8be3792191bd'} alt="image" class="w-auto h-24" />
 			<div class="pl-2">
-				<p class="text-lg">{todayPitch.Name}</p>
+				<p class="text-lg">{todayPitch.Title}</p>
 				<p class="text-md">{todayPitch.Tagline}</p>
 				{todayPitch.Free && <p class=" text-sm text-gray-400">Free</p> || <p class=" text-sm text-gray-400">Paid/Has Paid Options</p>}
 				<p class="text-xs text-gray-400">By: {todayPitch.Author}</p>
@@ -161,7 +161,7 @@ const allPitches = pitches.documents.sort(
 			<div class="flex">
 			<img src={'https://cloud.appwrite.io/v1/storage/buckets/646547f5019189c8092b/files/'+allPitches.Icon+'/preview?project=646538bf8be3792191bd'} alt="image" class="w-auto h-24" />
 			<div class="pl-2">
-				<p class="text-lg">{allPitches.Name}</p>
+				<p class="text-lg">{allPitches.Title}</p>
 				<p class="text-md">{allPitches.Tagline}</p>
 				{allPitches.Free && <p class=" text-sm text-gray-400">Free</p> || <p class=" text-sm text-gray-400">Paid/Has Paid Options</p>}
 				<p class="text-xs text-gray-400">By: {allPitches.Author}</p>
