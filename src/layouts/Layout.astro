@@ -4,6 +4,8 @@ export interface Props {
 }
 
 import Signout from '../components/signout.svelte';
+import SearchBar from '../components/searchBar.svelte';
+
 
 const { title } = Astro.props;
 
@@ -52,6 +54,7 @@ if (user) {
 					</defs>
 				</svg>
 			</a>
+			<SearchBar client:only="svelte" />
 			<div class="flex flex-row gap-5">
 				<div class="flex flex-col" id="create">
 				{loggedIn && <a href="/" class="bg-purple-900 p-2 rounded-md" id="createBtn">Create</a>}
