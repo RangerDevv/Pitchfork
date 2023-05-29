@@ -47,7 +47,7 @@ async function search() {
 <!-- The modal -->
 <input type="checkbox" id="my-modal-3" class="modal-toggle" />
 <div class="modal">
-  <div class="modal-box relative">
+  <div class="modal-box relative h-96">
     <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
     <div class="form-control">
         <label class="input-group">
