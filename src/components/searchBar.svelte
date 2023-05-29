@@ -20,18 +20,13 @@ async function search() {
 
 </script>
 
-<!-- <div>
-<div class="form-control">
-    <label class="input-group">
-      <span>Search</span>
-      <input type="text" placeholder="ReWrit" class="input input-bordered w-96" bind:value={searchTerms} on:input={search} />
-    </label>
-</div>
-</div> -->
+<main>
 <!-- The button to open modal -->
 <label for="my-modal-3" class="btn">Search</label>
 
-<!-- Put this part before </body> tag -->
+</main>
+
+<!-- The modal -->
 <input type="checkbox" id="my-modal-3" class="modal-toggle" />
 <div class="modal">
   <div class="modal-box relative">
@@ -42,7 +37,7 @@ async function search() {
           <input type="text" placeholder="ReWrit" class="input input-bordered w-96" bind:value={searchTerms} on:input={search} />
         </label>
     </div>
-    {#if PitchResults}
+    {#if PitchResults.length > 0}
     {#each PitchResults.documents as Pitch}
         <div class="flex flex-col">
             <div class="flex flex-row">
