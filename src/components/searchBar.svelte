@@ -11,7 +11,7 @@ async function search() {
     '646b9dd716753e384863',
 	'646b9e0e29b66e4a8a22',
 	[
-        Query.search("Search", searchTerms)
+        Query.search("Title", searchTerms)
 	]
     );
     console.log(searchResults);
