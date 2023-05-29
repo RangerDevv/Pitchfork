@@ -70,7 +70,7 @@ async function search() {
     {#if PitchResults.documents != undefined && PitchResults.documents.length > 0}
     {#each PitchResults.documents as Pitch}
         <div class="flex flex-col">
-            <div class="flex flex-row justify-between items-center space-x-4">
+            <div class="flex flex-row justify-center items-center space-x-4">
                 <!-- svelte-ignore a11y-img-redundant-alt -->
                 <img src={'https://cloud.appwrite.io/v1/storage/buckets/646547f5019189c8092b/files/'+Pitch.Icon+'/preview?project=646538bf8be3792191bd'} alt="image" class="w-auto h-16" />
                 <div class="flex flex-col w-auto">
