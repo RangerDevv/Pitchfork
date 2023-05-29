@@ -27,6 +27,15 @@ async function search() {
         Query.search("Title", searchTerms)
 	]
     );
+
+    postResults = await appwriteDatabases.listDocuments(
+    '646b9dd716753e384863',
+    '646b9e0e29b66e4a8a22',
+    [
+        Query.search("Title", searchTerms)
+    ]
+    );
+
     console.log(PitchResults);
     console.log(PitchResults.documents);
     console.log(PitchResults.documents[0]);
@@ -40,7 +49,7 @@ async function search() {
 
 <main>
 <!-- The button to open modal -->
-<label for="my-modal-3" class="btn">Search</label>
+<label for="my-modal-3" class="bg-purple-900 p-2 rounded-md">Search</label>
 
 </main>
 
@@ -67,10 +76,26 @@ async function search() {
             </div>
         </div> -->
     <div class="overflow-y-auto h-96"> <!-- This is the div that will scroll -->
+    {#if postResults.documents != undefined && postResults.documents.length > 0}
+    <p class="text-lg font-semibold text-center">Posts</p>
+    {#each postResults.documents as post}
+        <div class="flex flex-col">
+            <div class="flex flex-row justify-around items-center space-x-4">
+                <!-- svelte-ignore a11y-img-redundant-alt -->
+                <img src={'https://cloud.appwrite.io/v1/storage/buckets/646547f5019189c8092b/files/'+post.Icon+'/preview?project=646538bf8be3792191bd'} alt="image" class="w-auto h-16" />
+                <div class="flex flex-col w-auto">
+                    <h1 class="text-lg font-semibold">{post.Title}</h1>
+                    <h1 class="text-md font-medium text-gray-400">{post.Tagline}</h1>
+                </div>
+            </div>
+        </div>
+    {/each}
+    {/if}
     {#if PitchResults.documents != undefined && PitchResults.documents.length > 0}
+    <p class="text-lg font-semibold text-center">Pitches</p>
     {#each PitchResults.documents as Pitch}
         <div class="flex flex-col">
-            <div class="flex flex-row justify-center items-center space-x-4">
+            <div class="flex flex-row justify-around items-center space-x-4">
                 <!-- svelte-ignore a11y-img-redundant-alt -->
                 <img src={'https://cloud.appwrite.io/v1/storage/buckets/646547f5019189c8092b/files/'+Pitch.Icon+'/preview?project=646538bf8be3792191bd'} alt="image" class="w-auto h-16" />
                 <div class="flex flex-col w-auto">
