@@ -29,8 +29,8 @@ async function search() {
     );
 
     postResults = await appwriteDatabases.listDocuments(
-    '646b9dd716753e384863',
-    '646b9e0e29b66e4a8a22',
+    '646538e35dd17306c589',
+    '646538eeeface7a4cd39',
     [
         Query.search("Title", searchTerms)
     ]
@@ -40,6 +40,11 @@ async function search() {
     console.log(PitchResults.documents);
     console.log(PitchResults.documents[0]);
     console.log(PitchResults.documents[0].Title);
+
+    console.log(postResults);
+    console.log(postResults.documents);
+    console.log(postResults.documents[0]);
+    console.log(postResults.documents[0].Title);
 
     console.log(dummyArray);
     console.log(dummyArray[0]);
