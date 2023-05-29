@@ -78,12 +78,43 @@ const entries = (await appwriteDatabases.getDocument(
     {entries.Description}
 </p>
 
-<div class="flex flex-row gap-8 overflow-x-auto p-10 md:p-0 md:pt-24 md:pl-48 md:pr-48">
+<!-- <div class="flex flex-row gap-8 overflow-x-auto p-10 md:p-0 md:pt-24 md:pl-48 md:pr-48">
 <img src={'https://cloud.appwrite.io/v1/storage/buckets/64661e622715cf602c83/files/'+entries.Thumbnail+'/preview?project=646538bf8be3792191bd'} alt={entries.Name} class="w-96 sm:w-7/12 h-auto items-center mx-auto my-auto" />
-<!-- check if the image src is empty, if it is, don't show the image -->
 {entries.Thumbnail2 != "" ? <img src={'https://cloud.appwrite.io/v1/storage/buckets/64661e622715cf602c83/files/'+entries.Thumbnail2+'/preview?project=646538bf8be3792191bd'} alt={entries.Name} class="w-96 sm:w-7/12 h-auto items-center mx-auto my-auto" /> : "" }
 {entries.Thumbnail3 != "" ? <img src={'https://cloud.appwrite.io/v1/storage/buckets/64661e622715cf602c83/files/'+entries.Thumbnail3+'/preview?project=646538bf8be3792191bd'} alt={entries.Name} class="w-96 sm:w-7/12 h-auto items-center mx-auto my-auto" /> : "" }
 {entries.Thumbnail4 != "" ? <img src={'https://cloud.appwrite.io/v1/storage/buckets/64661e622715cf602c83/files/'+entries.Thumbnail4+'/preview?project=646538bf8be3792191bd'} alt={entries.Name} class="w-96 sm:w-7/12 h-auto items-center mx-auto my-auto" /> : "" }
+</div> -->
+
+<!-- center the carousel -->
+<div class="carousel w-7/12 h-56 md:h-96 mx-auto mt-16">
+    <div id="slide1" class="carousel-item relative w-full">
+        <img src={'https://cloud.appwrite.io/v1/storage/buckets/64661e622715cf602c83/files/'+entries.Thumbnail+'/preview?project=646538bf8be3792191bd'} alt={entries.Name} class="w-full" />
+        <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+            <a href="#slide4" class="btn btn-circle btn-primary">❮</a>
+            {entries.Thumbnail2 != "" ? <a href="#slide2" class="btn btn-circle btn-primary">❯</a> : "" }
+        </div>
+    </div>
+    {entries.Thumbnail2 != "" ? <div id="slide2" class="carousel-item relative w-full">
+        <img src={'https://cloud.appwrite.io/v1/storage/buckets/64661e622715cf602c83/files/'+entries.Thumbnail2+'/preview?project=646538bf8be3792191bd'} alt={entries.Name} class="w-full" />
+        <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+            <a href="#slide1" class="btn btn-circle btn-primary">❮</a>
+            {entries.Thumbnail3 != "" ? <a href="#slide3" class="btn btn-circle btn-primary">❯</a> : "" }
+        </div>
+    </div> : "" }
+    {entries.Thumbnail3 != "" ? <div id="slide3" class="carousel-item relative w-full">
+        <img src={'https://cloud.appwrite.io/v1/storage/buckets/64661e622715cf602c83/files/'+entries.Thumbnail3+'/preview?project=646538bf8be3792191bd'} alt={entries.Name} class="w-full" />
+        <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+            <a href="#slide2" class="btn btn-circle btn-primary">❮</a>
+            {entries.Thumbnail4 != "" ? <a href="#slide4" class="btn btn-circle btn-primary">❯</a> : "" }
+        </div>
+    </div> : "" }
+    {entries.Thumbnail4 != "" ? <div id="slide4" class="carousel-item relative w-full">
+        <img src={'https://cloud.appwrite.io/v1/storage/buckets/64661e622715cf602c83/files/'+entries.Thumbnail4+'/preview?project=646538bf8be3792191bd'} alt={entries.Name} class="w-full" />
+        <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+            <a href="#slide3" class="btn btn-circle btn-primary">❮</a>
+            <a href="#slide1" class="btn btn-circle btn-primary">❯</a>
+        </div>
+    </div> : "" }
 </div>
 
 </Layout>

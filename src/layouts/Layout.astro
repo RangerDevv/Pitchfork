@@ -36,8 +36,8 @@ if (user) {
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body>
-		<nav>
+	<body class="text-white">
+		<nav class="z-50">
 			<a href="/" class="w-auto h-auto scale-[1.4] rounded-3xl pt-1">
 				<svg width="30" height="30" viewBox="10 0 78 78" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path d="M47.5453 69.5372H50.6197V97.0001H47.5453V69.5372Z" fill="#DA3D05"/>
@@ -73,7 +73,7 @@ if (user) {
 	:root {
 		--accent: 124, 58, 237;
 		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
-		background-color: rgb(22, 22, 22);
+		background-color: rgb(22, 22, 22) !important;
 		color: white;
 	}
 	html {

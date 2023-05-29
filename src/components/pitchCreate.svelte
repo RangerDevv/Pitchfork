@@ -167,50 +167,20 @@
     <div>
         <div class=" mb-5 items-center justify-center flex flex-col space-y-2">
             <label for="IconFile" class="block text-sm font-medium text-gray-100">Icon</label>
-            <input class="block text-sm text-gray-300
+            <!-- <input class="block text-sm text-gray-300
               file:mr-4 file:py-2 file:px-4
               file:rounded-md file:border-0
               file:text-sm file:font-semibold
               file:bg-blue-500 file:text-white
-              hover:file:bg-blue-600" type="file" id="PitchIconFile" />
+              hover:file:bg-blue-600" type="file" id="PitchIconFile" /> -->
+              <input type="file" class="file-input file-input-bordered file-input-primary w-full max-w-xs" id="PitchIconFile" accept="png, jpg, jpeg, gif, svg" />
             <label for="ThumbnailFile" class="block text-sm font-medium text-gray-100">Thumbnail</label>
-            <input class="block text-sm text-gray-300
-              file:mr-4 file:py-2 file:px-4
-              file:rounded-md file:border-0
-              file:text-sm file:font-semibold
-              file:bg-blue-500 file:text-white
-              hover:file:bg-blue-600" type="file" id="PitchThumbnailFile" />
-              <input class="block text-sm text-gray-300
-              file:mr-4 file:py-2 file:px-4
-              file:rounded-md file:border-0
-              file:text-sm file:font-semibold
-              file:bg-blue-500 file:text-white
-              hover:file:bg-blue-600" type="file" id="PitchThumbnailFile2" />
-              <input class="block text-sm text-gray-300
-              file:mr-4 file:py-2 file:px-4
-              file:rounded-md file:border-0
-              file:text-sm file:font-semibold
-              file:bg-blue-500 file:text-white
-              hover:file:bg-blue-600" type="file" id="PitchThumbnailFile3" />
-              <input class="block text-sm text-gray-300
-              file:mr-4 file:py-2 file:px-4
-              file:rounded-md file:border-0
-              file:text-sm file:font-semibold
-              file:bg-blue-500 file:text-white
-              hover:file:bg-blue-600" type="file" id="PitchThumbnailFile4" />
-              <input class="block text-sm text-gray-300
-                file:mr-4 file:py-2 file:px-4
-                file:rounded-md file:border-0
-                file:text-sm file:font-semibold
-                file:bg-blue-500 file:text-white
-                hover:file:bg-blue-600" type="file" id="PitchThumbnailFile5" />
-                <input class="block text-sm text-gray-300
-                file:mr-4 file:py-2 file:px-4
-                file:rounded-md file:border-0
-                file:text-sm file:font-semibold
-                file:bg-blue-500 file:text-white
-                hover:file:bg-blue-600" type="file" id="PitchThumbnailFile6" />
-    
+              <input type="file" class="file-input file-input-bordered file-input-primary w-full max-w-xs" id="PitchThumbnailFile" accept="png, jpg, jpeg, gif, svg" />
+              <input type="file" class="file-input file-input-bordered file-input-primary w-full max-w-xs" id="PitchThumbnailFile2" accept="png, jpg, jpeg, gif, svg" />
+              <input type="file" class="file-input file-input-bordered file-input-primary w-full max-w-xs" id="PitchThumbnailFile3" accept="png, jpg, jpeg, gif, svg" />
+              <input type="file" class="file-input file-input-bordered file-input-primary w-full max-w-xs" id="PitchThumbnailFile4" accept="png, jpg, jpeg, gif, svg" />
+              <input type="file" class="file-input file-input-bordered file-input-primary w-full max-w-xs" id="PitchThumbnailFile5" accept="png, jpg, jpeg, gif, svg" />
+              <input type="file" class="file-input file-input-bordered file-input-primary w-full max-w-xs" id="PitchThumbnailFile6" accept="png, jpg, jpeg, gif, svg" />
             </div>
             <div class="flex flex-col space-y-2 justify-center items-center">
             <input type="text" class="bg-transparent outline outline-gray-500 w-64 sm:w-96 h-10 rounded-md p-2" bind:value={PitchTitle} placeholder="Title" />
