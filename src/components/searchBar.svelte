@@ -5,6 +5,18 @@ import { Query } from "appwrite";
 
 let searchTerms = "";
 let PitchResults = [] as any;
+let dummyArray = [
+    {
+        "Title": "ReWrit",
+        "Tagline": "ReWrit is a platform for writers to share their work and get feedback from other writers.",
+        "Description": "ReWrit is cool",
+    },
+    {
+        "Title": "Harry Potter",
+        "Tagline": "Harry Potter is a series of seven fantasy novels written by British author J. K. Rowling.",
+        "Description": "Harry Potter is cool",
+    }
+] as any;
 let postResults = [] as any;
 
 async function search() {
@@ -17,6 +29,11 @@ async function search() {
     );
     console.log(PitchResults);
     console.log(PitchResults.documents);
+    console.log(PitchResults.documents[0]);
+    console.log(PitchResults.documents[0].Title);
+
+    console.log(dummyArray);
+    console.log(dummyArray[0]);
 }
 
 </script>
