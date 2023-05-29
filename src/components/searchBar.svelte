@@ -16,6 +16,7 @@ async function search() {
 	]
     );
     console.log(PitchResults);
+    console.log(PitchResults.documents);
 }
 
 </script>
