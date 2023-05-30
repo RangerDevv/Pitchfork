@@ -50,23 +50,39 @@ async function search() {
     console.log(dummyArray[0]);
 }
 
+// if ctrl + Q is pressed, then open the modal by checking the checkbox
+window.addEventListener("keydown", function (event) {
+    if (event.ctrlKey && event.key === "q") {
+        let modal = document.getElementById("my-modal-3") as HTMLInputElement;
+        modal.checked = true;
+    }
+    // if the escape key is pressed, then close the modal by unchecking the checkbox
+    if (event.key === "Escape") {
+        let modal = document.getElementById("my-modal-3") as HTMLInputElement;
+        modal.checked = false;
+    }
+});
+
 </script>
 
 <main>
 <!-- The button to open modal -->
-<label for="my-modal-3" class="bg-purple-900 p-2 rounded-md">Search</label>
-
+<label for="my-modal-3" class="bg-purple-900 p-2 rounded-md">Search (
+<kbd class="kbd text-xs">ctrl</kbd>
+    +
+<kbd class="kbd text-xs">Q</kbd>
+)
 </main>
 
 <!-- The modal -->
 <input type="checkbox" id="my-modal-3" class="modal-toggle" />
 <div class="modal">
-  <div class="modal-box relative h-96">
-    <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-    <div class="form-control">
-        <label class="input-group">
-          <span>Search</span>
-          <input type="text" placeholder="ReWrit" class="input input-bordered w-96" bind:value={searchTerms} on:input={search} />
+  <div class="modal-box relative h-96 bg-zinc-800 rounded-lg">
+    <label for="my-modal-3" class="btn btn-sm btn-circle btn-error absolute right-2 top-2">✕</label>
+    <div class="form-control mt-10">
+        <label class="input-group input-primary">
+          <span class="text-white bg-purple-500">Search</span>
+          <input type="text" placeholder="ReWrit" class="input input-secondary input-bordered w-96" bind:value={searchTerms} on:input={search} />
         </label>
     </div>
         <!--  mock array of results to test the UI -->
@@ -114,3 +130,10 @@ async function search() {
     </div>
   </div>
 </div>
+
+<style>
+    /*  make the scroll bar invisible */
+    .modal-box::-webkit-scrollbar {
+        display: none;
+    }
+</style>
