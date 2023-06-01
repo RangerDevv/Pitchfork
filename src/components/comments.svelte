@@ -43,6 +43,9 @@
             },
         );
         await promise;
+        // refresh ONLY the component
+        await getComments();
+        postedComment = ""; 
     }
 </script>
 
