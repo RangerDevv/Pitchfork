@@ -3,9 +3,11 @@
 import Layout from '../../layouts/Layout.astro';
 import { appwriteDatabases , appwriteStorage, Products, appwriteUser } from '../../lib/appwrite';
 
+import Comments from '../../components/comments.svelte';
 import UpvoteBtn from '../../components/upvoteBtn.svelte';
 
 let uid = Astro.cookies.get('user').value;
+let userName = Astro.cookies.get('userName').value;
 
 // get the ID from the URL
 let pid = Astro.params.id!
@@ -123,5 +125,7 @@ const entries = (await appwriteDatabases.getDocument(
         </div>
     </div> : "" }
 </div>
+
+<Comments docId="646b9dd716753e384863" docCollection='6477d7986ebe656226ae' postId={pid} userUid={uid} userDisplayName={userName} />
 
 </Layout>
