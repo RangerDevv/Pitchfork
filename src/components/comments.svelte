@@ -60,7 +60,7 @@
             📄
         </button>
     </div>
-    <div class="flex flex-col space-y-4 p-8">
+    <div class="flex flex-col space-y-4 p-8 pl-10">
     {#if comments.length === 0}
         <p class="text-center">No comments yet</p>
     {:else}
@@ -69,7 +69,7 @@
         <div class="flex flex-row space-x-2">
             <img
             class="rounded-full h-8 w-8"
-            src="https://avatars.dicebear.com/api/avataaars/${comment.AuthorUid}.svg"
+            src="https://avatars.dicebear.com/api/identicon/${comment.AuthorUid}.svg"
             alt="avatar"
             />
             <p class="text-lg font-bold">{comment.AuthorName}</p>
