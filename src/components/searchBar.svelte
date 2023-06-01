@@ -98,10 +98,11 @@ window.addEventListener("keydown", function (event) {
         </div> -->
     <div class="overflow-y-auto h-96"> <!-- This is the div that will scroll -->
     {#if postResults.documents != undefined && postResults.documents.length > 0}
-    <p class="text-lg font-semibold text-center">Posts</p>
+    <p class="text-lg font-semibold text-center pt-4">Posts</p>
     {#each postResults.documents as post}
         <div class="flex flex-col">
-            <div class="flex flex-row justify-around items-center space-x-4">
+            <!-- svelte-ignore a11y-click-events-have-key-events -->
+            <div class="flex flex-row justify-around items-center space-x-4 hover:bg-zinc-700" on:click={() => window.location.href = '/post/'+post.$id}>
                 <!-- svelte-ignore a11y-img-redundant-alt -->
                 <img src={'https://cloud.appwrite.io/v1/storage/buckets/646547f5019189c8092b/files/'+post.Icon+'/preview?project=646538bf8be3792191bd'} alt="image" class="w-auto h-16" />
                 <div class="flex flex-col w-auto">
@@ -116,7 +117,8 @@ window.addEventListener("keydown", function (event) {
     <p class="text-lg font-semibold text-center">Pitches</p>
     {#each PitchResults.documents as Pitch}
         <div class="flex flex-col">
-            <div class="flex flex-row justify-around items-center space-x-4">
+            <!-- svelte-ignore a11y-click-events-have-key-events -->
+            <div class="flex flex-row justify-around items-center space-x-4 hover:bg-zinc-700" on:click={() => window.location.href = '/pitch/'+Pitch.$id}>
                 <!-- svelte-ignore a11y-img-redundant-alt -->
                 <img src={'https://cloud.appwrite.io/v1/storage/buckets/646547f5019189c8092b/files/'+Pitch.Icon+'/preview?project=646538bf8be3792191bd'} alt="image" class="w-auto h-16" />
                 <div class="flex flex-col w-auto">
