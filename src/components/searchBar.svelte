@@ -102,7 +102,7 @@ window.addEventListener("keydown", function (event) {
     {#each postResults.documents as post}
         <div class="flex flex-col">
             <!-- svelte-ignore a11y-click-events-have-key-events -->
-            <div class="flex flex-row justify-around items-center space-x-4 hover:bg-zinc-700 p-4 rounded-md" on:click={() => window.location.href = '/post/'+post.$id}>
+            <div class="flex flex-row justify-around items-center space-x-4 hover:bg-zinc-700 p-2 rounded-md" on:click={() => window.location.href = '/post/'+post.$id}>
                 <!-- svelte-ignore a11y-img-redundant-alt -->
                 <img src={'https://cloud.appwrite.io/v1/storage/buckets/646547f5019189c8092b/files/'+post.Icon+'/preview?project=646538bf8be3792191bd'} alt="image" class="w-auto h-16" />
                 <div class="flex flex-col w-auto">
@@ -118,7 +118,7 @@ window.addEventListener("keydown", function (event) {
     {#each PitchResults.documents as Pitch}
         <div class="flex flex-col">
             <!-- svelte-ignore a11y-click-events-have-key-events -->
-            <div class="flex flex-row justify-around items-center space-x-4 hover:bg-zinc-700 p-4 rounded-md" on:click={() => window.location.href = '/pitch/'+Pitch.$id}>
+            <div class="flex flex-row justify-around items-center space-x-4 hover:bg-zinc-700 p-2 rounded-md" on:click={() => window.location.href = '/pitch/'+Pitch.$id}>
                 <!-- svelte-ignore a11y-img-redundant-alt -->
                 <img src={'https://cloud.appwrite.io/v1/storage/buckets/646547f5019189c8092b/files/'+Pitch.Icon+'/preview?project=646538bf8be3792191bd'} alt="image" class="w-auto h-16" />
                 <div class="flex flex-col w-auto">
