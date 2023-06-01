@@ -126,6 +126,6 @@ const entries = (await appwriteDatabases.getDocument(
     </div> : "" }
 </div>
 
-<Comments docId="646b9dd716753e384863" docCollection='6477d7986ebe656226ae' postId={pid} userUid={uid} userDisplayName={userName} />
+<Comments docId="646b9dd716753e384863" docCollection='6477d7986ebe656226ae' postId={pid} userUid={uid} userDisplayName={userName} client:only="svelte" />
 
 </Layout>
