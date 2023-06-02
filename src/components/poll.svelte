@@ -62,6 +62,7 @@ async function upvotePitch(docID:any){
     //   refresh the poll
     pollYes = doc.LikePitch.length;
     pollNo = doc.HatePitch.length;
+    window.location.reload();
   } catch (error : any) {
       console.log(error);
       alert(error.message);
@@ -95,6 +96,7 @@ async function downvotePitch(docID:any){
         //   refresh the poll
         pollYes = doc.LikePitch.length;
         pollNo = doc.HatePitch.length;
+        window.location.reload();
     } catch (error : any) {
         console.log(error);
         alert(error.message);
