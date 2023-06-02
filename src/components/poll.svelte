@@ -6,7 +6,8 @@ let DatabaseID = '646b9dd716753e384863';
 let CollectionID = '646b9e0e29b66e4a8a22';
 export let DocumentID = '';
 export let uid = '';
-let voted = false;
+let yesVotes = false;
+let noVotes = false;
 $: pollYes = 0;
 $: pollNo = 0;
 
@@ -14,7 +15,16 @@ onMount(async () => {
     const currDocument = await setDoc(DocumentID) as any;
     pollYes = currDocument.LikePitch.length;
     pollNo = currDocument.HatePitch.length;
-    voted = currDocument.Upvotes.includes(uid);
+    if (currDocument.LikePitch.includes(uid)) {
+        yesVotes = true;
+        noVotes = false;
+    } else if (currDocument.HatePitch.includes(uid)) {
+        yesVotes = false;
+        noVotes = true;
+    } else {
+        yesVotes = false;
+        noVotes = false;
+    }
 });
 
 async function setDoc(id: string){
@@ -38,7 +48,9 @@ async function upvotePitch(docID:any){
         'LikePitch': doc.LikePitch.includes(uid) ? doc.LikePitch.filter((id: string) => id !== uid) : [...doc.LikePitch ?? [] , uid]
     });
       console.log(docID);
-      voted = !voted;
+    //   make the yesVotes true and noVotes false
+      yesVotes = !yesVotes;
+      noVotes = !noVotes;
     //   if there is the user id in the array of HatePitch, remove it
       if (doc.HatePitch.includes(uid)) {
         await appwriteDatabases.updateDocument(DatabaseID,CollectionID,DocumentID,{
@@ -69,7 +81,9 @@ async function downvotePitch(docID:any){
           'HatePitch': doc.HatePitch.includes(uid) ? doc.HatePitch.filter((id: string) => id !== uid) : [...doc.HatePitch ?? [] , uid]
       });
         console.log(docID);
-        voted = !voted;
+        //   make the yesVotes true and noVotes false
+        yesVotes = !yesVotes;
+        noVotes = !noVotes;
         //   if there is the user id in the array of LikePitch, remove it
         if (doc.LikePitch.includes(uid)) {
             await appwriteDatabases.updateDocument(DatabaseID,CollectionID,DocumentID,{
@@ -96,14 +110,14 @@ async function downvotePitch(docID:any){
 <div class="flex flex-col gap-1 items-center">
 <!--  make a poll that shows the number of upvotes and downvotes and the width of the bar is the percentage of upvotes -->
 <div class="flex flex-row gap-1 items-center">
-<button class="w-16 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" on:click={() => upvotePitch(DocumentID)} disabled={voted}>
+<button class="w-16 bg-green-500 disabled:outline disabled:bg-transparent hover:bg-green-700 text-white font-bold py-2 px-4 rounded" on:click={() => upvotePitch(DocumentID)} disabled={yesVotes}>
     {pollYes} ▲
 </button>
 <div class="bg-green-500 h-10" style="width: {pollYes / (pollYes + pollNo) * 100}%">
 </div>
 </div>
 <div class="flex flex-row gap-1 items-center">
-<button class="w-16 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" on:click={() => downvotePitch(DocumentID)} disabled={voted}>
+<button class="w-16 bg-red-500 disabled:outline disabled:bg-transparent hover:bg-red-700 text-white font-bold py-2 px-4 rounded" on:click={() => downvotePitch(DocumentID)} disabled={noVotes}>
     {pollNo} ▼
 </button>
 <div class="bg-red-500 h-10" style="width: {pollNo / (pollYes + pollNo) * 100}%">
