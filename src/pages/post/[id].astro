@@ -120,8 +120,6 @@ const entries = (await appwriteDatabases.getDocument(
     </div> : "" }
 </div>
 
-<Poll DocumentID={pid} uid={uid} client:only="svelte" />
-
 <Comments docId="646538e35dd17306c589" docCollection="6477d7a880bdb3f92adc" postId={pid} userUid={uid} userDisplayName={userName} client:only="svelte" />
 
 </Layout>
