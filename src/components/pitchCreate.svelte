@@ -190,7 +190,7 @@
             <div class="flex flex-row gap-6">
             <!-- svelte-ignore a11y-label-has-associated-control -->
             <label class="text-gray-100">Launch Date</label>
-            <input class="bg-transparent" type="datetime-local" bind:value={PitchLaunchDate}/>
+            <input class="bg-transparent" type="date" bind:value={PitchLaunchDate}/>
             </div>
             <div class="flex flex-row justify-center items-center mt-5">
             <button on:click={createPitch} class="bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-md self-center mx-auto my-auto">Pitch It!</button>
