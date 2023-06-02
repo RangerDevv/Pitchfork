@@ -84,13 +84,21 @@ async function downvotePitch(docID:any){
 </script>
 
 <main>
-<div class="flex flex-col gap-1 w-96">
+<div class="flex flex-col gap-1 items-center">
 <!--  make a poll that shows the number of upvotes and downvotes and the width of the bar is the percentage of upvotes -->
+<div class="flex flex-row gap-1 items-center">
 <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" on:click={() => upvotePitch(DocumentID)} disabled={voted}>
-    {pollYes} Upvotes
+    {pollYes} ▲
 </button>
+<div class="bg-green-500 h-4" style="width: {pollYes / (pollYes + pollNo) * 100}%">
+</div>
+</div>
+<div class="flex flex-row gap-1 items-center">
 <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" on:click={() => downvotePitch(DocumentID)} disabled={voted}>
-    {pollNo} Downvotes
+    {pollNo} ▼
 </button>
+<div class="bg-red-500 h-4" style="width: {pollNo / (pollYes + pollNo) * 100}%">
+</div>
+</div>
 </div>
 </main>
