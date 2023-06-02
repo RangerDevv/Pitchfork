@@ -58,6 +58,22 @@ const posts = entries.documents.sort(
   (a, b) => b.Upvotes.length - a.Upvotes.length
 );
 
+const todayPitch = pitches.documents
+  .filter((pitches) => {
+	console.log(pitches.LaunchDate);
+	const postDate = new Date(pitches.LaunchDate.slice(0,-6));
+ console.log('PitchDate: '+postDate);
+ console.log('-----');
+	const formattedPostDate = postDate.toISOString().slice(0, 10); // Format the date as "YYYY-MM-DD"
+	return formattedPostDate === formattedToday; // Filter posts with matching formatted date
+  })
+  .sort((a, b) => b.Upvotes.length - a.Upvotes.length);
+
+const allPitches = pitches.documents.sort(
+  // sort the posts based on the number of upvotes
+  (a, b) => b.Upvotes.length - a.Upvotes.length
+);
+
 function shufflePosts() {
   // Shuffle the posts array using the Fisher-Yates algorithm
   for (let i = todayPosts.length - 1; i > 0; i--) {
@@ -85,24 +101,6 @@ shufflePosts();
 setInterval(() => {
   shufflePosts();
 }, 2 * 60 * 60 * 1000); // 2 hours in milliseconds
-
-const todayPitch = pitches.documents
-  .filter((pitches) => {
-	console.log(pitches.LaunchDate);
-	const postDate = new Date(pitches.LaunchDate.slice(0,-6));
- console.log('PitchDate: '+postDate);
- console.log('-----');
-	const formattedPostDate = postDate.toISOString().slice(0, 10); // Format the date as "YYYY-MM-DD"
-	return formattedPostDate === formattedToday; // Filter posts with matching formatted date
-  })
-  .sort((a, b) => b.Upvotes.length - a.Upvotes.length);
-
-const allPitches = pitches.documents.sort(
-  // sort the posts based on the number of upvotes
-  (a, b) => b.Upvotes.length - a.Upvotes.length
-);
-
-
 ---
 <Layout title="Pitchfork">
 	<main class="p-5 sm:p-10">
