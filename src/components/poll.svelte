@@ -36,6 +36,28 @@ async function setDoc(id: string){
   }
 }
 
+async function updatePoll(){
+  try {
+    const doc = await setDoc(DocumentID) as any;
+    pollYes = doc.LikePitch.length;
+    pollNo = doc.HatePitch.length;
+    // set the boolean values for the buttons
+    if (doc.LikePitch.includes(uid)) {
+        yesVotes = true;
+        noVotes = false;
+    } else if (doc.HatePitch.includes(uid)) {
+        yesVotes = false;
+        noVotes = true;
+    } else {
+        yesVotes = false;
+        noVotes = false;
+    }
+  } catch (e) {
+    // Handle the error
+  }
+}
+
+
 async function upvotePitch(docID:any){
   try {
     const doc = await setDoc(docID) as any;
@@ -48,9 +70,6 @@ async function upvotePitch(docID:any){
         'LikePitch': doc.LikePitch.includes(uid) ? doc.LikePitch.filter((id: string) => id !== uid) : [...doc.LikePitch ?? [] , uid]
     });
       console.log(docID);
-    //   make the yesVotes true and noVotes false
-      yesVotes = !yesVotes;
-      noVotes = !noVotes;
     //   if there is the user id in the array of HatePitch, remove it
       if (doc.HatePitch.includes(uid)) {
         await appwriteDatabases.updateDocument(DatabaseID,CollectionID,DocumentID,{
@@ -60,9 +79,7 @@ async function upvotePitch(docID:any){
         });
       }
     //   refresh the poll
-    pollYes = doc.LikePitch.length;
-    pollNo = doc.HatePitch.length;
-    window.location.reload();
+    updatePoll();
   } catch (error : any) {
       console.log(error);
       alert(error.message);
@@ -82,9 +99,7 @@ async function downvotePitch(docID:any){
           'HatePitch': doc.HatePitch.includes(uid) ? doc.HatePitch.filter((id: string) => id !== uid) : [...doc.HatePitch ?? [] , uid]
       });
         console.log(docID);
-        //   make the yesVotes true and noVotes false
-        yesVotes = !yesVotes;
-        noVotes = !noVotes;
+
         //   if there is the user id in the array of LikePitch, remove it
         if (doc.LikePitch.includes(uid)) {
             await appwriteDatabases.updateDocument(DatabaseID,CollectionID,DocumentID,{
@@ -94,9 +109,7 @@ async function downvotePitch(docID:any){
             });
           }
         //   refresh the poll
-        pollYes = doc.LikePitch.length;
-        pollNo = doc.HatePitch.length;
-        window.location.reload();
+        updatePoll();
     } catch (error : any) {
         console.log(error);
         alert(error.message);
