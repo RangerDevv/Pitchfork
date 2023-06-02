@@ -56,7 +56,7 @@ const todayPosts = entries.documents
 const posts = entries.documents.sort(
   // sort the posts based on the number of upvotes
   (a, b) => b.Upvotes.length - a.Upvotes.length
-);
+).splice(0, 75);
 
 const todayPitch = pitches.documents
   .filter((pitches) => {
@@ -71,8 +71,8 @@ const todayPitch = pitches.documents
 
 const allPitches = pitches.documents.sort(
   // sort the posts based on the number of upvotes
-  (a, b) => b.Upvotes.length - a.Upvotes.length
-);
+  (a, b) => b.Upvotes.length - a.Upvotes.length  
+).slice(0, 75);
 
 function shufflePosts() {
   // Shuffle the posts array using the Fisher-Yates algorithm
