@@ -64,6 +64,18 @@ function shufflePosts() {
     const j = Math.floor(Math.random() * (i + 1));
     [todayPosts[i], todayPosts[j]] = [todayPosts[j], todayPosts[i]];
   }
+  for (let i = posts.length - 1; i > 0; i--) {
+	const j = Math.floor(Math.random() * (i + 1));
+	[posts[i], posts[j]] = [posts[j], posts[i]];
+  }
+  for (let i = allPitches.length - 1; i > 0; i--) {
+	const j = Math.floor(Math.random() * (i + 1));
+	[allPitches[i], allPitches[j]] = [allPitches[j], allPitches[i]];
+  }
+  for (let i = todayPitch.length - 1; i > 0; i--) {
+	const j = Math.floor(Math.random() * (i + 1));
+	[todayPitch[i], todayPitch[j]] = [todayPitch[j], todayPitch[i]];
+  }
 }
 
 // Initial shuffle
