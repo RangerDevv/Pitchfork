@@ -47,6 +47,9 @@ async function upvotePitch(docID:any){
             'HatePitch': doc.HatePitch.filter((id: string) => id !== uid)
         });
       }
+    //   refresh the poll
+    pollYes = doc.LikePitch.length;
+    pollNo = doc.HatePitch.length;
   } catch (error : any) {
       console.log(error);
       alert(error.message);
@@ -75,6 +78,9 @@ async function downvotePitch(docID:any){
                 'LikePitch': doc.LikePitch.filter((id: string) => id !== uid)
             });
           }
+        //   refresh the poll
+        pollYes = doc.LikePitch.length;
+        pollNo = doc.HatePitch.length;
     } catch (error : any) {
         console.log(error);
         alert(error.message);
@@ -84,20 +90,23 @@ async function downvotePitch(docID:any){
 </script>
 
 <main>
+
+<p class="text-2xl font-bold text-center pt-10 pb-8">What do you think of this pitch?</p>
+
 <div class="flex flex-col gap-1 items-center">
 <!--  make a poll that shows the number of upvotes and downvotes and the width of the bar is the percentage of upvotes -->
 <div class="flex flex-row gap-1 items-center">
-<button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" on:click={() => upvotePitch(DocumentID)} disabled={voted}>
+<button class="w-16 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" on:click={() => upvotePitch(DocumentID)} disabled={voted}>
     {pollYes} ▲
 </button>
-<div class="bg-green-500 h-4" style="width: {pollYes / (pollYes + pollNo) * 100}%">
+<div class="bg-green-500 h-10" style="width: {pollYes / (pollYes + pollNo) * 100}%">
 </div>
 </div>
 <div class="flex flex-row gap-1 items-center">
-<button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" on:click={() => downvotePitch(DocumentID)} disabled={voted}>
+<button class="w-16 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" on:click={() => downvotePitch(DocumentID)} disabled={voted}>
     {pollNo} ▼
 </button>
-<div class="bg-red-500 h-4" style="width: {pollNo / (pollYes + pollNo) * 100}%">
+<div class="bg-red-500 h-10" style="width: {pollNo / (pollYes + pollNo) * 100}%">
 </div>
 </div>
 </div>
