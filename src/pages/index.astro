@@ -153,7 +153,13 @@ setInterval(() => {
 			</div>
 			)}
 		</div>
-		<h1 class="text-white text-center mb-5 text-2xl font-normal pt-5">Top Pitches</h1>
+		<h1 class="text-white text-center mb-5 text-2xl font-normal pt-5">Top Pitches
+			<span>
+				<div class="tooltip tooltip-primary" data-tip="View All Pitches">
+					<a href="/pitch/pitch" class="text-blue-500">→</a>
+				  </div>
+			</span>
+		</h1>
 		<div class="flex flex-wrap items-center flex-row gap-5 justify-center m-auto">
 			{allPitches.map((allPitches)=> (
 			<div class="flex flex-col gap-3 bg-slate-800 rounded-xl w-80 p-3">
@@ -175,7 +181,13 @@ setInterval(() => {
 			</div>
 			))}
 		</div>
-		<h1 class="text-white text-center mb-5 text-2xl font-normal pt-5">Top Posts</h1>
+		<h1 class="text-white text-center mb-5 text-2xl font-normal pt-5">Top Products
+			<span>
+				<div class="tooltip tooltip-primary" data-tip="View All Products">
+					<a href="/post/post" class="text-blue-500">→</a>
+				  </div>
+			</span>
+		</h1>
 		<div class="flex flex-wrap items-center flex-row gap-5 justify-center m-auto">
 			{posts.map((posts)=> (
 			<div class="flex flex-col gap-3 bg-slate-800 rounded-xl w-80 p-3">

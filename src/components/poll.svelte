@@ -129,7 +129,7 @@ async function downvotePitch(docID:any){
     {pollYes} ▲
 </button>
 <div class="w-96 h-auto">
-<div class="bg-green-500 h-10" style="width: {pollYes / (pollYes + pollNo) * 100}%">
+<div class="bg-gradient-to-r from-green-500 to-green-800 rounded-lg h-10" style="width: {pollYes / (pollYes + pollNo) * 100}%">
 </div>
 </div>
 </div>
@@ -138,7 +138,7 @@ async function downvotePitch(docID:any){
     {pollNo} ▼
 </button>
 <div class="w-96 h-auto">
-<div class="bg-red-500 h-10" style="width: {pollNo / (pollYes + pollNo) * 100}%">
+<div class="bg-gradient-to-r from-red-500 to-red-800 rounded-lg h-10" style="width: {pollNo / (pollYes + pollNo) * 100}%">
 </div>
 </div>
 </div>
