@@ -150,7 +150,17 @@ async function CreatePost() {
             <div class="flex flex-col space-y-2 justify-center items-center h-[100vh]" id="Description">
             <p class="text-gray-100 text-left text-2xl pb-2">Provide a description of your pitch.</p>
             <textarea rows="6" bind:value={PostDescription} placeholder="Description" class="bg-transparent outline outline-gray-500 w-64 sm:w-96 rounded-md p-2"></textarea>
-            <a href="#LaunchDate" class="text-gray-100 text-xl mt-7 btn btn-primary normal-case">Next</a>
+            <a href="#Link" class="text-gray-100 text-xl mt-7 btn btn-primary normal-case">Next</a>
+            </div>
+            <div class="flex flex-col space-y-2 justify-center items-center h-[100vh]" id="Link">
+            <p class="text-gray-100 text-left text-2xl pb-2">Provide a link to your pitch.</p>
+            <input type="text" class="bg-transparent input-lg outline outline-purple-500 w-64 sm:w-96 h-10 rounded-md p-2" bind:value={PostLink} placeholder="Link" />
+            <a href="#Free" class="text-gray-100 text-xl mt-7 btn btn-primary normal-case">Next</a>
+            </div>
+            <div class="flex flex-col space-y-2 justify-center items-center h-[100vh]" id="Free">
+            <p class="text-gray-100 text-left text-2xl pb-2">Is your pitch free?</p>
+            <div class="flex flex-row gap-6">
+            <input type="radio" class="bg-transparent input-lg outline outline-purple-500 w-64 sm:w-96 h-10 rounded-md p-2" bind:value={IsFree} />
             </div>
             <div class="flex flex-col space-y-2 justify-center items-center h-[100vh]" id="LaunchDate">
             <p class="text-gray-100 text-left text-2xl pb-2">When do you plan to launch your pitch?</p>
