@@ -18,6 +18,7 @@
     let PitchTitle = '';
     let PitchTagline = '';
     let PitchDescription = '';
+    let Tag = '';
     let PitchLaunchDate = Date.now();
     let PitchIcon = [] as any;
     let PitchThumbnail = [] as any;
@@ -150,6 +151,7 @@
                 'Thumbnail5': PitchThumbnail5.$id ?? '',
                 'Thumbnail6': PitchThumbnail6.$id ?? '',
                 'Authoruid': userID,
+                'Tag': Tag,
             },
         ).then((response) => {
             console.log(response);
@@ -184,8 +186,26 @@
             <div class="flex flex-col space-y-2 justify-center items-center h-[100vh]" id="Description">
             <p class="text-gray-100 text-left text-2xl pb-2">Provide a description of your pitch.</p>
             <textarea rows="6" bind:value={PitchDescription} placeholder="Description" class="bg-transparent outline outline-gray-500 w-64 sm:w-96 rounded-md p-2"></textarea>
-            <a href="#LaunchDate" class="text-gray-100 text-xl mt-7 btn btn-primary normal-case">Next</a>
+            <a href="#Tag" class="text-gray-100 text-xl mt-7 btn btn-primary normal-case">Next</a>
             </div>
+            <div class="flex flex-col space-y-2 justify-center items-center h-[100vh]" id="Tag">
+            <p class="text-gray-100 text-left text-2xl pb-2">Select a tag that best describes your pitch.</p>
+            <select class="select select-primary w-full max-w-xs" bind:value={Tag}>
+              <option disabled selected>Select a tag</option>
+              <option value="Productivity">Productivity</option>
+              <option value="Social">Social</option>
+              <option value="Utility">Utility</option>
+              <option value="Entertainment">Entertainment</option>
+              <option value="AI">AI</option>
+              <option value="Dev Tools">Dev Tools</option>
+              <option value="Web">Web</option>
+              <option value="Mobile">Mobile</option>
+              <option value="Desktop">Desktop</option>
+              <option value="API">API</option>
+              <option value="Game">Game</option>
+            </select>
+          <a href="#LaunchDate" class="text-gray-100 text-xl mt-7 btn btn-primary normal-case">Next</a>
+          </div>
             <div class="flex flex-col space-y-2 justify-center items-center h-[100vh]" id="LaunchDate">
             <p class="text-gray-100 text-left text-2xl pb-2">When do you plan to launch your pitch?</p>
             <div class="flex flex-row gap-6">
