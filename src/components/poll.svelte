@@ -128,7 +128,7 @@ async function downvotePitch(docID:any){
 <button class="w-16 bg-green-500 disabled:outline disabled:bg-transparent hover:bg-green-700 text-white font-bold py-2 px-4 rounded" on:click={() => upvotePitch(DocumentID)} disabled={yesVotes}>
     {pollYes} ▲
 </button>
-<div class="w-96 h-auto">
+<div class="w-72 sm:w-96 h-auto">
 <div class="bg-gradient-to-r from-green-500 to-green-800 rounded-lg h-10" style="width: {pollYes / (pollYes + pollNo) * 100}%">
 </div>
 </div>
@@ -137,7 +137,7 @@ async function downvotePitch(docID:any){
 <button class="w-16 bg-red-500 disabled:outline disabled:bg-transparent hover:bg-red-700 text-white font-bold py-2 px-4 rounded" on:click={() => downvotePitch(DocumentID)} disabled={noVotes}>
     {pollNo} ▼
 </button>
-<div class="w-96 h-auto">
+<div class="w-72 sm:w-96 h-auto">
 <div class="bg-gradient-to-r from-red-500 to-red-800 rounded-lg h-10" style="width: {pollNo / (pollYes + pollNo) * 100}%">
 </div>
 </div>
