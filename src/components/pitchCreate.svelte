@@ -157,6 +157,7 @@
             window.location.href = `/pitch/${response.$id}`;
         }, (error) => {
             console.log(error);
+            alert(error)
         });
     }
     

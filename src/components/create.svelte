@@ -124,6 +124,7 @@ async function CreatePost() {
         window.location.href = `/post/${response.$id}`;
     }, (error) => {
         console.log(error);
+        alert(error)
     });
 }
 </script>
