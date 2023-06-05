@@ -6,6 +6,8 @@
   export let email = '';
   let password = '';
 
+  $: disabled = email === '' || password === '';
+
 function login() {
   const promise = appwriteUser.createEmailSession(email, password);
   promise.then((response) => {
@@ -38,7 +40,7 @@ function login() {
   <div class="w-96 h-auto p-12 mt-12 rounded-md self-center flex flex-col gap-5 bg-slate-800">
   <input type="email" bind:value={email} placeholder="Email" />
   <input type="password" bind:value={password} placeholder="Password" />
-  <button on:click={login} class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded h-10">Login</button>
+  <button on:click={login} class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded h-10 disabled:opacity-50" disabled={disabled}>Login</button>
   </div>
 </div>
 
