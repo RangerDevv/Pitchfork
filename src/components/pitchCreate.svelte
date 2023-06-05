@@ -161,41 +161,61 @@
     }
     
     </script>
-    <h1 class="text-3xl font-semibold text-gray-100 text-center pt-5">Create Post</h1>
+    <h1 class="text-3xl font-semibold text-gray-100 text-center pt-5">Create Pitch</h1>
     
     <main class="flex flex-row justify-evenly p-10">
     <div>
+      <div class="flex flex-col space-y-2 items-center pt-20 h-[100vh]" id="Start">
+        <p class="text-gray-100 text-center text-2xl pb-2 w-96">Hello! This is the pitch creation page. Here you will be able to create a pitch for your project. This pitch will be displayed on the home page of the website. Please fill out the form below to create your pitch.</p>
+        <a href="#Title" class="text-gray-100 text-xl mt-7 btn btn-primary normal-case">Next</a>
+        </div>
         <div class=" mb-5 items-center justify-center flex flex-col space-y-2">
-            <label for="IconFile" class="block text-sm font-medium text-gray-100">Icon</label>
-            <!-- <input class="block text-sm text-gray-300
-              file:mr-4 file:py-2 file:px-4
-              file:rounded-md file:border-0
-              file:text-sm file:font-semibold
-              file:bg-blue-500 file:text-white
-              hover:file:bg-blue-600" type="file" id="PitchIconFile" /> -->
-              <input type="file" class="file-input file-input-bordered file-input-primary w-full max-w-xs" id="PitchIconFile" accept="png, jpg, jpeg, gif, svg" />
-            <label for="ThumbnailFile" class="block text-sm font-medium text-gray-100">Thumbnail</label>
-              <input type="file" class="file-input file-input-bordered file-input-primary w-full max-w-xs" id="PitchThumbnailFile" accept="png, jpg, jpeg, gif, svg" />
-              <input type="file" class="file-input file-input-bordered file-input-primary w-full max-w-xs" id="PitchThumbnailFile2" accept="png, jpg, jpeg, gif, svg" />
-              <input type="file" class="file-input file-input-bordered file-input-primary w-full max-w-xs" id="PitchThumbnailFile3" accept="png, jpg, jpeg, gif, svg" />
-              <input type="file" class="file-input file-input-bordered file-input-primary w-full max-w-xs" id="PitchThumbnailFile4" accept="png, jpg, jpeg, gif, svg" />
-              <input type="file" class="file-input file-input-bordered file-input-primary w-full max-w-xs" id="PitchThumbnailFile5" accept="png, jpg, jpeg, gif, svg" />
-              <input type="file" class="file-input file-input-bordered file-input-primary w-full max-w-xs" id="PitchThumbnailFile6" accept="png, jpg, jpeg, gif, svg" />
+            <div class="flex flex-col space-y-2 justify-center items-center h-[100vh]" id="Title">
+            <p class="text-gray-100 text-left text-2xl pb-2">What is the name of your pitch?</p>
+            <input type="text" class="bg-transparent input-lg outline outline-purple-500 w-64 sm:w-96 h-10 rounded-md p-2" bind:value={PitchTitle} placeholder="Title" />
+            <a href="#Tagline" class="text-gray-100 text-xl mt-7 btn btn-primary normal-case">Next</a>
             </div>
-            <div class="flex flex-col space-y-2 justify-center items-center">
-            <input type="text" class="bg-transparent outline outline-gray-500 w-64 sm:w-96 h-10 rounded-md p-2" bind:value={PitchTitle} placeholder="Title" />
-            <input type="text" class="bg-transparent outline outline-gray-500 w-64 sm:w-96 h-10 rounded-md p-2" bind:value={PitchTagline} placeholder="Tagline" />
+            <div class="flex flex-col space-y-2 justify-center items-center h-[100vh]" id="Tagline">
+            <p class="text-gray-100 text-left text-2xl pb-2">What is the tagline of your pitch?</p>
+            <input type="text" class="bg-transparent input-lg outline outline-purple-500 w-64 sm:w-96 h-10 rounded-md p-2" bind:value={PitchTagline} placeholder="Tagline" />
+            <a href="#Description" class="text-gray-100 text-xl mt-7 btn btn-primary normal-case">Next</a>
+            </div>
+            <div class="flex flex-col space-y-2 justify-center items-center h-[100vh]" id="Description">
+            <p class="text-gray-100 text-left text-2xl pb-2">Provide a description of your pitch.</p>
             <textarea rows="6" bind:value={PitchDescription} placeholder="Description" class="bg-transparent outline outline-gray-500 w-64 sm:w-96 rounded-md p-2"></textarea>
+            <a href="#LaunchDate" class="text-gray-100 text-xl mt-7 btn btn-primary normal-case">Next</a>
             </div>
+            <div class="flex flex-col space-y-2 justify-center items-center h-[100vh]" id="LaunchDate">
+            <p class="text-gray-100 text-left text-2xl pb-2">When do you plan to launch your pitch?</p>
             <div class="flex flex-row gap-6">
             <!-- svelte-ignore a11y-label-has-associated-control -->
-            <label class="text-gray-100">Launch Date</label>
-            <input class="bg-transparent" type="date" bind:value={PitchLaunchDate}/>
+            <input class="bg-transparent text-xl outline-none bg-slate-700 rounded-md p-2" type="date" bind:value={PitchLaunchDate}/>
             </div>
+            <a href="#Icon" class="text-gray-100 text-xl mt-7 btn btn-primary normal-case">Next</a>
+            </div>
+            <div class="flex flex-col space-y-2 justify-center items-center h-[100vh]" id="Icon">
+            <p class="text-gray-100 text-left text-2xl pb-2">Upload an icon for your pitch.</p>
+            <input type="file" class="file-input file-input-bordered file-input-primary w-full max-w-xs" id="PitchIconFile" accept="png, jpg, jpeg, gif, svg" />
+            <a href="#Thumbnail" class="text-gray-100 text-xl mt-7 btn btn-primary normal-case">Next</a>
+            </div>
+            <div class="flex flex-col space-y-2 justify-center items-center h-[100vh]" id="Thumbnail">
+            <p class="text-gray-100 text-left text-2xl pb-2">Upload a thumbnail for your pitch. (Must have at least 1)</p>
+            <label for="ThumbnailFile" class="block text-sm font-medium text-gray-100">Required</label>
+            <input type="file" class="file-input file-input-bordered file-input-primary w-full max-w-xs" id="PitchThumbnailFile" accept="png, jpg, jpeg, gif, svg" required />
+            <label for="ThumbnailFile2" class="block text-sm font-medium text-gray-100">Optional</label>
+            <input type="file" class="file-input file-input-bordered file-input-primary w-full max-w-xs" id="PitchThumbnailFile2" accept="png, jpg, jpeg, gif, svg" />
+            <input type="file" class="file-input file-input-bordered file-input-primary w-full max-w-xs" id="PitchThumbnailFile3" accept="png, jpg, jpeg, gif, svg" />
+            <input type="file" class="file-input file-input-bordered file-input-primary w-full max-w-xs" id="PitchThumbnailFile4" accept="png, jpg, jpeg, gif, svg" />
+            <input type="file" class="file-input file-input-bordered file-input-primary w-full max-w-xs" id="PitchThumbnailFile5" accept="png, jpg, jpeg, gif, svg" />
+            <input type="file" class="file-input file-input-bordered file-input-primary w-full max-w-xs" id="PitchThumbnailFile6" accept="png, jpg, jpeg, gif, svg" />
+            <a href="#Pitch" class="text-gray-100 text-xl mt-7 btn btn-primary normal-case">Next</a>
+            </div>
+            <div class="flex flex-col space-y-2 justify-center items-center h-[100vh]" id="Pitch">
+            <p class="text-gray-100 text-left text-2xl pb-2">Are You Ready?</p>
             <div class="flex flex-row justify-center items-center mt-5">
             <button on:click={createPitch} class="bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-md self-center mx-auto my-auto">Pitch It!</button>
             </div>
-    </div>
+        </div>
     </main>
     
     <style>
