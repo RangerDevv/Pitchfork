@@ -46,6 +46,7 @@ const posts = entries.documents.sort(
 					<div class="pl-2">
 						<p class="text-lg">{posts.Name}</p>
 						<p class="text-md">{posts.Tagline}</p>
+                        <p class=" text-sm text-gray-300">#{posts.Tag}</p>
 						{posts.Free && <p class=" text-sm text-gray-400">Free</p> || <p class=" text-sm text-gray-400">Paid/Has Paid Options</p>}
 						<p class="text-xs text-gray-400">By: {posts.Author}</p>
 					</div>

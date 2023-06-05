@@ -45,6 +45,7 @@ const allPitches = pitches.documents.sort(
 			<div class="pl-2">
 				<p class="text-lg">{allPitches.Title}</p>
 				<p class="text-md">{allPitches.Tagline}</p>
+                <p class="text-sm text-gray-300">#{allPitches.Tag}</p>
 				{allPitches.Free && <p class=" text-sm text-gray-400">Free</p> || <p class=" text-sm text-gray-400">Paid/Has Paid Options</p>}
 				<p class="text-xs text-gray-400">By: {allPitches.Author}</p>
 			</div>

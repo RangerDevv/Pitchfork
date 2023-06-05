@@ -109,6 +109,7 @@ setInterval(() => {
 					<div class="pl-2">
 						<p class="text-lg">{todayPosts.Name}</p>
 						<p class="text-md">{todayPosts.Tagline}</p>
+						<p class=" text-sm text-gray-400">By: {todayPosts.Tag}</p>
 						{todayPosts.Free && <p class=" text-sm text-gray-400">Free</p> || <p class=" text-sm text-gray-400">Paid/Has Paid Options</p>}
 						<p class="text-xs text-gray-400">By: {todayPosts.Author}</p>
 					</div>
@@ -137,6 +138,7 @@ setInterval(() => {
 			<div class="pl-2">
 				<p class="text-lg">{todayPitch.Title}</p>
 				<p class="text-md">{todayPitch.Tagline}</p>
+				<p class=" text-sm text-gray-300">#{todayPitch.Tag}</p>
 				{todayPitch.Free && <p class=" text-sm text-gray-400">Free</p> || <p class=" text-sm text-gray-400">Paid/Has Paid Options</p>}
 				<p class="text-xs text-gray-400">By: {todayPitch.Author}</p>
 			</div>
@@ -171,6 +173,7 @@ setInterval(() => {
 			<div class="pl-2">
 				<p class="text-lg">{allPitches.Title}</p>
 				<p class="text-md">{allPitches.Tagline}</p>
+				<p class=" text-sm text-gray-300">#{allPitches.Tag}</p>
 				{allPitches.Free && <p class=" text-sm text-gray-400">Free</p> || <p class=" text-sm text-gray-400">Paid/Has Paid Options</p>}
 				<p class="text-xs text-gray-400">By: {allPitches.Author}</p>
 			</div>
@@ -199,6 +202,7 @@ setInterval(() => {
 					<div class="pl-2">
 						<p class="text-lg">{posts.Name}</p>
 						<p class="text-md">{posts.Tagline}</p>
+						<p class=" text-sm text-gray-300">#{posts.Tag}</p>
 						{posts.Free && <p class=" text-sm text-gray-400">Free</p> || <p class=" text-sm text-gray-400">Paid/Has Paid Options</p>}
 						<p class="text-xs text-gray-400">By: {posts.Author}</p>
 					</div>
