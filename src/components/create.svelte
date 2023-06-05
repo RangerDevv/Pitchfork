@@ -170,7 +170,7 @@ async function CreatePost() {
                 <option value="API">API</option>
                 <option value="Game">Game</option>
               </select>
-            <a href="#Icon" class="text-gray-100 text-xl mt-7 btn btn-primary normal-case">Next</a>
+            <a href="#Link" class="text-gray-100 text-xl mt-7 btn btn-primary normal-case">Next</a>
             </div>
             <div class="flex flex-col space-y-2 justify-center items-center h-[100vh]" id="Link">
             <p class="text-gray-100 text-left text-2xl pb-2">Provide a link to your product.</p>
