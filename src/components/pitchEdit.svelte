@@ -8,7 +8,7 @@ import { ID , Role, Permission } from "appwrite";
 
 export let userID = '';
 export let postID = '';
-let IconUpload  = document.getElementById('IconFile') as HTMLInputElement;
+let IconUpload  = document.getElementById('PitchIconFile') as HTMLInputElement;
 let ThumbnailUpload  = document.getElementById('PitchThumbnailFile') as HTMLInputElement;
 let ThumbnailUpload2  = document.getElementById('PitchThumbnailFile2') as HTMLInputElement;
 let ThumbnailUpload3  = document.getElementById('PitchThumbnailFile3') as HTMLInputElement;
@@ -42,7 +42,7 @@ let currThumbnail5 = '';
 let currThumbnail6 = '';
 
 onMount(async () => {
-IconUpload  = document.getElementById('IconFile') as HTMLInputElement;
+IconUpload  = document.getElementById('PitchIconFile') as HTMLInputElement;
 ThumbnailUpload  = document.getElementById('PitchThumbnailFile') as HTMLInputElement;
 ThumbnailUpload2  = document.getElementById('PitchThumbnailFile2') as HTMLInputElement;
 ThumbnailUpload3  = document.getElementById('PitchThumbnailFile3') as HTMLInputElement;
