@@ -122,8 +122,8 @@ async function CreatePost() {
   await UploadThumbnail4();
   // then create the post
   appwriteDatabases.updateDocument(
-      '646538e35dd17306c589',
-      '646538eeeface7a4cd39',
+      '646b9dd716753e384863',
+      '646b9e0e29b66e4a8a22',
     postID,
       {
           'Name': PitchTitle,
