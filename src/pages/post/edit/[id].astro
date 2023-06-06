@@ -1,0 +1,14 @@
+---
+import Edit from '../../../components/edit.svelte';
+import Layout from '../../../layouts/Layout.astro';
+
+let user = Astro.cookies.get('user').value;
+let userName = Astro.cookies.get('userName').value;
+let pid = Astro.params.id!
+---
+
+<Layout title="Edit">
+
+    <Edit client:only="svelte" userID={user} userName={userName} postID={pid} />
+
+</Layout>
