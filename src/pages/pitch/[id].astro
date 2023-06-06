@@ -69,7 +69,7 @@ const entries = (await appwriteDatabases.getDocument(
     </div>
 </div>
 
-<div class="flex flex-col md:flex-row gap-5 justify-around p-10 md:p-0">
+<div class="flex flex-row gap-5 justify-around p-10 md:p-0 md:pt-24">
     <!--  delete button -->
     {uid == entries.Authoruid ? <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" id="deleteBtn">Delete</button> : "" }
     <!--  edit button -->
