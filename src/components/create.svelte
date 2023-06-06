@@ -21,6 +21,7 @@ let PostTagline = '';
 let PostDescription = '';
 let PostLink = 'https://';
 let Tag = '';
+let AuthorTwitter = '';
 let Icon = [] as any;
 let Thumbnail = [] as any;
 let Thumbnail2 = [] as any;
@@ -207,7 +208,12 @@ async function CreatePost() {
             <input type="file" class="file-input file-input-bordered file-input-primary w-full max-w-xs" id="ThumbnailFile2" accept="png, jpg, jpeg, gif, svg" />
             <input type="file" class="file-input file-input-bordered file-input-primary w-full max-w-xs" id="ThumbnailFile3" accept="png, jpg, jpeg, gif, svg" />
             <input type="file" class="file-input file-input-bordered file-input-primary w-full max-w-xs" id="ThumbnailFile4" accept="png, jpg, jpeg, gif, svg" />
-            <a href="#product" class="text-gray-100 text-xl mt-7 btn btn-primary normal-case">Next</a>
+            <a href="#Team" class="text-gray-100 text-xl mt-7 btn btn-primary normal-case">Next</a>
+            </div>
+            <div class="flex flex-col space-y-2 justify-center items-center h-[100vh]" id="Team">
+                <p class="text-gray-100 text-left text-2xl pb-2">What is the Twitter username for this project? (Optional)</p>
+                <input type="text" bind:value={AuthorTwitter} placeholder="@username" class="bg-transparent outline outline-gray-500 w-64 sm:w-96 rounded-md p-2"/>
+                <a href="#product" class="text-gray-100 text-xl mt-7 btn btn-primary normal-case">Next</a>
             </div>
             <div class="flex flex-col space-y-2 justify-center items-center h-[100vh]" id="product">
             <p class="text-gray-100 text-left text-2xl pb-2">Are You Ready?</p>
