@@ -136,7 +136,7 @@ async function CreatePost() {
   ).then((response) => {
       console.log(response);
       // redirect to the post page
-      window.location.href = `/post/${response.$id}`;
+      window.location.href = `/pitch/${response.$id}`;
   }, (error) => {
       console.log(error);
       alert(error)
