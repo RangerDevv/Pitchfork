@@ -22,13 +22,22 @@ let PitchDescription = '';
 let PitchLaunchDate = '';
 let Tag = '';
 let AuthorTwitter = '';
-let Icon = [] as any;
-let Thumbnail = [] as any;
-let Thumbnail2 = [] as any;
-let Thumbnail3 = [] as any;
-let Thumbnail4 = [] as any;
+let PitchIcon = [] as any;
+let PitchThumbnail = [] as any;
+let PitchThumbnail2 = [] as any;
+let PitchThumbnail3 = [] as any;
+let PitchThumbnail4 = [] as any;
+let PitchThumbnail5 = [] as any;
+let PitchThumbnail6 = [] as any;
 let IsFree = true;
 let PostLaunchDate = Date.now();
+let currIcon = '';
+let currThumbnail = '';
+let currThumbnail2 = '';
+let currThumbnail3 = '';
+let currThumbnail4 = '';
+let currThumbnail5 = '';
+let currThumbnail6 = '';
 
 onMount(async () => {
 IconUpload  = document.getElementById('IconFile') as HTMLInputElement;
@@ -47,79 +56,104 @@ currPost.then(function (response: any) {
     AuthorTwitter = response.Twitter;
     IsFree = response.isFree;
     PostLaunchDate = response.LaunchDate.split('T')[0];
-    Thumbnail = response.thumbnail as any || [];
-    Thumbnail2 = response.thumbnail2 as any || [];
-    Thumbnail3 = response.thumbnail3 as any || [];
-    Thumbnail4 = response.thumbnail4 as any || [];
-    Icon = response.icon as any || [];
+    currIcon = response.Icon
+    currThumbnail = response.Thumbnail
+    currThumbnail2 = response.Thumbnail2
+    currThumbnail3 = response.Thumbnail3
+    currThumbnail4 = response.Thumbnail4
+    currThumbnail5 = response.Thumbnail5
+    currThumbnail6 = response.Thumbnail6
 }, function (error: any) {
     console.log(error); // Failure
 });
 
 });
 
-async function UploadIcon() {
-  console.log(IconUpload);
-  try {
-    if (IconUpload !== null && IconUpload.files) {
-        Icon = await appwriteStorage.createFile('646547f5019189c8092b',ID.unique(),IconUpload.files[0]);
+async function UploadPitchIcon() {
+        console.log(PitchIcon);
+        try {
+          if (PitchIcon !== null && PitchIcon.files) {
+              PitchIcon = await appwriteStorage.createFile('646547f5019189c8092b',ID.unique(),PitchIcon.files[0]);
+          }
+        } catch (e) {
+            console.log(e);
+        }
     }
-  } catch (e) {
-      console.log(e);
-  }
-}
-
-async function UploadThumbnail() {
-  console.log(ThumbnailUpload);
-  try {
-    if (ThumbnailUpload !== null && ThumbnailUpload.files) {
-        Thumbnail = await appwriteStorage.createFile('64661e622715cf602c83',ID.unique(),ThumbnailUpload.files[0]);
+    
+    async function UploadPitchThumbnail() {
+        console.log(PitchThumbnail);
+        try {
+          if (PitchThumbnail !== null && PitchThumbnail.files) {
+            PitchThumbnail = await appwriteStorage.createFile('64661e622715cf602c83',ID.unique(),PitchThumbnail.files[0]);
+          }
+        } catch (e) {
+            console.log(e);
+        }
     }
-  } catch (e) {
-      console.log(e);
-  }
-}
-
-async function UploadThumbnail2() {
-  console.log(ThumbnailUpload2);
-  try {
-    if (ThumbnailUpload2 !== null && ThumbnailUpload2.files) {
-        Thumbnail2 = await appwriteStorage.createFile('64661e622715cf602c83',ID.unique(),ThumbnailUpload2.files[0]);
+    
+    async function UploadPitchThumbnail2() {
+        console.log(PitchThumbnail2);
+        try {
+          if (PitchThumbnail2 !== null && PitchThumbnail2.files) {
+            PitchThumbnail2 = await appwriteStorage.createFile('64661e622715cf602c83',ID.unique(),PitchThumbnail2.files[0]);
+          }
+        } catch (e) {
+            console.log(e);
+        }
     }
-  } catch (e) {
-      console.log(e);
-  }
-}
-
-async function UploadThumbnail3() {
-  console.log(ThumbnailUpload3);
-  try {
-    if (ThumbnailUpload3 !== null && ThumbnailUpload3.files) {
-        Thumbnail3 = await appwriteStorage.createFile('64661e622715cf602c83',ID.unique(),ThumbnailUpload3.files[0]);
+    
+    async function UploadPitchThumbnail3() {
+        console.log(PitchThumbnail3);
+        try {
+          if (PitchThumbnail3 !== null && PitchThumbnail3.files) {
+            PitchThumbnail3 = await appwriteStorage.createFile('64661e622715cf602c83',ID.unique(),PitchThumbnail3.files[0]);
+          }
+        } catch (e) {
+            console.log(e);
+        }
     }
-  } catch (e) {
-      console.log(e);
-  }
-}
-
-async function UploadThumbnail4() {
-  console.log(ThumbnailUpload4);
-  try {
-    if (ThumbnailUpload4 !== null && ThumbnailUpload4.files) {
-        Thumbnail4 = await appwriteStorage.createFile('64661e622715cf602c83',ID.unique(),ThumbnailUpload4.files[0]);
+    
+    async function UploadPitchThumbnail4() {
+        console.log(PitchThumbnail4);
+        try {
+          if (PitchThumbnail4 !== null && PitchThumbnail4.files) {
+            PitchThumbnail4 = await appwriteStorage.createFile('64661e622715cf602c83',ID.unique(),PitchThumbnail4.files[0]);
+          }
+        } catch (e) {
+            console.log(e);
+        }
     }
-  } catch (e) {
-      console.log(e);
-  }
-}
-
+    
+    async function UploadPitchThumbnail5() {
+        console.log(PitchThumbnail5);
+        try {
+          if (PitchThumbnail5 !== null && PitchThumbnail5.files) {
+            PitchThumbnail5 = await appwriteStorage.createFile('64661e622715cf602c83',ID.unique(),PitchThumbnail5.files[0]);
+          }
+        } catch (e) {
+            console.log(e);
+        }
+    }
+    
+    async function UploadPitchThumbnail6() {
+        console.log(PitchThumbnail6);
+        try {
+          if (PitchThumbnail6 !== null && PitchThumbnail6.files) {
+            PitchThumbnail6 = await appwriteStorage.createFile('64661e622715cf602c83',ID.unique(),PitchThumbnail6.files[0]);
+          }
+        } catch (e) {
+            console.log(e);
+        }
+    }
 async function CreatePost() {
   // first upload the files
-  await UploadIcon();
-  await UploadThumbnail();
-  await UploadThumbnail2();
-  await UploadThumbnail3();
-  await UploadThumbnail4();
+  await UploadPitchIcon();
+  await UploadPitchThumbnail();
+  await UploadPitchThumbnail2();
+  await UploadPitchThumbnail3();
+  await UploadPitchThumbnail4();
+  await UploadPitchThumbnail5();
+  await UploadPitchThumbnail6();
   // then create the post
   appwriteDatabases.updateDocument(
       '646b9dd716753e384863',
@@ -132,6 +166,13 @@ async function CreatePost() {
           'LaunchDate': PostLaunchDate,
           'Tag': Tag,
           'Twitter': AuthorTwitter,
+          'Icon': PitchIcon.$id ?? currIcon,
+          'Thumbnail': PitchThumbnail.$id ?? currThumbnail,
+          'Thumbnail2': PitchThumbnail2.$id ?? currThumbnail2,
+          'Thumbnail3': PitchThumbnail3.$id ?? currThumbnail3,
+          'Thumbnail4': PitchThumbnail4.$id ?? currThumbnail4,
+          'Thumbnail5': PitchThumbnail5.$id ?? currThumbnail5,
+          'Thumbnail6': PitchThumbnail6.$id ?? currThumbnail6,
       },
   ).then((response) => {
       console.log(response);
@@ -192,8 +233,25 @@ async function CreatePost() {
         <!-- svelte-ignore a11y-label-has-associated-control -->
         <input class="bg-transparent text-xl outline-none bg-slate-700 rounded-md p-2" type="date" bind:value={PitchLaunchDate}/>
         </div>
-        <a href="#Team" class="text-gray-100 text-xl mt-7 btn btn-primary normal-case">Next</a>
+        <a href="#Icon" class="text-gray-100 text-xl mt-7 btn btn-primary normal-case">Next</a>
         </div>
+        <div class="flex flex-col space-y-2 justify-center items-center h-[100vh]" id="Icon">
+          <p class="text-gray-100 text-left text-2xl pb-2">Upload an icon for your pitch.</p>
+          <input type="file" class="file-input file-input-bordered file-input-primary w-full max-w-xs" id="PitchIconFile" accept="png, jpg, jpeg, gif, svg" />
+          <a href="#Thumbnail" class="text-gray-100 text-xl mt-7 btn btn-primary normal-case">Next</a>
+          </div>
+          <div class="flex flex-col space-y-2 justify-center items-center h-[100vh]" id="Thumbnail">
+          <p class="text-gray-100 text-left text-2xl pb-2">Upload a thumbnail for your pitch. (Must have at least 1)</p>
+          <label for="ThumbnailFile" class="block text-sm font-medium text-gray-100">Required</label>
+          <input type="file" class="file-input file-input-bordered file-input-primary w-full max-w-xs" id="PitchThumbnailFile" accept="png, jpg, jpeg, gif, svg" required />
+          <label for="ThumbnailFile2" class="block text-sm font-medium text-gray-100">Optional</label>
+          <input type="file" class="file-input file-input-bordered file-input-primary w-full max-w-xs" id="PitchThumbnailFile2" accept="png, jpg, jpeg, gif, svg" />
+          <input type="file" class="file-input file-input-bordered file-input-primary w-full max-w-xs" id="PitchThumbnailFile3" accept="png, jpg, jpeg, gif, svg" />
+          <input type="file" class="file-input file-input-bordered file-input-primary w-full max-w-xs" id="PitchThumbnailFile4" accept="png, jpg, jpeg, gif, svg" />
+          <input type="file" class="file-input file-input-bordered file-input-primary w-full max-w-xs" id="PitchThumbnailFile5" accept="png, jpg, jpeg, gif, svg" />
+          <input type="file" class="file-input file-input-bordered file-input-primary w-full max-w-xs" id="PitchThumbnailFile6" accept="png, jpg, jpeg, gif, svg" />
+          <a href="#Team" class="text-gray-100 text-xl mt-7 btn btn-primary normal-case">Next</a>
+          </div>
         <div class="flex flex-col space-y-2 justify-center items-center h-[100vh]" id="Team">
         <p class="text-gray-100 text-left text-2xl pb-2">What is the Twitter username for this project? (Optional)</p>
         <input type="text" bind:value={AuthorTwitter} placeholder="@username" class="bg-transparent outline outline-gray-500 w-64 sm:w-96 rounded-md p-2"/>
