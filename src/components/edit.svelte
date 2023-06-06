@@ -125,7 +125,7 @@ async function CreatePost() {
   appwriteDatabases.updateDocument(
       '646538e35dd17306c589',
       '646538eeeface7a4cd39',
-      ID.unique(),
+    postID,
       {
           'Name': PostTitle,
           'Tagline': PostTagline,
