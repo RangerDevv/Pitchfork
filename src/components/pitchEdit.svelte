@@ -126,7 +126,7 @@ async function CreatePost() {
       '646b9e0e29b66e4a8a22',
     postID,
       {
-          'Name': PitchTitle,
+          'Title': PitchTitle,
           'Tagline': PitchTagline,
           'Pitch': PitchDescription,
           'LaunchDate': PostLaunchDate,
