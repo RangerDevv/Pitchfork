@@ -139,7 +139,7 @@ async function CreatePost() {
           'Thumbnail3': Thumbnail3.$id ?? '',
           'Thumbnail4': Thumbnail4.$id ?? '',
           'Tag': Tag,
-          'AuthorTwitter': AuthorTwitter,
+          'Twitter': AuthorTwitter,
       },
   ).then((response) => {
       console.log(response);
