@@ -9,10 +9,12 @@ import { ID , Role, Permission } from "appwrite";
 export let userID = '';
 export let postID = '';
 let IconUpload  = document.getElementById('IconFile') as HTMLInputElement;
-let ThumbnailUpload  = document.getElementById('ThumbnailFile') as HTMLInputElement;
-let ThumbnailUpload2  = document.getElementById('ThumbnailFile2') as HTMLInputElement;
-let ThumbnailUpload3  = document.getElementById('ThumbnailFile3') as HTMLInputElement;
-let ThumbnailUpload4  = document.getElementById('ThumbnailFile4') as HTMLInputElement;
+let ThumbnailUpload  = document.getElementById('PitchThumbnailFile') as HTMLInputElement;
+let ThumbnailUpload2  = document.getElementById('PitchThumbnailFile2') as HTMLInputElement;
+let ThumbnailUpload3  = document.getElementById('PitchThumbnailFile3') as HTMLInputElement;
+let ThumbnailUpload4  = document.getElementById('PitchThumbnailFile4') as HTMLInputElement;
+let ThumbnailUpload5  = document.getElementById('PitchThumbnailFile5') as HTMLInputElement;
+let ThumbnailUpload6  = document.getElementById('PitchThumbnailFile6') as HTMLInputElement;
 
 
 
@@ -41,10 +43,12 @@ let currThumbnail6 = '';
 
 onMount(async () => {
 IconUpload  = document.getElementById('IconFile') as HTMLInputElement;
-ThumbnailUpload  = document.getElementById('ThumbnailFile') as HTMLInputElement;
-ThumbnailUpload2  = document.getElementById('ThumbnailFile2') as HTMLInputElement;
-ThumbnailUpload3  = document.getElementById('ThumbnailFile3') as HTMLInputElement;
-ThumbnailUpload4  = document.getElementById('ThumbnailFile4') as HTMLInputElement;
+ThumbnailUpload  = document.getElementById('PitchThumbnailFile') as HTMLInputElement;
+ThumbnailUpload2  = document.getElementById('PitchThumbnailFile2') as HTMLInputElement;
+ThumbnailUpload3  = document.getElementById('PitchThumbnailFile3') as HTMLInputElement;
+ThumbnailUpload4  = document.getElementById('PitchThumbnailFile4') as HTMLInputElement;
+ThumbnailUpload5  = document.getElementById('PitchThumbnailFile5') as HTMLInputElement;
+ThumbnailUpload6  = document.getElementById('PitchThumbnailFile6') as HTMLInputElement;
 
 const currPost = appwriteDatabases.getDocument('646b9dd716753e384863','646b9e0e29b66e4a8a22',postID) as any;
 currPost.then(function (response: any) {
