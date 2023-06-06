@@ -37,7 +37,7 @@ ThumbnailUpload2  = document.getElementById('ThumbnailFile2') as HTMLInputElemen
 ThumbnailUpload3  = document.getElementById('ThumbnailFile3') as HTMLInputElement;
 ThumbnailUpload4  = document.getElementById('ThumbnailFile4') as HTMLInputElement;
 
-const currPost = appwriteDatabases.getDocument('646538e35dd17306c589','646538eeeface7a4cd39',postID) as any;
+const currPost = appwriteDatabases.getDocument('646b9dd716753e384863','646b9e0e29b66e4a8a22',postID) as any;
 currPost.then(function (response: any) {
     console.log(response); // Success
     PitchTitle = response.Title;
