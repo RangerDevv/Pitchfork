@@ -25,7 +25,7 @@ const recommendation = (await appwriteDatabases.listDocuments(
 	'646b9dd716753e384863',
     '646b9e0e29b66e4a8a22',
     [
-        Query.search('Tag', entries.Tag)
+        Query.equal("Tag", ["AI"])
     ]
 )) as unknown as ProductList ;
 
@@ -141,13 +141,17 @@ console.log(rec)
 
 <Comments docId="646b9dd716753e384863" docCollection='6477d7986ebe656226ae' postId={pid} userUid={uid} userDisplayName={userName} client:only="svelte" />
 
-<div class="flex flex-row gap-20">
+<div class="flex flex-col gap-20 mx-auto items-center justify-center">
     <h1 class="text-xl mt-10 font-bold text-center">Discover More</h1>
     {rec.map((recommendation)=> (
-        <div class="flex flex-col gap-5">
-            <a href={'/post/'+recommendation.$id}><img src={'https://cloud.appwrite.io/v1/storage/buckets/64661e622715cf602c83/files/'+recommendation.Thumbnail+'/preview?project=646538bf8be3792191bd'} alt={recommendation.Name} class="w-64 h-36" /></a>
-            <a href={'/post/'+recommendation.$id}><h1 class="text-xl font-bold">{recommendation.Name}</h1></a>
-            <p class="whitespace-pre-wrap">{recommendation.Pitch}</p>
+        <div class="flex flex-row gap-5 hover:bg-gray-500 p-2 w-96">
+            <a href={'/pitch/'+recommendation.$id}>
+                <img src={'https://cloud.appwrite.io/v1/storage/buckets/646547f5019189c8092b/files/'+recommendation.Icon+'/preview?project=646538bf8be3792191bd'} alt={entries.Title} class="w-auto h-24" />
+            </a>
+            <div class="flex flex-col gap-2">
+                <a href={'/pitch/'+recommendation.$id}><h1 class="text-xl font-bold">{recommendation.Title}</h1></a>
+                <p class="whitespace-pre-wrap">{recommendation.Tagline}</p>
+            </div>
         </div>
     ))} 
 </div>
