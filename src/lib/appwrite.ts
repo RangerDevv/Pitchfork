@@ -19,7 +19,7 @@ export interface Products extends Models.Document {
     Icon: string;
     Thumbnail: string;
     Link?: string;
-    Tag?: string;
+    Tag: string;
 }
 
 

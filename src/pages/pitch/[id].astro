@@ -19,7 +19,7 @@ const entries = (await appwriteDatabases.getDocument(
 	'646b9dd716753e384863',
     '646b9e0e29b66e4a8a22',
 	pid
-)) as unknown as Products;
+)) as unknown as Products as unknown as ProductList as any;
 
 const recommendation = (await appwriteDatabases.listDocuments(
 	'646b9dd716753e384863',
@@ -27,9 +27,9 @@ const recommendation = (await appwriteDatabases.listDocuments(
     [
         Query.search('Tag', entries.Tag)
     ]
-)) as unknown as ProductList;
+)) as unknown as ProductList ;
 
-let rec = recommendation.documents
+let rec = recommendation.documents;
 console.log(rec)
 ---
 
