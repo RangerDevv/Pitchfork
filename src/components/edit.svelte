@@ -6,7 +6,6 @@ import { appwriteStorage,appwriteDatabases,appwriteUser } from "../lib/appwrite"
 
 import { ID , Role, Permission } from "appwrite";
 
-export let userID = '';
 export let postID = '';
 let IconUpload  = document.getElementById('IconFile') as HTMLInputElement;
 let ThumbnailUpload  = document.getElementById('ThumbnailFile') as HTMLInputElement;
