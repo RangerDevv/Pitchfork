@@ -1,11 +1,12 @@
 ---
 
 import Layout from '../../layouts/Layout.astro';
-import { appwriteDatabases , appwriteStorage, Products, appwriteUser } from '../../lib/appwrite';
+import { appwriteDatabases , appwriteStorage, Products, appwriteUser,ProductList } from '../../lib/appwrite';
 
 import Comments from '../../components/comments.svelte';
 import UpvoteBtn from '../../components/upvoteBtn.svelte';
 import Poll from '../../components/poll.svelte';
+import { Query } from 'appwrite';
 
 let uid = Astro.cookies.get('user').value;
 let userName = Astro.cookies.get('userName').value;
@@ -19,6 +20,16 @@ const entries = (await appwriteDatabases.getDocument(
     '646b9e0e29b66e4a8a22',
 	pid
 )) as unknown as Products;
+
+const recommendation = (await appwriteDatabases.listDocuments(
+	'646b9dd716753e384863',
+    '646b9e0e29b66e4a8a22',
+    [
+        Query.search('Tag', entries.Tag)
+    ]
+)) as unknown as ProductList;
+
+let rec = recommendation.documents
 
 
 
@@ -131,5 +142,16 @@ const entries = (await appwriteDatabases.getDocument(
 <Poll DocumentID={pid} uid={uid} client:only="svelte" />
 
 <Comments docId="646b9dd716753e384863" docCollection='6477d7986ebe656226ae' postId={pid} userUid={uid} userDisplayName={userName} client:only="svelte" />
+
+<div class="flex flex-row gap-20">
+    <h1 class="text-xl mt-10 font-bold text-center">Discover More</h1>
+    {rec.map((recommendation)=> (
+        <div class="flex flex-col gap-5">
+            <a href={'/post/'+recommendation.$id}><img src={'https://cloud.appwrite.io/v1/storage/buckets/64661e622715cf602c83/files/'+recommendation.Thumbnail+'/preview?project=646538bf8be3792191bd'} alt={recommendation.Name} class="w-64 h-36" /></a>
+            <a href={'/post/'+recommendation.$id}><h1 class="text-xl font-bold">{recommendation.Name}</h1></a>
+            <p class="whitespace-pre-wrap">{recommendation.Pitch}</p>
+        </div>
+    ))} 
+</div>
 
 </Layout>
