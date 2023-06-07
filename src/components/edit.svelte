@@ -222,12 +222,12 @@ async function CreatePost() {
             <a href="#Icon" class="text-gray-100 text-xl mt-7 btn btn-primary normal-case">Next</a>
             </div>
             <div class="flex flex-col space-y-2 justify-center items-center h-[100vh]" id="Icon">
-              <p class="text-gray-100 text-left text-2xl pb-2">Upload an icon for your pitch.</p>
+              <p class="text-gray-100 text-left text-2xl pb-2">Edit the icon (Leave empty if you don't want to change the icon)</p>
               <input type="file" class="file-input file-input-bordered file-input-primary w-full max-w-xs" id="IconFile" accept="png, jpg, jpeg, gif, svg" />
               <a href="#Thumbnail" class="text-gray-100 text-xl mt-7 btn btn-primary normal-case">Next</a>
               </div>
               <div class="flex flex-col space-y-2 justify-center items-center h-[100vh]" id="Thumbnail">
-              <p class="text-gray-100 text-left text-2xl pb-2">Upload a thumbnail for your pitch. (Must have at least 1)</p>
+              <p class="text-gray-100 text-left text-2xl pb-2">Edit the thumbnail. (Leave empty if you don't want to change any thumbnail)</p>
               <label for="ThumbnailFile" class="block text-sm font-medium text-gray-100">Required</label>
               <input type="file" class="file-input file-input-bordered file-input-primary w-full max-w-xs" id="ThumbnailFile" accept="png, jpg, jpeg, gif, svg" required />
               <label for="ThumbnailFile2" class="block text-sm font-medium text-gray-100">Optional</label>
