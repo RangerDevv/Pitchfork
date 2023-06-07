@@ -29,6 +29,11 @@ let Thumbnail3 = [] as any;
 let Thumbnail4 = [] as any;
 let IsFree = true;
 let PostLaunchDate = Date.now();
+let currIcon = '';
+let currThumbnail = '';
+let currThumbnail2 = '';
+let currThumbnail3 = '';
+let currThumbnail4 = '';
 
 onMount(async () => {
 IconUpload  = document.getElementById('IconFile') as HTMLInputElement;
@@ -48,11 +53,11 @@ currPost.then(function (response: any) {
     AuthorTwitter = response.Twitter;
     IsFree = response.isFree;
     PostLaunchDate = response.LaunchDate.split('T')[0];
-    Thumbnail = response.thumbnail as any || [];
-    Thumbnail2 = response.thumbnail2 as any || [];
-    Thumbnail3 = response.thumbnail3 as any || [];
-    Thumbnail4 = response.thumbnail4 as any || [];
-    Icon = response.icon as any || [];
+    currIcon = response.Icon
+    currThumbnail = response.Thumbnail
+    currThumbnail2 = response.Thumbnail2
+    currThumbnail3 = response.Thumbnail3
+    currThumbnail4 = response.Thumbnail4
 }, function (error: any) {
     console.log(error); // Failure
 });
@@ -135,6 +140,11 @@ async function CreatePost() {
           'LaunchDate': PostLaunchDate,
           'Tag': Tag,
           'Twitter': AuthorTwitter,
+          'Icon': Icon.$id ?? currIcon,
+          'Thumbnail': Thumbnail.$id ?? currThumbnail,
+          'Thumbnail2': Thumbnail2.$id ?? currThumbnail2,
+          'Thumbnail3': Thumbnail3.$id ?? currThumbnail3,
+          'Thumbnail4': Thumbnail4.$id ?? currThumbnail4,
       },
   ).then((response) => {
       console.log(response);
@@ -209,10 +219,25 @@ async function CreatePost() {
             <!-- svelte-ignore a11y-label-has-associated-control -->
             <input class="bg-transparent text-xl outline-none bg-slate-700 rounded-md p-2" type="date" bind:value={PostLaunchDate}/>
             </div>
-            <a href="#Team" class="text-gray-100 text-xl mt-7 btn btn-primary normal-case">Next</a>
+            <a href="#Icon" class="text-gray-100 text-xl mt-7 btn btn-primary normal-case">Next</a>
             </div>
+            <div class="flex flex-col space-y-2 justify-center items-center h-[100vh]" id="Icon">
+              <p class="text-gray-100 text-left text-2xl pb-2">Upload an icon for your pitch.</p>
+              <input type="file" class="file-input file-input-bordered file-input-primary w-full max-w-xs" id="IconFile" accept="png, jpg, jpeg, gif, svg" />
+              <a href="#Thumbnail" class="text-gray-100 text-xl mt-7 btn btn-primary normal-case">Next</a>
+              </div>
+              <div class="flex flex-col space-y-2 justify-center items-center h-[100vh]" id="Thumbnail">
+              <p class="text-gray-100 text-left text-2xl pb-2">Upload a thumbnail for your pitch. (Must have at least 1)</p>
+              <label for="ThumbnailFile" class="block text-sm font-medium text-gray-100">Required</label>
+              <input type="file" class="file-input file-input-bordered file-input-primary w-full max-w-xs" id="ThumbnailFile" accept="png, jpg, jpeg, gif, svg" required />
+              <label for="ThumbnailFile2" class="block text-sm font-medium text-gray-100">Optional</label>
+              <input type="file" class="file-input file-input-bordered file-input-primary w-full max-w-xs" id="ThumbnailFile2" accept="png, jpg, jpeg, gif, svg" />
+              <input type="file" class="file-input file-input-bordered file-input-primary w-full max-w-xs" id="ThumbnailFile3" accept="png, jpg, jpeg, gif, svg" />
+              <input type="file" class="file-input file-input-bordered file-input-primary w-full max-w-xs" id="ThumbnailFile4" accept="png, jpg, jpeg, gif, svg" />
+              <a href="#Team" class="text-gray-100 text-xl mt-7 btn btn-primary normal-case">Next</a>
+              </div>
             <div class="flex flex-col space-y-2 justify-center items-center h-[100vh]" id="Team">
-                <p class="text-gray-100 text-left text-2xl pb-2">What is the Twitter username for this project? (Optional)</p>
+                <p class="text-gray-100 text-left text-2xl pb-2">Twitter Info</p>
                 <input type="text" bind:value={AuthorTwitter} placeholder="@username" class="bg-transparent outline outline-gray-500 w-64 sm:w-96 rounded-md p-2"/>
                 <a href="#product" class="text-gray-100 text-xl mt-7 btn btn-primary normal-case">Next</a>
             </div>

@@ -257,7 +257,7 @@ async function CreatePost() {
           <a href="#Team" class="text-gray-100 text-xl mt-7 btn btn-primary normal-case">Next</a>
           </div>
         <div class="flex flex-col space-y-2 justify-center items-center h-[100vh]" id="Team">
-        <p class="text-gray-100 text-left text-2xl pb-2">What is the Twitter username for this project? (Optional)</p>
+        <p class="text-gray-100 text-left text-2xl pb-2">Twitter Info</p>
         <input type="text" bind:value={AuthorTwitter} placeholder="@username" class="bg-transparent outline outline-gray-500 w-64 sm:w-96 rounded-md p-2"/>
         <a href="#Pitch" class="text-gray-100 text-xl mt-7 btn btn-primary normal-case">Next</a>
         </div>
