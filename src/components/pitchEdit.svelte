@@ -74,10 +74,10 @@ currPost.then(function (response: any) {
 });
 
 async function UploadPitchIcon() {
-        console.log(PitchIcon);
+        console.log(IconUpload);
         try {
-          if (PitchIcon !== null && PitchIcon.files) {
-              PitchIcon = await appwriteStorage.createFile('646547f5019189c8092b',ID.unique(),PitchIcon.files[0]);
+          if (IconUpload !== null && IconUpload.files) {
+              PitchIcon = await appwriteStorage.createFile('646547f5019189c8092b',ID.unique(),IconUpload.files[0]);
           }
         } catch (e) {
             console.log(e);
@@ -85,10 +85,10 @@ async function UploadPitchIcon() {
     }
     
     async function UploadPitchThumbnail() {
-        console.log(PitchThumbnail);
+        console.log(ThumbnailUpload);
         try {
-          if (PitchThumbnail !== null && PitchThumbnail.files) {
-            PitchThumbnail = await appwriteStorage.createFile('64661e622715cf602c83',ID.unique(),PitchThumbnail.files[0]);
+          if (ThumbnailUpload !== null && ThumbnailUpload.files) {
+            PitchThumbnail = await appwriteStorage.createFile('64661e622715cf602c83',ID.unique(),ThumbnailUpload.files[0]);
           }
         } catch (e) {
             console.log(e);
@@ -96,10 +96,10 @@ async function UploadPitchIcon() {
     }
     
     async function UploadPitchThumbnail2() {
-        console.log(PitchThumbnail2);
+        console.log(ThumbnailUpload2);
         try {
-          if (PitchThumbnail2 !== null && PitchThumbnail2.files) {
-            PitchThumbnail2 = await appwriteStorage.createFile('64661e622715cf602c83',ID.unique(),PitchThumbnail2.files[0]);
+          if (ThumbnailUpload2 !== null && ThumbnailUpload2.files) {
+            PitchThumbnail2 = await appwriteStorage.createFile('64661e622715cf602c83',ID.unique(),ThumbnailUpload2.files[0]);
           }
         } catch (e) {
             console.log(e);
@@ -107,10 +107,10 @@ async function UploadPitchIcon() {
     }
     
     async function UploadPitchThumbnail3() {
-        console.log(PitchThumbnail3);
+        console.log(ThumbnailUpload3);
         try {
-          if (PitchThumbnail3 !== null && PitchThumbnail3.files) {
-            PitchThumbnail3 = await appwriteStorage.createFile('64661e622715cf602c83',ID.unique(),PitchThumbnail3.files[0]);
+          if (ThumbnailUpload3 !== null && ThumbnailUpload3.files) {
+            PitchThumbnail3 = await appwriteStorage.createFile('64661e622715cf602c83',ID.unique(),ThumbnailUpload3.files[0]);
           }
         } catch (e) {
             console.log(e);
@@ -118,10 +118,10 @@ async function UploadPitchIcon() {
     }
     
     async function UploadPitchThumbnail4() {
-        console.log(PitchThumbnail4);
+        console.log(ThumbnailUpload4);
         try {
-          if (PitchThumbnail4 !== null && PitchThumbnail4.files) {
-            PitchThumbnail4 = await appwriteStorage.createFile('64661e622715cf602c83',ID.unique(),PitchThumbnail4.files[0]);
+          if (ThumbnailUpload4 !== null && ThumbnailUpload4.files) {
+            PitchThumbnail4 = await appwriteStorage.createFile('64661e622715cf602c83',ID.unique(),ThumbnailUpload4.files[0]);
           }
         } catch (e) {
             console.log(e);
@@ -129,10 +129,10 @@ async function UploadPitchIcon() {
     }
     
     async function UploadPitchThumbnail5() {
-        console.log(PitchThumbnail5);
+        console.log(ThumbnailUpload5);
         try {
-          if (PitchThumbnail5 !== null && PitchThumbnail5.files) {
-            PitchThumbnail5 = await appwriteStorage.createFile('64661e622715cf602c83',ID.unique(),PitchThumbnail5.files[0]);
+          if (ThumbnailUpload5 !== null && ThumbnailUpload5.files) {
+            PitchThumbnail5 = await appwriteStorage.createFile('64661e622715cf602c83',ID.unique(),ThumbnailUpload5.files[0]);
           }
         } catch (e) {
             console.log(e);
@@ -140,10 +140,10 @@ async function UploadPitchIcon() {
     }
     
     async function UploadPitchThumbnail6() {
-        console.log(PitchThumbnail6);
+        console.log(ThumbnailUpload6);
         try {
-          if (PitchThumbnail6 !== null && PitchThumbnail6.files) {
-            PitchThumbnail6 = await appwriteStorage.createFile('64661e622715cf602c83',ID.unique(),PitchThumbnail6.files[0]);
+          if (ThumbnailUpload6 !== null && ThumbnailUpload6.files) {
+            PitchThumbnail6 = await appwriteStorage.createFile('64661e622715cf602c83',ID.unique(),ThumbnailUpload6.files[0]);
           }
         } catch (e) {
             console.log(e);
