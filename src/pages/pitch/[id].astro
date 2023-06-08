@@ -25,11 +25,12 @@ const recommendation = (await appwriteDatabases.listDocuments(
 	'646b9dd716753e384863',
     '646b9e0e29b66e4a8a22',
     [
-        Query.equal("Tag", ["AI"])
+        Query.equal("Tag", [entries.Tag]),
+        Query.limit(10),
     ]
 )) as unknown as ProductList ;
 
-let rec = recommendation.documents;
+let rec = recommendation.documents.filter((item) => item.$id != pid);
 ---
 
 <script>
