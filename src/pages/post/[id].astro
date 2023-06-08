@@ -1,7 +1,9 @@
 ---
 
 import Layout from '../../layouts/Layout.astro';
-import { appwriteDatabases , appwriteStorage, Products, appwriteUser } from '../../lib/appwrite';
+import { appwriteDatabases , appwriteStorage, Products, appwriteUser,ProductList } from '../../lib/appwrite';
+
+import { Query } from 'appwrite';
 
 import UpvoteBtn from '../../components/upvoteBtn.svelte';
 import Comments from '../../components/comments.svelte';
@@ -20,6 +22,16 @@ const entries = (await appwriteDatabases.getDocument(
 	pid
 )) as unknown as Products;
 
+const recommendation = (await appwriteDatabases.listDocuments(
+	'646538e35dd17306c589',
+    '646538eeeface7a4cd39',
+    [
+        Query.equal("Tag", [entries.Tag]),
+        Query.limit(10),
+    ]
+)) as unknown as ProductList ;
+
+let rec = recommendation.documents.filter((item) => item.$id != pid);
 ---
 <script>
     import { appwriteClient,appwriteStorage,appwriteDatabases,Products } from "../../lib/appwrite";
@@ -123,4 +135,19 @@ const entries = (await appwriteDatabases.getDocument(
 
 <Comments docId="646538e35dd17306c589" docCollection="6477d7a880bdb3f92adc" postId={pid} userUid={uid} userDisplayName={userName} client:only="svelte" />
 
+<div class="flex flex-col gap-10 mx-auto items-center justify-center">
+    <h1 class="text-2xl mt-5 font-bold text-center">Discover More</h1>
+    {rec.map((recommendation)=> (
+    <a href={'/pitch/'+recommendation.$id}>
+        <div class="flex flex-row gap-5 hover:bg-gray-700 p-2 w-96 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 rounded-md">
+                <img src={'https://cloud.appwrite.io/v1/storage/buckets/646547f5019189c8092b/files/'+recommendation.Icon+'/preview?project=646538bf8be3792191bd'} alt={entries.Title} class="w-auto h-24" />
+            <div class="flex flex-col gap-2">
+                <h1 class="text-xl font-bold">{recommendation.Name}</h1>
+                <p class="whitespace-pre-wrap">{recommendation.Tagline}</p>
+                <UpvoteBtn DocumentID={recommendation.$id} CollectionID='646538eeeface7a4cd39' client:only="svelte" DatabaseID='646538e35dd17306c589' />
+            </div>
+        </div>
+    </a>
+    ))} 
+</div>
 </Layout>
