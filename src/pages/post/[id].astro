@@ -144,7 +144,7 @@ let rec = recommendation.documents.filter((item) => item.$id != pid);
             <div class="flex flex-col gap-2">
                 <h1 class="text-xl font-bold">{recommendation.Name}</h1>
                 <p class="whitespace-pre-wrap w-52 truncate">{recommendation.Tagline}</p>
-                <UpvoteBtn DocumentID={recommendation.$id} CollectionID='646538eeeface7a4cd39' client:only="svelte" DatabaseID='646538e35dd17306c589' />
+                <UpvoteBtn DocumentID={recommendation.$id} CollectionID='646538eeeface7a4cd39' client:only="svelte" DatabaseID='646538e35dd17306c589' uid={uid} />
             </div>
         </div>
     </a>
