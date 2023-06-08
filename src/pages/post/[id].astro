@@ -143,7 +143,7 @@ let rec = recommendation.documents.filter((item) => item.$id != pid);
                 <img src={'https://cloud.appwrite.io/v1/storage/buckets/646547f5019189c8092b/files/'+recommendation.Icon+'/preview?project=646538bf8be3792191bd'} alt={entries.Title} class="w-auto h-24" />
             <div class="flex flex-col gap-2">
                 <h1 class="text-xl font-bold">{recommendation.Name}</h1>
-                <p class="whitespace-pre-wrap">{recommendation.Tagline}</p>
+                <p class="whitespace-pre-wrap w-52 truncate">{recommendation.Tagline}</p>
                 <UpvoteBtn DocumentID={recommendation.$id} CollectionID='646538eeeface7a4cd39' client:only="svelte" DatabaseID='646538e35dd17306c589' />
             </div>
         </div>
