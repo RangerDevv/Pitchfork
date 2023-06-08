@@ -138,7 +138,7 @@ let rec = recommendation.documents.filter((item) => item.$id != pid);
 <div class="flex flex-col gap-10 mx-auto items-center justify-center">
     <h1 class="text-2xl mt-5 font-bold text-center">Discover More</h1>
     {rec.map((recommendation)=> (
-    <a href={'/pitch/'+recommendation.$id}>
+    <a href={'/post/'+recommendation.$id}>
         <div class="flex flex-row gap-5 hover:bg-gray-700 p-2 w-96 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 rounded-md">
                 <img src={'https://cloud.appwrite.io/v1/storage/buckets/646547f5019189c8092b/files/'+recommendation.Icon+'/preview?project=646538bf8be3792191bd'} alt={entries.Title} class="w-auto h-24" />
             <div class="flex flex-col gap-2">
