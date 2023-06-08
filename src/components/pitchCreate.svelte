@@ -8,6 +8,7 @@
     
     export let userID = '';
     export let userName = '';
+    let customClaims = '';
     let IconUpload  = document.getElementById('IconFile') as HTMLInputElement;
     let ThumbnailUpload  = document.getElementById('ThumbnailFile') as HTMLInputElement;
     let ThumbnailUpload2  = document.getElementById('ThumbnailFile2') as HTMLInputElement;
@@ -143,7 +144,7 @@
                 'Tagline': PitchTagline,
                 'Pitch': PitchDescription,
                 'LaunchDate': PitchLaunchDate,
-                'Author': userName,
+                'Author': userName ?? customClaims,
                 'Icon': PitchIcon.$id ?? '',
                 'Thumbnail': PitchThumbnail.$id ?? '',
                 'Thumbnail2': PitchThumbnail2.$id ?? '',
@@ -172,6 +173,11 @@
     <div>
       <div class="flex flex-col space-y-2 items-center pt-20 h-[100vh]" id="Start">
         <p class="text-gray-100 text-center text-2xl pb-2 w-96">Hello! This is the pitch creation page. Here you will be able to create a pitch for your project. This pitch will be displayed on the home page of the website. Please fill out the form below to create your pitch.</p>
+        <a href="#Claim" class="text-gray-100 text-xl mt-7 btn btn-primary normal-case">Next</a>
+        </div>
+        <div class="flex flex-col space-y-2 items-center pt-20 h-[100vh]" id="Claim">
+        <p class="text-gray-100 text-left text-2xl pb-2">Who created this pitch? (Leave empty if you want it to be your username)</p>
+        <input type="text" class="bg-transparent input-lg outline outline-purple-500 w-64 sm:w-96 h-10 rounded-md p-2" bind:value={customClaims} placeholder="Author" />
         <a href="#Title" class="text-gray-100 text-xl mt-7 btn btn-primary normal-case">Next</a>
         </div>
         <div class=" mb-5 items-center justify-center flex flex-col space-y-2">
