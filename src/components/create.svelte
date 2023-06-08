@@ -113,7 +113,7 @@ async function CreatePost() {
             'Link': PostLink,
             'Free': IsFree,
             'LaunchDate': PostLaunchDate,
-            'Author': userName ?? customClaims,
+            'Author': customClaims ?? userName,
             'Icon': Icon.$id ?? '',
             'Thumbnail': Thumbnail.$id ?? '',
             'Thumbnail2': Thumbnail2.$id ?? '',
