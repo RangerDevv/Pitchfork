@@ -169,7 +169,7 @@ rec = shuffle(rec);
         <div class="flex flex-row gap-5 hover:bg-gray-700 p-2 w-96 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 rounded-md">
                 <img src={'https://cloud.appwrite.io/v1/storage/buckets/646547f5019189c8092b/files/'+recommendation.Icon+'/preview?project=646538bf8be3792191bd'} alt={entries.Title} class="w-auto h-24" />
             <div class="flex flex-col gap-2">
-                <h1 class="text-xl font-bold">{recommendation.Title}</h1>
+                <h1 class="text-xl font-semibold">{recommendation.Title}</h1>
                 <p class="whitespace-pre-wrap w-52 truncate">{recommendation.Tagline}</p>
                 <UpvoteBtn DocumentID={recommendation.$id} CollectionID='646b9e0e29b66e4a8a22' client:only="svelte" DatabaseID='646b9dd716753e384863' uid={uid} />
             </div>
