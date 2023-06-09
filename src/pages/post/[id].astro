@@ -124,30 +124,30 @@ rec = shuffle(rec);
 </div> -->
 
 <!-- center the carousel -->
-<div class="carousel w-7/12 h-auto md:h-96 mx-auto mt-16">
+<div class="carousel w-7/12 mx-auto 2xl:w-9/12 m-10">
     <div id="slide1" class="carousel-item relative w-full">
-        <img src={'https://cloud.appwrite.io/v1/storage/buckets/64661e622715cf602c83/files/'+entries.Thumbnail+'/preview?project=646538bf8be3792191bd'} alt={entries.Name} class="w-full" />
+        <img src={'https://cloud.appwrite.io/v1/storage/buckets/64661e622715cf602c83/files/'+entries.Thumbnail+'/preview?project=646538bf8be3792191bd'} alt={entries.Name} class="mx-auto" />
         <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
             <a href="#slide1" class="btn btn-circle btn-primary">❮</a>
             {entries.Thumbnail2 != "" ? <a href="#slide2" class="btn btn-circle btn-primary">❯</a> : "" }
         </div>
     </div>
     {entries.Thumbnail2 != "" ? <div id="slide2" class="carousel-item relative w-full">
-        <img src={'https://cloud.appwrite.io/v1/storage/buckets/64661e622715cf602c83/files/'+entries.Thumbnail2+'/preview?project=646538bf8be3792191bd'} alt={entries.Name} class="w-full" />
+        <img src={'https://cloud.appwrite.io/v1/storage/buckets/64661e622715cf602c83/files/'+entries.Thumbnail2+'/preview?project=646538bf8be3792191bd'} alt={entries.Name} class=" mx-auto" />
         <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
             <a href="#slide1" class="btn btn-circle btn-primary">❮</a>
             {entries.Thumbnail3 != "" ? <a href="#slide3" class="btn btn-circle btn-primary">❯</a> : "" }
         </div>
     </div> : "" }
     {entries.Thumbnail3 != "" ? <div id="slide3" class="carousel-item relative w-full">
-        <img src={'https://cloud.appwrite.io/v1/storage/buckets/64661e622715cf602c83/files/'+entries.Thumbnail3+'/preview?project=646538bf8be3792191bd'} alt={entries.Name} class="w-full" />
+        <img src={'https://cloud.appwrite.io/v1/storage/buckets/64661e622715cf602c83/files/'+entries.Thumbnail3+'/preview?project=646538bf8be3792191bd'} alt={entries.Name} class=" mx-auto" />
         <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
             <a href="#slide2" class="btn btn-circle btn-primary">❮</a>
             {entries.Thumbnail4 != "" ? <a href="#slide4" class="btn btn-circle btn-primary">❯</a> : "" }
         </div>
     </div> : "" }
     {entries.Thumbnail4 != "" ? <div id="slide4" class="carousel-item relative w-full">
-        <img src={'https://cloud.appwrite.io/v1/storage/buckets/64661e622715cf602c83/files/'+entries.Thumbnail4+'/preview?project=646538bf8be3792191bd'} alt={entries.Name} class="w-full" />
+        <img src={'https://cloud.appwrite.io/v1/storage/buckets/64661e622715cf602c83/files/'+entries.Thumbnail4+'/preview?project=646538bf8be3792191bd'} alt={entries.Name} class=" mx-auto" />
         <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
             <a href="#slide3" class="btn btn-circle btn-primary">❮</a>
             <a href="#slide1" class="btn btn-circle btn-primary">❯</a>
@@ -173,3 +173,70 @@ rec = shuffle(rec);
     ))} 
 </div>
 </Layout>
+
+<style>
+    /*  resize the carousel based on what device you are on and the size of the button */
+    @media (max-width: 640px) {
+        .carousel {
+            width: 100%;
+            height: auto;
+        }
+        .btn {
+            font-size: 1.5rem;
+        }
+    }
+    @media (min-width: 640px) {
+        .carousel {
+            width: 100%;
+            height: auto;
+        }
+        .btn {
+            font-size: 1.5rem;
+        }
+    }
+    @media (min-width: 768px) {
+        .carousel {
+            width: 100%;
+            height: auto;
+        }
+        .btn {
+            font-size: 1.5rem;
+        }
+    }
+    @media (min-width: 1024px) {
+        .carousel {
+            width: 100%;
+            height: auto;
+        }
+        .btn {
+            font-size: 1.5rem;
+        }
+    }
+    @media (min-width: 1280px) {
+        .carousel {
+            width: 100%;
+            height: auto;
+        }
+        .btn {
+            font-size: 1.5rem;
+        }
+    }
+    @media (min-width: 1536px) {
+        .carousel {
+            width: 100%;
+            height: auto;
+        }
+        .btn {
+            font-size: 1.5rem;
+        }
+    }
+    @media (min-width: 1920px) {
+        .carousel {
+            width: 100%;
+            height: auto;
+        }
+        .btn {
+            font-size: 1.5rem;
+        }
+    }
+</style>
