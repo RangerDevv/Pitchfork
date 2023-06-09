@@ -118,6 +118,7 @@ rec = shuffle(rec);
     <div id="slide1" class="carousel-item relative w-full">
         <img src={'https://cloud.appwrite.io/v1/storage/buckets/64661e622715cf602c83/files/'+entries.Thumbnail+'/preview?project=646538bf8be3792191bd'} alt={entries.Name} class="w-full" />
         <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+            <a href="#slide1" class="btn btn-circle btn-primary">❮</a>
             {entries.Thumbnail2 != "" ? <a href="#slide2" class="btn btn-circle btn-primary">❯</a> : "" }
         </div>
     </div>
