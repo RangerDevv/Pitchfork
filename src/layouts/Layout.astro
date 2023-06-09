@@ -37,7 +37,7 @@ if (user) {
 		<title>{title}</title>
 	</head>
 	<body class="text-white">
-		<nav class="z-50">
+			<nav class="z-50">
 			<a href="/" class="w-auto h-auto scale-[1.4] rounded-3xl pt-1">
 				<svg width="30" height="30" viewBox="10 0 78 78" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path d="M47.5453 69.5372H50.6197V97.0001H47.5453V69.5372Z" fill="#DA3D05"/>
@@ -76,7 +76,7 @@ if (user) {
 				{loggedIn && <Signout client:only="svelte" />}
 				{!loggedIn && <a href="/login" class="p-2 rounded-md">Login</a>}
 			</div>
-		</nav>
+			</nav>
 		<slot />
 	</body>
 </html>

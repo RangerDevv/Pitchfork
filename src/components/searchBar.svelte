@@ -67,11 +67,9 @@ window.addEventListener("keydown", function (event) {
 
 <main>
 <!-- The button to open modal -->
-<label for="my-modal-3" class="bg-purple-900 p-2 rounded-md">Search (
-<kbd class="kbd bg-slate-950 text-xs">ctrl</kbd>
-    +
-<kbd class="kbd bg-slate-950 text-xs">Q</kbd>
-)
+<label for="my-modal-3" class="p-2 rounded-md text-lg bg-purple-900">
+    <!--  search icon svg -->
+    🔎
 </main>
 
 <!-- The modal -->
