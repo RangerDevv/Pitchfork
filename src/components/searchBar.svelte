@@ -20,13 +20,13 @@ let dummyArray = [
 let postResults = [] as any;
 
 async function search() {
-    PitchResults = await appwriteDatabases.listDocuments(
-    '646b9dd716753e384863',
-	'646b9e0e29b66e4a8a22',
-	[
-        Query.search("Title", searchTerms)
-	]
-    );
+    // PitchResults = await appwriteDatabases.listDocuments(
+    // '646b9dd716753e384863',
+	// '646b9e0e29b66e4a8a22',
+	// [
+    //     Query.search("Title", searchTerms)
+	// ]
+    // );
 
     postResults = await appwriteDatabases.listDocuments(
     '646538e35dd17306c589',
