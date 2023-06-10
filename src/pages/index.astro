@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import {appwriteDatabases , Products ,ProductList , PitchList} from '../lib/appwrite';
 
 import UpvoteBtn from '../components/upvoteBtn.svelte';
+import PitchForkThumbnail1 from '../components/img/PitchForkThumbnail1.png';
 
 import { Client,Storage,Query } from 'appwrite';
 
@@ -91,8 +92,42 @@ shufflePosts();
 setInterval(() => {
   shufflePosts();
 }, 2 * 60 * 60 * 1000); // 2 hours in milliseconds
+
+let user = Astro.cookies.get('user').value;
+let userName = Astro.cookies.get('userName').value;
 ---
+
 <Layout title="Pitchfork">
+		<!--  create a popup that shows up that introduces the site -->
+		{!user && <div class="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true" id="modal">
+			<div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+				<div class="fixed inset-0 bg-slate-900 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+				<span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+				<div class="inline-block align-bottom bg-slate-900 rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+					<div class="bg-purple-800 px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+						<img src={PitchForkThumbnail1} class="mx-auto w-auto" />
+						<p class="text-center text-2xl font-bold text-white pt-6">Welcome to Pitchfork!</p>
+						<p class="text-center text-white text-lg pt-2">Amplify Ideas, Empower Creators</p>
+						<p class="text-center text-white mt-3 overflow-y-scroll">PitchFork is a platform designed for sharing product ideas and receiving real-time feedback. Additionally, PitchFork offers creators the opportunity to showcase their projects. The platform boasts a clean and user-friendly UI/UX.</p>
+					</div>
+					<div class="bg-purple-800 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+						<a href="/login" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-slate-800 text-base font-medium text-white hover:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-500 sm:ml-3 sm:w-auto sm:text-sm">
+							Sign in
+						</a>
+						<a href="/signup" class="mt-3 w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-slate-800 text-base font-medium text-white hover:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-s
+	late-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
+							Sign up
+						</a>
+						<button type="button" class="mt-3 w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-slate-800 text-base font-medium text-white hover:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm" onclick="document.getElementById('modal').remove();">
+							Cancel
+						</button>
+						<a href="/about" class="mt-3 w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-slate-800 text-base font-medium text-white hover:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
+							Read our blog post
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>}
 	<main class="p-5 sm:p-10">
 		<!--  sort the posts based on if it was posted today or not -->
 		<h1 class="text-white text-center mb-5 text-2xl font-normal">New Products</h1>
@@ -255,5 +290,10 @@ setInterval(() => {
 		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
 		gap: 1rem;
 		padding: 0;
+	}
+
+	/*  style the dialog box */
+	#modal {
+		z-index: 9999;
 	}
 </style>
