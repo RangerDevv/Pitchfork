@@ -13,6 +13,6 @@ if (user =='' || user == null || user == undefined || !user) {
 <Layout title="Create">
 
     {user &&<Create client:only="svelte" userID={user} userName={userName} />}
-    {!user && <div class="text-2xl text-center items-center flex justify-center pt-[40vh]">You need to be logged in to create a product. Please_<a class="underline underline-offset-1" href="/login">login</a>/<a class="underline underline-offset-1" href="/register">register</a>_ to continue.</div>}
+    {!user && <div class="text-2xl text-center items-center flex justify-center pt-[40vh]">You need to be logged in to create a product. Please_<a class="underline underline-offset-1" href="/login">login</a>/<a class="underline underline-offset-1" href="/signup">register</a>_ to continue.</div>}
 
 </Layout>
