@@ -144,7 +144,7 @@
                 'Tagline': PitchTagline,
                 'Pitch': PitchDescription,
                 'LaunchDate': PitchLaunchDate,
-                'Author': customClaims ?? userName,
+                'Author': customClaims !== '' ? customClaims : userName,
                 'Icon': PitchIcon.$id ?? '',
                 'Thumbnail': PitchThumbnail.$id ?? '',
                 'Thumbnail2': PitchThumbnail2.$id ?? '',
