@@ -27,7 +27,7 @@ async function setDoc(id: string){
   }
 }
 
-function updateCount(){
+async function updateCount(){
   const currDocument = await setDoc(DocumentID) as any;
   UpvoteCount = currDocument.Upvotes.length;
 }
