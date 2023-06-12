@@ -30,7 +30,7 @@ async function search() {
 
     postResults = await appwriteDatabases.listDocuments(
     '646538e35dd17306c589',
-    '646538eeeface7a4cd39',
+    '648785f8d079d1a1e1d0',
     [
         Query.search("Name", searchTerms)
     ]

@@ -18,13 +18,13 @@ let pid = Astro.params.id!
 // get the product from the database
 const entries = (await appwriteDatabases.getDocument(
 	'646538e35dd17306c589',
-    '646538eeeface7a4cd39',
+    '648785f8d079d1a1e1d0',
 	pid
 )) as unknown as Products;
 
 const recommendation = (await appwriteDatabases.listDocuments(
 	'646538e35dd17306c589',
-    '646538eeeface7a4cd39',
+    '648785f8d079d1a1e1d0',
     [
         Query.equal("Tag", [entries.Tag]),
         Query.limit(10),
@@ -63,7 +63,7 @@ rec = shuffle(rec);
 
     const entries = (await appwriteDatabases.getDocument(
         '646538e35dd17306c589',
-        '646538eeeface7a4cd39',
+        '648785f8d079d1a1e1d0',
         pid
     )) as unknown as Products;
 
@@ -71,7 +71,7 @@ rec = shuffle(rec);
     async function deleteProduct() {
         await appwriteDatabases.deleteDocument(
             '646538e35dd17306c589',
-            '646538eeeface7a4cd39',
+            '648785f8d079d1a1e1d0',
             pid
         );
         await appwriteStorage.deleteFile('64661e622715cf602c83',entries.Thumbnail);
@@ -100,7 +100,7 @@ rec = shuffle(rec);
         Visit Website
     </button>
     </a>
-    <UpvoteBtn client:only="svelte" DatabaseID="646538e35dd17306c589" CollectionID="646538eeeface7a4cd39" DocumentID={pid} uid={uid} />
+    <UpvoteBtn client:only="svelte" DatabaseID="646538e35dd17306c589" CollectionID="648785f8d079d1a1e1d0" DocumentID={pid} uid={uid} />
     </div>
 </div>
 <div class="flex flex-row gap-5 justify-around p-10 md:p-0 md:pt-24">
@@ -166,7 +166,7 @@ rec = shuffle(rec);
             <div class="flex flex-col gap-2">
                 <h1 class="text-xl font-semibold">{recommendation.Name}</h1>
                 <p class="whitespace-pre-wrap w-52 truncate">{recommendation.Tagline}</p>
-                <UpvoteBtn DocumentID={recommendation.$id} CollectionID='646538eeeface7a4cd39' client:only="svelte" DatabaseID='646538e35dd17306c589' uid={uid} />
+                <UpvoteBtn DocumentID={recommendation.$id} CollectionID='648785f8d079d1a1e1d0' client:only="svelte" DatabaseID='646538e35dd17306c589' uid={uid} />
             </div>
         </div>
     </a>

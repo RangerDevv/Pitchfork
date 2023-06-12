@@ -19,7 +19,7 @@ client
   
 const entries = (await appwriteDatabases.listDocuments(
 	'646538e35dd17306c589',
-	'646538eeeface7a4cd39',
+	'648785f8d079d1a1e1d0',
 	[
 		Query.orderAsc('LaunchDate'),
 		Query.lessThanEqual('LaunchDate', new Date().toISOString().slice(0, 10)),
@@ -53,7 +53,7 @@ const posts = entries.documents.sort(
 					</div>
 				</div>
 				</a>
-				<UpvoteBtn client:only="svelte" DatabaseID="646538e35dd17306c589" CollectionID="646538eeeface7a4cd39" DocumentID={posts.$id} uid={userid} />
+				<UpvoteBtn client:only="svelte" DatabaseID="646538e35dd17306c589" CollectionID="648785f8d079d1a1e1d0" DocumentID={posts.$id} uid={userid} />
 				</div>
 			))}
 		</div>

@@ -41,7 +41,7 @@ ThumbnailUpload2  = document.getElementById('ThumbnailFile2') as HTMLInputElemen
 ThumbnailUpload3  = document.getElementById('ThumbnailFile3') as HTMLInputElement;
 ThumbnailUpload4  = document.getElementById('ThumbnailFile4') as HTMLInputElement;
 
-const currPost = appwriteDatabases.getDocument('646538e35dd17306c589','646538eeeface7a4cd39',postID) as any;
+const currPost = appwriteDatabases.getDocument('646538e35dd17306c589','648785f8d079d1a1e1d0',postID) as any;
 currPost.then(function (response: any) {
     console.log(response); // Success
     PostTitle = response.Name;
@@ -128,7 +128,7 @@ async function CreatePost() {
   // then create the post
   appwriteDatabases.updateDocument(
       '646538e35dd17306c589',
-      '646538eeeface7a4cd39',
+      '648785f8d079d1a1e1d0',
     postID,
       {
           'Name': PostTitle,
