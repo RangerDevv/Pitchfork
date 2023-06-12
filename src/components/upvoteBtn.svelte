@@ -10,7 +10,7 @@ export let CollectionID = '';
 export let DocumentID = '';
 export let uid = '';
 let voted = false;
-$: UpvoteCount = 0;
+let UpvoteCount = 0;
 
 onMount(async () => {
     const currDocument = await setDoc(DocumentID) as any;
