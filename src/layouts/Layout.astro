@@ -5,6 +5,7 @@ export interface Props {
 
 import Signout from '../components/signout.svelte';
 import SearchBar from '../components/searchBar.svelte';
+import Thumbnail from '../components/imgThumbnail.png';
 
 
 const { title } = Astro.props;
@@ -38,6 +39,11 @@ if (user) {
 		<!--  optimize the SEO of the website -->
 		<meta name="description" content="A website to share your ideas and get feedback from the community" />
 		<meta name="keywords" content="ideas, feedback, community, product, app, website" />
+		<meta name="author" content="RangerDevv" />
+		<meta name="robots" content="index, follow" />
+		<meta name="theme-color" content="#861df7" />
+		<!--  the image that will be shown when the website is shared -->
+		<meta property="og:image" content={Thumbnail} />
 	</head>
 	<body class="text-white">
 			<nav class="z-50">
