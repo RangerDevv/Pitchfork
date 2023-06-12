@@ -1,0 +1,467 @@
+{
+    "projectId": "646538bf8be3792191bd",
+    "projectName": "PitchFork",
+    "databases": [
+        {
+            "$id": "646538e35dd17306c589",
+            "name": "Products",
+            "$createdAt": "2023-05-17T20:28:19.385+00:00",
+            "$updatedAt": "2023-06-12T21:17:01.059+00:00"
+        }
+    ],
+    "collections": [
+        {
+            "$id": "646538eeeface7a4cd39",
+            "$permissions": [
+                "read(\"any\")",
+                "create(\"users\")",
+                "read(\"users\")",
+                "update(\"users\")",
+                "delete(\"users\")"
+            ],
+            "databaseId": "646538e35dd17306c589",
+            "name": "Product",
+            "enabled": true,
+            "documentSecurity": true,
+            "attributes": [
+                {
+                    "key": "Author",
+                    "type": "string",
+                    "status": "available",
+                    "required": true,
+                    "array": false,
+                    "size": 10000000,
+                    "default": null
+                },
+                {
+                    "key": "LaunchDate",
+                    "type": "datetime",
+                    "status": "available",
+                    "required": true,
+                    "array": false,
+                    "format": "",
+                    "default": null
+                },
+                {
+                    "key": "Tagline",
+                    "type": "string",
+                    "status": "available",
+                    "required": true,
+                    "array": false,
+                    "size": 60,
+                    "default": null
+                },
+                {
+                    "key": "Description",
+                    "type": "string",
+                    "status": "available",
+                    "required": true,
+                    "array": false,
+                    "size": 1000,
+                    "default": null
+                },
+                {
+                    "key": "Free",
+                    "type": "boolean",
+                    "status": "available",
+                    "required": true,
+                    "array": false,
+                    "default": null
+                },
+                {
+                    "key": "Icon",
+                    "type": "string",
+                    "status": "available",
+                    "required": true,
+                    "array": false,
+                    "size": 3000000,
+                    "default": null
+                },
+                {
+                    "key": "Link",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "format": "url",
+                    "default": null
+                },
+                {
+                    "key": "Authoruid",
+                    "type": "string",
+                    "status": "available",
+                    "required": true,
+                    "array": false,
+                    "size": 1000000000,
+                    "default": null
+                },
+                {
+                    "key": "Upvotes",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": true,
+                    "size": 1000000,
+                    "default": null
+                },
+                {
+                    "key": "Thumbnail",
+                    "type": "string",
+                    "status": "available",
+                    "required": true,
+                    "array": false,
+                    "size": 1000000,
+                    "default": null
+                },
+                {
+                    "key": "Thumbnail2",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 1000000,
+                    "default": null
+                },
+                {
+                    "key": "Thumbnail3",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 1000000,
+                    "default": null
+                },
+                {
+                    "key": "Thumbnail4",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 100000000,
+                    "default": null
+                },
+                {
+                    "key": "Tag",
+                    "type": "string",
+                    "status": "available",
+                    "required": true,
+                    "array": false,
+                    "size": 100000,
+                    "default": null
+                },
+                {
+                    "key": "Twitter",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 1000000,
+                    "default": null
+                },
+                {
+                    "key": "Name",
+                    "type": "string",
+                    "status": "available",
+                    "required": true,
+                    "array": false,
+                    "size": 50,
+                    "default": null
+                }
+            ],
+            "indexes": [
+                {
+                    "key": "LaunchDate",
+                    "type": "key",
+                    "status": "available",
+                    "attributes": [
+                        "LaunchDate"
+                    ],
+                    "orders": [
+                        "ASC"
+                    ]
+                },
+                {
+                    "key": "Tag",
+                    "type": "fulltext",
+                    "status": "available",
+                    "attributes": [
+                        "Tag"
+                    ],
+                    "orders": [
+                        "ASC"
+                    ]
+                },
+                {
+                    "key": "Name",
+                    "type": "fulltext",
+                    "status": "failed",
+                    "attributes": [
+                        "Name"
+                    ],
+                    "orders": [
+                        "ASC"
+                    ]
+                }
+            ]
+        },
+        {
+            "$id": "6477d7a880bdb3f92adc",
+            "$permissions": [
+                "read(\"any\")",
+                "create(\"users\")",
+                "read(\"users\")",
+                "update(\"users\")",
+                "delete(\"users\")"
+            ],
+            "databaseId": "646538e35dd17306c589",
+            "name": "ProductComment",
+            "enabled": true,
+            "documentSecurity": true,
+            "attributes": [
+                {
+                    "key": "PostId",
+                    "type": "string",
+                    "status": "available",
+                    "required": true,
+                    "array": false,
+                    "size": 10000000,
+                    "default": null
+                },
+                {
+                    "key": "AuthorUid",
+                    "type": "string",
+                    "status": "available",
+                    "required": true,
+                    "array": false,
+                    "size": 10000000,
+                    "default": null
+                },
+                {
+                    "key": "AuthorName",
+                    "type": "string",
+                    "status": "available",
+                    "required": true,
+                    "array": false,
+                    "size": 1000000,
+                    "default": null
+                },
+                {
+                    "key": "Comment",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 100000000,
+                    "default": null
+                }
+            ],
+            "indexes": [
+                {
+                    "key": "PostId",
+                    "type": "key",
+                    "status": "failed",
+                    "attributes": [
+                        "PostId"
+                    ],
+                    "orders": [
+                        "ASC"
+                    ]
+                }
+            ]
+        },
+        {
+            "$id": "648785f8d079d1a1e1d0",
+            "$permissions": [
+                "read(\"any\")",
+                "create(\"users\")",
+                "read(\"users\")",
+                "update(\"users\")",
+                "delete(\"users\")"
+            ],
+            "databaseId": "646538e35dd17306c589",
+            "name": "Product",
+            "enabled": true,
+            "documentSecurity": true,
+            "attributes": [
+                {
+                    "key": "Author",
+                    "type": "string",
+                    "status": "available",
+                    "required": true,
+                    "array": false,
+                    "size": 10000000,
+                    "default": null
+                },
+                {
+                    "key": "LaunchDate",
+                    "type": "datetime",
+                    "status": "available",
+                    "required": true,
+                    "array": false,
+                    "format": "",
+                    "default": null
+                },
+                {
+                    "key": "Tagline",
+                    "type": "string",
+                    "status": "available",
+                    "required": true,
+                    "array": false,
+                    "size": 60,
+                    "default": null
+                },
+                {
+                    "key": "Description",
+                    "type": "string",
+                    "status": "available",
+                    "required": true,
+                    "array": false,
+                    "size": 1000,
+                    "default": null
+                },
+                {
+                    "key": "Free",
+                    "type": "boolean",
+                    "status": "available",
+                    "required": true,
+                    "array": false,
+                    "default": null
+                },
+                {
+                    "key": "Icon",
+                    "type": "string",
+                    "status": "available",
+                    "required": true,
+                    "array": false,
+                    "size": 3000000,
+                    "default": null
+                },
+                {
+                    "key": "Link",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "format": "url",
+                    "default": null
+                },
+                {
+                    "key": "Authoruid",
+                    "type": "string",
+                    "status": "available",
+                    "required": true,
+                    "array": false,
+                    "size": 1000000000,
+                    "default": null
+                },
+                {
+                    "key": "Upvotes",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": true,
+                    "size": 1000000,
+                    "default": null
+                },
+                {
+                    "key": "Thumbnail",
+                    "type": "string",
+                    "status": "available",
+                    "required": true,
+                    "array": false,
+                    "size": 1000000,
+                    "default": null
+                },
+                {
+                    "key": "Thumbnail2",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 1000000,
+                    "default": null
+                },
+                {
+                    "key": "Thumbnail3",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 1000000,
+                    "default": null
+                },
+                {
+                    "key": "Thumbnail4",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 100000000,
+                    "default": null
+                },
+                {
+                    "key": "Tag",
+                    "type": "string",
+                    "status": "available",
+                    "required": true,
+                    "array": false,
+                    "size": 100000,
+                    "default": null
+                },
+                {
+                    "key": "Twitter",
+                    "type": "string",
+                    "status": "available",
+                    "required": false,
+                    "array": false,
+                    "size": 1000000,
+                    "default": null
+                },
+                {
+                    "key": "Name",
+                    "type": "string",
+                    "status": "available",
+                    "required": true,
+                    "array": false,
+                    "size": 50,
+                    "default": null
+                }
+            ],
+            "indexes": [
+                {
+                    "key": "LaunchDate",
+                    "type": "key",
+                    "status": "available",
+                    "attributes": [
+                        "LaunchDate"
+                    ],
+                    "orders": [
+                        "ASC"
+                    ]
+                },
+                {
+                    "key": "Tag",
+                    "type": "fulltext",
+                    "status": "available",
+                    "attributes": [
+                        "Tag"
+                    ],
+                    "orders": [
+                        "ASC"
+                    ]
+                },
+                {
+                    "key": "Name",
+                    "type": "fulltext",
+                    "status": "failed",
+                    "attributes": [
+                        "Name"
+                    ],
+                    "orders": [
+                        "ASC"
+                    ]
+                }
+            ]
+        }
+    ]
+}
