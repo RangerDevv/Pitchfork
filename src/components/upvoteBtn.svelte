@@ -27,6 +27,11 @@ async function setDoc(id: string){
   }
 }
 
+function updateCount(){
+  const currDocument = await setDoc(DocumentID) as any;
+  UpvoteCount = currDocument.Upvotes.length;
+}
+
 async function upvote(docID:any){
   try {
     const doc = await setDoc(docID) as any;
@@ -38,8 +43,8 @@ async function upvote(docID:any){
         // if the user has already upvoted, remove their upvote
         'Upvotes': doc.Upvotes.includes(uid) ? doc.Upvotes.filter((id: string) => id !== uid) : [...doc.Upvotes ?? [] , uid]
     });
-      console.log(docID);
       voted = !voted;
+      updateCount();
   } catch (error : any) {
       console.log(error);
       alert(error.message);
