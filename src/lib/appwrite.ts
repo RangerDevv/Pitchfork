@@ -5,8 +5,8 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 export const appwriteClient = new Client()
-    .setEndpoint('https://cloud.appwrite.io/v1') // Your API Endpoint
-    .setProject(process.env.AppwriteProjectKey) // Your project ID
+    .setEndpoint('https://cloud.appwrite.io/v1') // My API Endpoint
+    .setProject(process.env.AppwriteProjectKey) // My project ID
 
 export const appwriteDatabases = new Databases(appwriteClient);
 export const appwriteStorage = new Storage(appwriteClient);
