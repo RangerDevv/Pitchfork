@@ -1,12 +1,9 @@
 import { Client, Account, ID, Databases, Permission, Role, Teams, Storage, Models } from 'appwrite';
 
-// dotenv
-import dotenv from 'dotenv';
-dotenv.config();
 
 export const appwriteClient = new Client()
     .setEndpoint('https://cloud.appwrite.io/v1') // My API Endpoint
-    .setProject(process.env.AppwriteProjectKey) // My project ID
+    .setProject('646538bf8be3792191bd') // My project ID
 
 export const appwriteDatabases = new Databases(appwriteClient);
 export const appwriteStorage = new Storage(appwriteClient);
